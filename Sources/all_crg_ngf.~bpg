@@ -1,0 +1,102 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = usrman.dll starter.exe menuseditor.dll crgabout.dll about.dll \
+  grantpermit.dll licensed.dll fbconnection.dll crgsec.dll fctrlversion.dll \
+  roleman.dll orgman.dll crgextfunc.dll fshow.dll misceditor.dll menu.exe \
+  fbuserman.dll config.exe crglangmgr.dll finmgrapp.dll langeditor.dll \
+  cif_cus.dll dlgbox.dll fin_app.exe cif_acc.dll receive.dll rundll32.exe
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+usrman.dll: UserManager\usrman.dpr
+  $(DCC)
+
+starter.exe: Starter\starter.dpr
+  $(DCC)
+
+menuseditor.dll: Menus\Manager\menuseditor.dpr
+  $(DCC)
+
+crgabout.dll: AboutApplicationLoader\crgabout.dpr
+  $(DCC)
+
+about.dll: AboutProgram\about.dpr
+  $(DCC)
+
+grantpermit.dll: GrantManager\grantpermit.dpr
+  $(DCC)
+
+licensed.dll: appl_licensed\licensed.dpr
+  $(DCC)
+
+fbconnection.dll: Utilities\fbconnection\fbconnection.dpr
+  $(DCC)
+
+crgsec.dll: Utilities\crgsec\crgsec.dpr
+  $(DCC)
+
+fctrlversion.dll: Utilities\fctrlversion\fctrlversion.dpr
+  $(DCC)
+
+roleman.dll: UserRoleManager\roleman.dpr
+  $(DCC)
+
+orgman.dll: Organization\orgman.dpr
+  $(DCC)
+
+crgextfunc.dll: Utilities\crgextfunc\crgextfunc.dpr
+  $(DCC)
+
+fshow.dll: Utilities\fshow\fshow.dpr
+  $(DCC)
+
+misceditor.dll: misceditor\misceditor.dpr
+  $(DCC)
+
+menu.exe: Menus\launcher\menu.dpr
+  $(DCC)
+
+fbuserman.dll: Utilities\fbuserman\fbuserman.dpr
+  $(DCC)
+
+config.exe: Utilities\config\config.dpr
+  $(DCC)
+
+crglangmgr.dll: Utilities\langman\crglangmgr.dpr
+  $(DCC)
+
+finmgrapp.dll: Application\finmgrapp.dpr
+  $(DCC)
+
+langeditor.dll: langeditor\langeditor.dpr
+  $(DCC)
+
+cif_cus.dll: cif\customer\cif_cus.dpr
+  $(DCC)
+
+dlgbox.dll: Utilities\dialog\dlgbox.dpr
+  $(DCC)
+
+fin_app.exe: Application\fin_app.dpr
+  $(DCC)
+
+cif_acc.dll: cif\account\cif_acc.dpr
+  $(DCC)
+
+receive.dll: FrontReceive\receive.dpr
+  $(DCC)
+
+rundll32.exe: Utilities\rundll\rundll32.dpr
+  $(DCC)
+
+

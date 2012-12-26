@@ -1,0 +1,38 @@
+unit EndMonthFrm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, RzPanel, ExtCtrls, DBXpress, FMTBcd, Provider, DB, SqlExpr;
+
+type
+  TfrmEndMonth = class(TForm)
+    xTopPanel: TPanel;
+    pnClientContainer: TPanel;
+    rzTopPanel: TRzPanel;
+    Conn: TSQLConnection;
+    SQLDataSet: TSQLDataSet;
+    dsp: TDataSetProvider;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmEndMonth: TfrmEndMonth;
+
+implementation
+
+uses CommonLIB, CommonUtils;
+
+{$R *.dfm}
+
+procedure TfrmEndMonth.FormCreate(Sender: TObject);
+begin
+  SetChildTaborders(pnClientContainer);
+end;
+
+end.

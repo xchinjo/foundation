@@ -1,0 +1,55 @@
+object frmBaseChild: TfrmBaseChild
+  Left = 359
+  Top = 112
+  BorderStyle = bsNone
+  Caption = 'frmBaseChild'
+  ClientHeight = 581
+  ClientWidth = 828
+  Color = clSilver
+  Font.Charset = THAI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poDefault
+  Visible = True
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 16
+  object xTopPanel: TPanel
+    Left = 0
+    Top = 0
+    Width = 828
+    Height = 30
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    Visible = False
+  end
+  object pnClientContainer: TPanel
+    Left = 0
+    Top = 34
+    Width = 828
+    Height = 547
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 1
+  end
+  object rzTopPanel: TRzPanel
+    Left = 0
+    Top = 30
+    Width = 828
+    Height = 4
+    Align = alTop
+    BorderOuter = fsNone
+    GradientColorStyle = gcsCustom
+    TabOrder = 2
+    VisualStyle = vsGradient
+  end
+end

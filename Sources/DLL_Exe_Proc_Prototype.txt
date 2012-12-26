@@ -1,0 +1,5 @@
+type
+  TShowWindowType = (swNone, swModal, swNomal);
+
+  TExecuteProgram = function(
+    _MainApp: TApplication; _DBConn: TpFIBDatabase; _Type: TShowWindowType; _Parameter: String): TForm; stdcall;

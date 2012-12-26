@@ -1,0 +1,95 @@
+/****** Object:  Table [dbo].[san$BANKBOOK]    Script Date: 07/06/2012 11:55:24 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[san$BANKBOOK](
+	[BankBookID] [int] NOT NULL,
+	[BankBookCode] [varchar](25) NOT NULL,
+	[BankBrchID] [int] NOT NULL,
+	[BankID] [int] NOT NULL,
+	[AccID] [int] NULL,
+	[BookTypeID] [int] NOT NULL,
+	[BookNo] [varchar](25) NOT NULL,
+	[BankBookName] [varchar](100) NULL,
+	[BankBookNameEng] [varchar](100) NULL,
+	[Remark] [varchar](250) NULL,
+	[Inactive] [varchar](1) NOT NULL,
+	[BrchID] [int] NOT NULL,
+	[ONHAND] [money] NULL,
+	[ONDATE] [datetime] NULL,
+	[CreateDate] [datetime] NULL,
+ CONSTRAINT [BANKBOOK_BankBookID_pk] PRIMARY KEY CLUSTERED 
+(
+	[BankBookID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[san$BANKBOOK] ADD  DEFAULT ('A') FOR [Inactive]
+GO
+
+ALTER TABLE [dbo].[san$BANKBOOK] ADD  DEFAULT (1) FOR [BrchID]
+GO
+
+ALTER TABLE [dbo].[san$BANKBOOK] ADD  DEFAULT ((0.00)) FOR [ONHAND]
+GO
+
+ALTER TABLE [dbo].[san$BANKBOOK] ADD  CONSTRAINT [Dfsan$BANKBOOKCreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+/****** Object:  Table [dbo].[san$MACCMONEYTYPE]    Script Date: 07/06/2012 11:57:09 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[san$MACCMONEYTYPE] (
+	[MnyTypeID] [int] NOT NULL,
+	[MnyTypeCode] [varchar](25) NOT NULL,
+	[MnyTypeName] [varchar](250) NULL,
+	[MnyTypeEng] [varchar](100) NULL,
+	[Remark] [varchar](250) NULL,
+	[CreateDate] [datetime] NULL
+) ON [PRIMARY]
+SET ANSI_PADDING OFF
+ALTER TABLE [dbo].[san$MACCMONEYTYPE] ADD [MNYTYPESHRTNAME] [varchar](100) NULL
+ALTER TABLE [dbo].[san$MACCMONEYTYPE] ADD [INDATE] [datetime] NULL
+ALTER TABLE [dbo].[san$MACCMONEYTYPE] ADD [BALNAMNT] [money] NULL
+SET ANSI_PADDING ON
+ALTER TABLE [dbo].[san$MACCMONEYTYPE] ADD [SUBCODE] [varchar](25) NULL
+ALTER TABLE [dbo].[san$MACCMONEYTYPE] ADD [FLAG] [char](1) NULL
+ALTER TABLE [dbo].[san$MACCMONEYTYPE] ADD [ACCID] [int] NULL
+/****** Object:  Index [MACCMONEYTYPE_MnyTypeID_pk]    Script Date: 07/06/2012 11:57:09 ******/
+ALTER TABLE [dbo].[san$MACCMONEYTYPE] ADD  CONSTRAINT [MACCMONEYTYPE_MnyTypeID_pk] PRIMARY KEY CLUSTERED 
+(
+	[MnyTypeID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[san$MACCMONEYTYPE] ADD  CONSTRAINT [Dfsan$MACCMONEYTYPECreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+GO
+
+ALTER TABLE [dbo].[san$MACCMONEYTYPE] ADD  DEFAULT ((0.00)) FOR [BALNAMNT]
+GO
+
+ALTER TABLE [dbo].[san$MACCMONEYTYPE] ADD  DEFAULT ('N') FOR [FLAG]
+GO
+

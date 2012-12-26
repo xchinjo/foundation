@@ -1,0 +1,163 @@
+unit SelectTambonFrm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, RzButton, StdCtrls, Mask, RzEdit, RzCmboBx, RzPanel,
+  ExtCtrls,ReceiveFrm;
+
+type
+  TfrmSelectTambon = class(TForm)
+    pnClientContainer: TPanel;
+    pnTop: TRzPanel;
+    Label7: TLabel;
+    Label1: TLabel;
+    cmbSearchType: TRzComboBox;
+    edSearchText: TRzEdit;
+    btnSearch: TRzBitBtn;
+    ListView: TListView;
+    procedure FormShow(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+  private
+    FIsOK: boolean;
+    FMainForm: TfrmReceive;
+    FTambonName: string;
+    FTambonCode: string;
+    FparentCode: string;
+    procedure SetIsOK(const Value: boolean);
+    procedure SetMainForm(const Value: TfrmReceive);
+    procedure SetProvinceCode(const Value: string);
+    procedure SetProvinceName(const Value: string);
+    procedure SetTambonCode(const Value: string);
+    procedure SetTambonName(const Value: string);
+    procedure SetparentCode(const Value: string);
+    { Private declarations }
+  public
+    { Public declarations }
+    property TambonCode:string  read FTambonCode write SetTambonCode;
+    property TambonName:string  read FTambonName write SetTambonName;
+    property parentCode:string read FparentCode write SetparentCode;
+    property MainForm : TfrmReceive  read FMainForm write SetMainForm;
+    property IsOK : boolean  read FIsOK write SetIsOK;
+  end;
+
+var
+  frmSelectTambon: TfrmSelectTambon;
+
+implementation
+
+uses CommonLIB, CommonUtils;
+
+{$R *.dfm}
+
+{ TfrmSelectTambon }
+
+procedure TfrmSelectTambon.SetIsOK(const Value: boolean);
+begin
+  FIsOK := Value;
+end;
+
+procedure TfrmSelectTambon.SetMainForm(const Value: TfrmReceive);
+begin
+  FMainForm := Value;
+end;
+
+
+
+procedure TfrmSelectTambon.FormShow(Sender: TObject);
+var 
+  item : TListItem;
+begin
+  with FMainForm.cdsAddrLocation do
+  begin
+    Close;
+    CommandText:=''+//'select * from lookup_code where code_type=''41'' order by describe';
+     ' declare @parentcode varchar(12) '+
+     ' set @parentcode='''+FparentCode+'''  '+
+     ' select * from lookup_code '+
+     ' where '+
+     ' ( '+
+     '   (( @parentcode <> '''' and code1 like @parentcode+''%'' ) and code_type=''42''  ) '+
+     '   or (code_type=''42'' and @parentcode='''') '+
+     ' ) ';
+
+    //inputbox('','',CommandText);     
+    open;
+
+
+
+
+    ListView.Items.Clear;
+    Screen.Cursor:=crHourGlass;
+
+    if active then
+      if recordcount>0 then
+      begin
+        first;
+        self.caption:='ทั้งหมด '+ FormatCurr('#,##0',FMainForm.cdsAddrLocation.recordcount)+' รายการ';
+        while not FMainForm.cdsAddrLocation.Eof do
+        begin
+           item := ListView.Items.Add;
+           item.Caption:= FMainForm.cdsAddrLocation.fieldbyname('code1').AsString;
+           item.SubItems.add(FMainForm.cdsAddrLocation.fieldbyname('describe').AsString);
+           item.Data := TString.Create(FMainForm.cdsAddrLocation.fieldbyname('code1').AsString);
+
+          if not FMainForm.cdsAddrLocation.eof then FMainForm.cdsAddrLocation.Next;
+        end;
+      end;
+    Screen.Cursor:=crDefault;      
+  end;
+
+end;
+procedure TfrmSelectTambon.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case key of
+    vk_escape:
+      begin
+        IsOK := false;
+        self.Close;
+      end;
+    vk_return:
+      begin
+        IsOK := true;
+        if ListView.Selected<>nil then
+        begin
+          FTambonCode := TString(ListView.Selected.Data).Str;
+         // FProvinceName := ListView.Selected.Caption;
+          FTambonName :=  ListView.Selected.SubItems.Strings[0];
+          //FdonatorLName := ListView.Selected.SubItems.Strings[1];
+          close;
+        end;
+      end;
+  end;
+end;
+
+procedure TfrmSelectTambon.SetProvinceCode(const Value: string);
+begin
+
+end;
+
+procedure TfrmSelectTambon.SetProvinceName(const Value: string);
+begin
+
+end;
+
+procedure TfrmSelectTambon.SetTambonCode(const Value: string);
+begin
+  FTambonCode := Value;
+end;
+
+procedure TfrmSelectTambon.SetTambonName(const Value: string);
+begin
+  FTambonName := Value;
+end;
+
+procedure TfrmSelectTambon.SetparentCode(const Value: string);
+begin
+  FparentCode := Value;
+end;
+
+end.

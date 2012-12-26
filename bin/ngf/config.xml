@@ -1,0 +1,10 @@
+[Application]
+Version=1.0.0.12
+LastUpdate=2012/10/12
+[Database]
+DBSERVER=:9<%;%;%:
+DBUSER=xj
+DBPASSWD=:98?>=
+DBNAME=FROITEN_
+
+

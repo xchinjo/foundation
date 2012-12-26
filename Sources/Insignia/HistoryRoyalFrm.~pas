@@ -1,0 +1,166 @@
+unit HistoryRoyalFrm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, RzPanel, StdCtrls, RzLabel,InsigniaFrm, Mask, RzEdit,
+  RzDBEdit, RzButton, DBCtrls, RzDBCmbo, RzRadGrp, RzDBRGrp ;
+
+type
+  TFrmHistoryRoyal = class(TForm)
+    RzPanel1: TRzPanel;
+    pnHeader: TRzPanel;
+    lbHeader: TRzLabel;
+    RzGroupBox1: TRzGroupBox;
+    RzGroupBox2: TRzGroupBox;
+    RzGroupBox3: TRzGroupBox;
+    RzGroupBox4: TRzGroupBox;
+    RzGroupBox5: TRzGroupBox;
+    RzGroupBox6: TRzGroupBox;
+    RzGroupBox7: TRzGroupBox;
+    Label39: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label6: TLabel;
+    RzDBEdit2: TRzDBEdit;
+    RzDBEdit5: TRzDBEdit;
+    RzDBEdit7: TRzDBEdit;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    RzDBEdit10: TRzDBEdit;
+    Label11: TLabel;
+    Label12: TLabel;
+    RzDBEdit13: TRzDBEdit;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    RzDBEdit17: TRzDBEdit;
+    Label16: TLabel;
+    RzDBEdit18: TRzDBEdit;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    RzDBDateTimeEdit1: TRzDBDateTimeEdit;
+    RzDBDateTimeEdit2: TRzDBDateTimeEdit;
+    RzDBDateTimeEdit4: TRzDBDateTimeEdit;
+    RzDBDateTimeEdit5: TRzDBDateTimeEdit;
+    RzDBDateTimeEdit6: TRzDBDateTimeEdit;
+    RzDBDateTimeEdit7: TRzDBDateTimeEdit;
+    RzDBDateTimeEdit8: TRzDBDateTimeEdit;
+    RzDBDateTimeEdit9: TRzDBDateTimeEdit;
+    RzGroupBox9: TRzGroupBox;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    RzDBEdit23: TRzDBEdit;
+    RzDBDateTimeEdit10: TRzDBDateTimeEdit;
+    RzDBLookupComboBox1: TRzDBLookupComboBox;
+    RzDBRadioGroup1: TRzDBRadioGroup;
+    Label7: TLabel;
+    RzPanel2: TRzPanel;
+    btnSaveInsignia: TRzBitBtn;
+    BtnEditInsignia: TRzBitBtn;
+    RzBitBtn2: TRzBitBtn;
+    RzDBLookupComboBox2: TRzDBLookupComboBox;
+    procedure FormKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure BtnEditInsigniaClick(Sender: TObject);
+    procedure btnSaveInsigniaClick(Sender: TObject);
+    procedure RzBitBtn2Click(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure FormShow(Sender: TObject);
+  private
+    FMainForm: TfrmInsignia;
+    procedure SetMainForm(const Value: TfrmInsignia);
+    function EnableTxt(E:Boolean):Boolean ;
+  public
+    { Public declarations }
+    property MainForm : TfrmInsignia  read FMainForm write SetMainForm;
+  end;
+
+var
+  FrmHistoryRoyal: TFrmHistoryRoyal;
+
+implementation
+
+
+{$R *.dfm}
+
+{ TFrmHistoryRoyal }
+
+procedure TFrmHistoryRoyal.SetMainForm(const Value: TfrmInsignia);
+begin
+  FMainForm := Value;
+end;
+
+procedure TFrmHistoryRoyal.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key = VK_Escape then Self.Close ;
+end;
+
+procedure TFrmHistoryRoyal.BtnEditInsigniaClick(Sender: TObject);
+begin
+  FMainForm.CdsHistRy.Edit ;
+  EnableTxt(True) ;
+end;
+
+procedure TFrmHistoryRoyal.btnSaveInsigniaClick(Sender: TObject);
+begin
+  try
+    if Application.MessageBox('ต้องการบันทึกรายการขอเครื่องราชฯ',
+      'บันทึกการขอเครื่องราชฯ', MB_YESNO + MB_ICONQUESTION) = IDYES then
+    begin
+      FMainForm.CdsHistRy.ApplyUpdates(0) ;
+      FMainForm.CdsRoYal.Refresh ;
+      EnableTxt(False);
+    end;
+  except
+    Application.MessageBox('ไม่สามารถทำการบันทึกได้', 'ผิดพลาด', MB_OK + MB_ICONSTOP);
+  end;
+end;
+
+procedure TFrmHistoryRoyal.RzBitBtn2Click(Sender: TObject);
+begin
+  self.Close ;
+end;
+
+procedure TFrmHistoryRoyal.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case key of
+    vk_f5: btnSaveInsigniaClick(Sender) ;
+    vk_f7: BtnEditInsigniaClick(sender) ;
+  end;
+end;
+
+function TFrmHistoryRoyal.EnableTxt(E: Boolean): Boolean;
+begin
+  RzDBDateTimeEdit1.ReadOnly := not E ;
+  RzDBDateTimeEdit2.ReadOnly := not E ;
+  RzDBDateTimeEdit5.ReadOnly := not E ;
+  RzDBDateTimeEdit6.ReadOnly := not E ;
+  RzDBDateTimeEdit7.ReadOnly := not E ;
+  RzDBDateTimeEdit8.ReadOnly := not E ;
+  RzDBDateTimeEdit9.ReadOnly := not E ;
+  RzDBDateTimeEdit10.ReadOnly := not E ;
+  
+  RzDBEdit10.ReadOnly := not E ;
+  RzDBEdit13.ReadOnly := not E ;
+  RzDBEdit17.ReadOnly := not E ;
+  RzDBEdit18.ReadOnly := not E ;
+  RzDBEdit23.ReadOnly := not E ;
+  RzDBLookupComboBox1.ReadOnly := not E ;
+  RzDBRadioGroup1.ReadOnly := not E ;
+end;
+
+procedure TFrmHistoryRoyal.FormShow(Sender: TObject);
+begin
+  EnableTxt(False) ;
+end;
+
+end.

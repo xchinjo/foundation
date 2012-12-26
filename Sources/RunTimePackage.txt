@@ -1,0 +1,14 @@
+vcl;rtl;dbrtl;vcldb;dsnap;vcljpg;indy;FIBPlus7;cxLibraryVCLD7;cxEditorsVCLD7;cxGridVCLD7;dxThemeD7;cxDataD7
+vcl;rtl;vclx;indy;dbrtl;vcldb;FIBPlus7;FIBDBMidas7;fs7;frx7;frxcs7;frxDB7;fsDB7;frxADO7;fsADO7;frxBDE7;fsBDE7;frxDBX7;frxIBX7;fsIBX7;frxe7;cxLibraryVCLD7;cxEditorsVCLD7;cxGridVCLD7;dxThemeD7;cxDataD7;cxGridUtilsVCLD7;crgrtl
+
+vcl;rtl;dbrtl;vcldb;dsnap;vcljpg;indy;JvCored7r;JvUIBD7r;cxLibraryVCLD7;cxEditorsVCLD7;cxGridVCLD7;dxThemeD7;cxDataD7
+
+Menu: vcl;rtl;dbrtl;JvCored7r;JvUIBD7r;cxLibraryVCLD7;cxEditorsVCLD7;dxThemeD7;cxDataD7
+
+vcl;rtl;vclx;indy;inet;xmlrtl;vclie;inetdbbde;inetdbxpress;dbrtl;dsnap;dsnapcon;vcldb;soaprtl;VclSmp;dbexpress;dbxcds;inetdb;bdertl;vcldbx;webdsnap;websnap;adortl;ibxpress;teeui;teedb;tee;dss;visualclx;visualdbclx;vclactnband;vclshlctrls;Rave50CLX;Rave50VCL;dclOfficeXP;cxLibraryVCLD7;cxEditorsVCLD7;cxGridVCLD7;dxThemeD7;cxDataD7;cxGridUtilsVCLD7;fqb70;fs7;frx7;frxcs7;frxDB7;fsDB7;frxADO7;fsADO7;frxBDE7;fsBDE7;frxDBX7;frxIBX7;fsIBX7;frxe7;IntrawebDB_71_70;Intraweb_71_70;ArcIWServerMan_D7_71;IW71TMSD7;IW71TMSGRIDD7;IW71TMSGRIDDED7;IW71TMSSED7;Jcl;JvStdCtrlsD7R;JvAppFrmD7R;JvCoreD7R;JvBandsD7R;JvBDED7R;JvDBD7R;JvDlgsD7R;JvCmpD7R;JvCryptD7R;JvCtrlsD7R;JvCustomD7R;JvDockingD7R;JvDotNetCtrlsD7R;JvEDID7R;JvGlobusD7R;JvHMID7R;JvInterpreterD7R;JvJansD7R;JvManagedThreadsD7R;JvMMD7R;JvNetD7R;JvPageCompsD7R;JvPluginD7R;JvPrintPreviewD7R;JvRuntimeDesignD7R;JvSystemD7R;JvTimeFrameworkD7R;JvUIBD7R;JvValidatorsD7R;JvWizardD7R;JvXPCtrlsD7R;FIBDBMidas7
+vcl;rtl;JvCoreD7R;JvUIBD7R
+
+XXX: --->
+>vcl;rtl;dbrtl;vcldb;JvUIBD7R;dsnap;vcljpg;cxLibraryVCLD7;cxEditorsVCLD7;dxThemeD7;cxDataD7
+>cxLibraryVCLD7;cxEditorsVCLD7;cxGridVCLD7;dxThemeD7;cxDataD7;cxGridUtilsVCLD7
+>vcl;rtl;dbrtl;vcldb;JvUIBD7R;dsnap;vcljpg;cxLibraryVCLD7;cxEditorsVCLD7;cxGridVCLD7;dxThemeD7;cxDataD7;cxGridUtilsVCLD7

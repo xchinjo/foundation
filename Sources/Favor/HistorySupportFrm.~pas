@@ -1,0 +1,132 @@
+unit HistorySupportFrm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs ,FavorFrm, DBCtrls, RzDBCmbo, StdCtrls, RzCmboBx, Mask, RzEdit,
+  RzDBEdit, RzPanel, RzLabel, ExtCtrls, RzButton, RzRadGrp, RzDBRGrp ;
+
+type
+  TFrmHistorySupport = class(TForm)
+    RzPanel1: TRzPanel;
+    pnHeader: TRzPanel;
+    lbHeader: TRzLabel;
+    RzGroupBox1: TRzGroupBox;
+    RzGroupBox2: TRzGroupBox;
+    RzGroupBox3: TRzGroupBox;
+    RzGroupBox4: TRzGroupBox;
+    RzGroupBox5: TRzGroupBox;
+    Label39: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    RzDBDateTimeEdit1: TRzDBDateTimeEdit;
+    RzComboBox1: TRzComboBox;
+    RzDBLookupComboBox1: TRzDBLookupComboBox;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    RzDBEdit2: TRzDBEdit;
+    RzDBEdit3: TRzDBEdit;
+    RzDBEdit4: TRzDBEdit;
+    RzDBEdit5: TRzDBEdit;
+    RzDBEdit6: TRzDBEdit;
+    RzDBDateTimeEdit2: TRzDBDateTimeEdit;
+    Label11: TLabel;
+    RzDBDateTimeEdit3: TRzDBDateTimeEdit;
+    Label12: TLabel;
+    RzDBDateTimeEdit4: TRzDBDateTimeEdit;
+    Label13: TLabel;
+    RzDBDateTimeEdit5: TRzDBDateTimeEdit;
+    Label14: TLabel;
+    RzDBEdit7: TRzDBEdit;
+    RzPanel2: TRzPanel;
+    btnSaveFavor: TRzBitBtn;
+    BtnEditFavor: TRzBitBtn;
+    RzBitBtn2: TRzBitBtn;
+    RzDBRadioGroup1: TRzDBRadioGroup;
+    procedure RzBitBtn2Click(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure BtnEditFavorClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnSaveFavorClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+  private
+    FMainForm: TfrmFavor;
+    procedure SetMainForm(const Value: TfrmFavor);
+    { Private declarations }
+  public
+    { Public declarations }
+    property MainForm : TfrmFavor  read FMainForm write SetMainForm;
+  end;
+
+var
+  FrmHistorySupport: TFrmHistorySupport;
+
+implementation
+
+
+{$R *.dfm}
+
+{ TFrmHistorySupport }
+
+procedure TFrmHistorySupport.SetMainForm(const Value: TfrmFavor);
+begin
+  FMainForm := Value;
+end;
+
+procedure TFrmHistorySupport.RzBitBtn2Click(Sender: TObject);
+begin
+  self.Close ;
+end;
+
+procedure TFrmHistorySupport.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key = VK_Escape then Self.Close;
+end;
+
+procedure TFrmHistorySupport.BtnEditFavorClick(Sender: TObject);
+begin
+  FMainForm.CdsHist.Edit ;
+end;
+
+procedure TFrmHistorySupport.FormShow(Sender: TObject);
+begin
+  if FMainForm.CdsHist.FieldByName('spowner').AsString = '1' then
+      RzComboBox1.ItemIndex := 0
+  else
+      RzComboBox1.ItemIndex := 1 ;
+end;
+
+procedure TFrmHistorySupport.btnSaveFavorClick(Sender: TObject);
+begin
+  if Application.MessageBox('ต้องการบันทึกการขอบัตรอุปการคุณ', 'บันทึก', MB_OKCANCEL + MB_ICONQUESTION) = IDOK then
+  begin
+    if RzComboBox1.ItemIndex = 0 then
+      FMainForm.CdsHist.FieldByName('spowner').AsString := '1'
+    else if RzComboBox1.ItemIndex = 1 then
+      FMainForm.CdsHist.FieldByName('spowner').AsString := '2' ;
+
+    FMainForm.CdsHist.ApplyUpdates(0) ;
+    FMainForm.CdsSp.Refresh ;
+  end;
+end;
+
+procedure TFrmHistorySupport.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case key of
+    vk_f5: btnSaveFavorClick(Sender) ;
+    vk_f7: BtnEditFavorClick(sender) ;
+  end;
+end;
+
+end.

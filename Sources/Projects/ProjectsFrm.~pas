@@ -1,0 +1,80 @@
+unit ProjectsFrm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DBXpress, FMTBcd, RzPanel, ExtCtrls, Provider, DB, SqlExpr,
+  cxStyles, cxCustomData, cxGraphics, cxFilter, cxData, cxEdit, cxDBData,
+  cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxClasses, cxControls, cxGridCustomView, cxGrid, RzButton, StdCtrls,
+  Mask, RzEdit, RzLabel, DBClient, RzCmboBx;
+
+type
+  TfrmProjects = class(TForm)
+    Conn: TSQLConnection;
+    SQLDataSet: TSQLDataSet;
+    dsp: TDataSetProvider;
+    xTopPanel: TPanel;
+    pnClientContainer: TPanel;
+    rzTopPanel: TRzPanel;
+    pnClients: TRzPanel;
+    pnTop: TRzPanel;
+    grdPeroid: TcxGrid;
+    grdPeroidDBTableView1: TcxGridDBTableView;
+    grdPeroidLevel1: TcxGridLevel;
+    Label2: TLabel;
+    RzEdit2: TRzEdit;
+    Label1: TLabel;
+    RzEdit1: TRzEdit;
+    btnDailyReport: TRzBitBtn;
+    RzBitBtn1: TRzBitBtn;
+    RzBitBtn2: TRzBitBtn;
+    RzBitBtn3: TRzBitBtn;
+    pnHeader: TRzPanel;
+    lbHeader: TRzLabel;
+    cdsProjects: TClientDataSet;
+    dsProjects: TDataSource;
+    grdPeroidDBTableView1PjCode: TcxGridDBColumn;
+    grdPeroidDBTableView1PjName: TcxGridDBColumn;
+    grdPeroidDBTableView1PjCreateDate: TcxGridDBColumn;
+    grdPeroidDBTableView1PjStatus: TcxGridDBColumn;
+    Label3: TLabel;
+    cmbPayType: TRzComboBox;
+    procedure FormCreate(Sender: TObject);
+    procedure initForm();
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmProjects: TfrmProjects;
+
+implementation
+
+uses CommonLIB, CommonUtils, uCiaXml;
+
+{$R *.dfm}
+
+procedure TfrmProjects.FormCreate(Sender: TObject);
+begin
+  SetChildTaborders(pnClientContainer);
+  initDataset(self,conn);
+end;
+
+procedure TfrmProjects.initForm;
+begin
+  cdsProjects.Close;
+  cdsProjects.Open;
+  
+end;
+
+procedure TfrmProjects.FormShow(Sender: TObject);
+begin
+  initForm;
+end;
+
+end.

@@ -1,0 +1,138 @@
+unit SearchDonatorFrm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs,InsigniaRegisterFrm, cxStyles, cxCustomData, cxGraphics,
+  cxFilter, cxData, cxEdit, DB, cxDBData, cxCheckBox, cxGridLevel,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
+  cxControls, cxGridCustomView, cxGrid, StdCtrls, RzLabel, ExtCtrls,
+  RzPanel;
+
+type
+  TFrmSearchDonator = class(TForm)
+    pnHeader: TRzPanel;
+    lbHeader: TRzLabel;
+    RzPanel1: TRzPanel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1do_id: TcxGridDBColumn;
+    cxGrid1DBTableView1do_prename2: TcxGridDBColumn;
+    cxGrid1DBTableView1do_name: TcxGridDBColumn;
+    cxGrid1DBTableView1do_lname: TcxGridDBColumn;
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure FormShow(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+  private
+    FSelectDonatorID: string;
+    FMainForm: TfrmInsigniaRegister ;
+    FSelectDonatorName: String;
+    FSelectDonatorLName: String;
+    FSelectRylevel: String;
+    FSelectDonatorPreName: String;
+    FSelectRyEnd: String;
+    procedure SetSelectDonatorID(const Value: string);
+    procedure SetMainForm(const Value: TfrmInsigniaRegister);
+    procedure SetSelectDonatorName(const Value: String);
+    procedure SetSelectDonatorLName(const Value: String);
+    procedure SetSelectRylevel(const Value: String);
+    procedure SetSelectDonatorPreName(const Value: String);
+    procedure SetSelectRyEnd(const Value: String);
+    { Private declarations }
+  public
+    { Public declarations }
+    property SelectDonatorID : string read FSelectDonatorID write SetSelectDonatorID;
+    property SelectDonatorPreName : String  read FSelectDonatorPreName write SetSelectDonatorPreName;
+    property SelectDonatorName : String  read FSelectDonatorName write SetSelectDonatorName;
+    property SelectDonatorLName : String  read FSelectDonatorLName write SetSelectDonatorLName;
+    property SelectRylevel : String  read FSelectRylevel write SetSelectRylevel;
+    property SelectRyEnd : String  read FSelectRyEnd write SetSelectRyEnd;
+    property MainForm : TfrmInsigniaRegister  read FMainForm write SetMainForm;
+  end;
+
+var
+  FrmSearchDonator: TFrmSearchDonator;
+
+implementation
+
+
+
+{$R *.dfm}
+
+{ TFrmSearchDonator }
+
+procedure TFrmSearchDonator.SetSelectDonatorID(const Value: string);
+begin
+  FSelectDonatorID := Value;
+end;
+
+procedure TFrmSearchDonator.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key=vk_return then
+    if FMainForm.CdsSearch.RecordCount> 0 then
+    begin
+      FSelectDonatorID := FMainForm.CdsSearch.FieldByName('do_id').AsString ;
+      FSelectDonatorPreName := FMainForm.CdsSearch.FieldByName('do_prename').AsString ;
+      FSelectDonatorName := FMainForm.CdsSearch.FieldByName('do_name').AsString ;
+      FSelectDonatorLName := FMainForm.CdsSearch.FieldByName('do_lname').AsString ;
+      FSelectRylevel := FMainForm.CdsSearch.FieldByName('rylevel').AsString ;
+      FSelectRyEnd := FMainForm.CdsSearch.FieldByName('Ryend').AsString ;
+      close;
+    end
+    else
+    begin
+      
+    end;
+end;
+
+procedure TFrmSearchDonator.FormShow(Sender: TObject);
+begin
+  Screen.Cursor := crDefault ;
+end;
+
+procedure TFrmSearchDonator.SetMainForm(const Value: TfrmInsigniaRegister);
+begin
+  FMainForm := Value;
+end;
+
+procedure TFrmSearchDonator.SetSelectDonatorPreName(const Value: String);
+begin
+  FSelectDonatorPreName := Value;
+end;
+
+procedure TFrmSearchDonator.SetSelectDonatorName(const Value: String);
+begin
+  FSelectDonatorName := Value;
+end;
+
+procedure TFrmSearchDonator.SetSelectDonatorLName(const Value: String);
+begin
+  FSelectDonatorLName := Value;
+end;
+
+procedure TFrmSearchDonator.SetSelectRylevel(const Value: String);
+begin
+  FSelectRylevel := Value;
+end;
+
+procedure TFrmSearchDonator.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if key = VK_Escape then
+    Self.Close;
+end;
+
+
+procedure TFrmSearchDonator.SetSelectRyEnd(const Value: String);
+begin
+  FSelectRyEnd := Value;
+end;
+
+end.
+
+

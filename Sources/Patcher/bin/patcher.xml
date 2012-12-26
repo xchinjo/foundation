@@ -1,0 +1,3 @@
+<Configuration>
+  <AppConfig ID="120001" APP_NAME="Rajavithi Foundation Software" APP_PATH="C:\Programfiles\UITSoftware\Rajavithi" APP_DBSERVERIP="192.168.1.211" APP_DBUSERNAME="sa" APP_PASSWD="Uit@uit" APP_DBNAME="fddb"/>
+</Configuration>

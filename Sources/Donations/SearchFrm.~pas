@@ -1,0 +1,148 @@
+unit SearchFrm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, ExtCtrls,ReceiveFrm,CommonLIB;
+
+type
+  TfrmSearch = class(TForm)
+    Bevel1: TBevel;
+    ListView: TListView;
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure FormShow(Sender: TObject);
+    procedure ListViewCustomDrawItem(Sender: TCustomListView;
+      Item: TListItem; State: TCustomDrawState; var DefaultDraw: Boolean);
+  private
+    FdonatorID: string;
+    FdonatorName: string;
+    FdonatorLName: string;
+    FdonatorPreName: string;
+    FMainForm: TfrmReceive;
+    FIsOK: boolean;
+    procedure SetdonatorID(const Value: string);
+    procedure SetdonatorName(const Value: string);
+    procedure SetdonatorLName(const Value: string);
+    procedure SetdonatorPreName(const Value: string);
+    procedure SetMainForm(const Value: TfrmReceive);
+    procedure SetIsOK(const Value: boolean);
+    { Private declarations }
+  public
+    { Public declarations }
+    property MainForm : TfrmReceive read FMainForm write SetMainForm;
+    property donatorID:string read FdonatorID write SetdonatorID;
+    property donatorPreName : string  read FdonatorPreName write SetdonatorPreName;
+    property donatorName:string  read FdonatorName write SetdonatorName;
+    property donatorLName:string read FdonatorLName write SetdonatorLName;
+    property IsOK : boolean read FIsOK write SetIsOK;
+  end;
+
+var
+  frmSearch: TfrmSearch;
+
+implementation
+
+uses  DB,  DonatorProfileFrm;
+
+{$R *.dfm}
+
+{ TfrmSearch }
+
+procedure TfrmSearch.SetdonatorID(const Value: string);
+begin
+  FdonatorID := Value;
+end;
+
+procedure TfrmSearch.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case key of
+    vk_escape:
+      begin
+        IsOK := false;
+        self.Close;
+      end;
+    vk_return:
+      begin
+        IsOK := true;
+        if ListView.Selected<>nil then
+        begin
+          FdonatorID := TString(ListView.Selected.Data).Str;
+          FdonatorPreName := ListView.Selected.Caption;
+          FdonatorName :=  ListView.Selected.SubItems.Strings[0];
+          FdonatorLName := ListView.Selected.SubItems.Strings[1];
+          close;
+        end;
+      end;
+  end;
+end;
+
+procedure TfrmSearch.FormShow(Sender: TObject);
+var rowcount:integer;
+  item : TListItem;
+begin
+  ListView.Items.Clear;
+  rowcount:=0;
+  Screen.Cursor:=crHourGlass;
+
+
+
+  with FMainForm.cdsSearch do
+  begin
+    first;
+      self.caption:='ทั้งหมด '+ FormatCurr('#,##0',FMainForm.cdsSearch.recordcount)+' รายการ';
+    while not FMainForm.cdsSearch.Eof do
+    begin
+       item := ListView.Items.Add;
+       item.Caption:= FMainForm.cdsSearch.fieldbyname('do_prename').AsString;
+       item.SubItems.add(FMainForm.cdsSearch.fieldbyname('do_name').AsString);
+       item.SubItems.Add(FMainForm.cdsSearch.fieldbyname('do_lname').AsString) ;
+       item.SubItems.Add(FMainForm.cdsSearch.fieldbyname('do_id').AsString) ;
+       item.Data := TString.Create(FMainForm.cdsSearch.fieldbyname('do_id').AsString);
+       //inc(rowcount);
+
+      if not FMainForm.cdsSearch.eof then FMainForm.cdsSearch.Next;
+    end;
+  end;
+  Screen.Cursor:=crDefault;
+  
+end;
+
+procedure TfrmSearch.SetdonatorName(const Value: string);
+begin
+  FdonatorName := Value;
+end;
+
+procedure TfrmSearch.SetdonatorLName(const Value: string);
+begin
+  FdonatorLName := Value;
+end;
+
+procedure TfrmSearch.ListViewCustomDrawItem(Sender: TCustomListView;
+  Item: TListItem; State: TCustomDrawState; var DefaultDraw: Boolean);
+begin
+//if (Item.Index = Sender.Items.Count - 1) then
+  begin
+    Sender.Canvas.Brush.Color := clInfoBk;
+    Sender.Canvas.FillRect(Item.DisplayRect(drBounds));
+  end;
+end;
+
+procedure TfrmSearch.SetdonatorPreName(const Value: string);
+begin
+  FdonatorPreName := Value;
+end;
+
+procedure TfrmSearch.SetMainForm(const Value: TfrmReceive);
+begin
+  FMainForm := Value;
+end;
+
+procedure TfrmSearch.SetIsOK(const Value: boolean);
+begin
+  FIsOK := Value;
+end;
+
+end.

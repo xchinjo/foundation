@@ -1,0 +1,1207 @@
+object frmInsigniaRegister: TfrmInsigniaRegister
+  Left = 326
+  Top = 28
+  Width = 853
+  Height = 593
+  BorderIcons = [biSystemMenu]
+  Caption = 'Insignia Register'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object xTopPanel: TPanel
+    Left = 0
+    Top = 4
+    Width = 837
+    Height = 0
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    Visible = False
+  end
+  object pnClientContainer: TPanel
+    Left = 0
+    Top = 4
+    Width = 837
+    Height = 551
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 1
+    object pnHeader: TRzPanel
+      Left = 0
+      Top = 0
+      Width = 837
+      Height = 28
+      Align = alTop
+      BorderOuter = fsNone
+      Color = 6702336
+      TabOrder = 0
+      object lbHeader: TRzLabel
+        Left = 8
+        Top = 6
+        Width = 337
+        Height = 16
+        Caption = #3648#3614#3636#3656#3617#3611#3619#3632#3623#3633#3605#3636#3586#3629#3648#3588#3619#3639#3656#3629#3591#3619#3634#3594#3629#3636#3626#3619#3636#3618#3634#3616#3619#3603#3660' ( Insignia Request )'
+        Font.Charset = THAI_CHARSET
+        Font.Color = clYellow
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object pnTop: TRzPanel
+      Left = 0
+      Top = 28
+      Width = 837
+      Height = 111
+      Align = alTop
+      BorderOuter = fsNone
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      object Label39: TLabel
+        Left = 8
+        Top = 9
+        Width = 100
+        Height = 22
+        AutoSize = False
+        Caption = ' '#3594#3639#3656#3629#3612#3641#3657#3610#3619#3636#3592#3634#3588
+        Color = 11579568
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object Label40: TLabel
+        Left = 422
+        Top = 9
+        Width = 100
+        Height = 22
+        AutoSize = False
+        Caption = ' '#3609#3634#3617#3626#3585#3640#3621#3612#3641#3657#3610#3619#3636#3592#3634#3588
+        Color = 11579568
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object Label1: TLabel
+        Left = 8
+        Top = 33
+        Width = 100
+        Height = 22
+        AutoSize = False
+        Caption = ' '#3623#3633#3609#3607#3637#3656#3586#3629#3648#3588#3619#3639#3656#3629#3591#3619#3634#3594#3631
+        Color = 11579568
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object Label2: TLabel
+        Left = 8
+        Top = 57
+        Width = 100
+        Height = 22
+        AutoSize = False
+        Caption = ' '#3588#3635#3609#3635#3627#3609#3657#3634
+        Color = 11579568
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object Label3: TLabel
+        Left = 8
+        Top = 81
+        Width = 100
+        Height = 22
+        AutoSize = False
+        Caption = ' '#3619#3632#3604#3633#3610#3594#3633#3657#3609#3605#3619#3634#3607#3637#3656#3586#3629
+        Color = 11579568
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object Label4: TLabel
+        Left = 297
+        Top = 33
+        Width = 83
+        Height = 22
+        AutoSize = False
+        Caption = ' '#3619#3634#3618#3585#3634#3619#3612#3641#3657#3610#3619#3636#3592#3634#3588
+        Color = 11579568
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object Label5: TLabel
+        Left = 297
+        Top = 57
+        Width = 83
+        Height = 22
+        AutoSize = False
+        Caption = ' '#3594#3639#3656#3629
+        Color = 11579568
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object Label6: TLabel
+        Left = 558
+        Top = 57
+        Width = 98
+        Height = 22
+        AutoSize = False
+        Caption = ' '#3609#3634#3617#3626#3585#3640#3621
+        Color = 11579568
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object RzCheckBox1: TRzCheckBox
+        Left = 299
+        Top = 88
+        Width = 108
+        Height = 18
+        Caption = #3626#3632#3626#3617#3618#3629#3604#3610#3619#3636#3592#3634#3588
+        State = cbUnchecked
+        TabOrder = 0
+      end
+      object RzDBEdit3: TRzDBEdit
+        Left = 384
+        Top = 33
+        Width = 446
+        Height = 22
+        DataSource = DsRoyal
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        FrameVisible = True
+        ParentFont = False
+        TabOrder = 1
+      end
+      object RzDBEdit4: TRzDBEdit
+        Left = 384
+        Top = 58
+        Width = 167
+        Height = 22
+        DataSource = DsRoyal
+        DataField = 'ryname'
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        FrameVisible = True
+        ParentFont = False
+        TabOrder = 2
+      end
+      object RzDBEdit6: TRzDBEdit
+        Left = 662
+        Top = 58
+        Width = 168
+        Height = 22
+        DataSource = DsRoyal
+        DataField = 'ryfname'
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        FrameVisible = True
+        ParentFont = False
+        TabOrder = 3
+      end
+      object TxtRoyal: TRzDBLookupComboBox
+        Left = 112
+        Top = 82
+        Width = 181
+        Height = 22
+        Ctl3D = False
+        DataField = 'ryrcode'
+        DataSource = DsRoyal
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        KeyField = 'ry_code'
+        ListField = 'ry_title'
+        ListSource = DsRyCode
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 4
+        FrameVisible = True
+      end
+      object Txtsearch: TRzBitBtn
+        Left = 384
+        Top = 8
+        Width = 29
+        Height = 23
+        Caption = '...'
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+        OnClick = TxtsearchClick
+      end
+      object TxtSName: TRzEdit
+        Left = 112
+        Top = 9
+        Width = 269
+        Height = 22
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        FrameVisible = True
+        ParentFont = False
+        TabOrder = 6
+        OnKeyDown = TxtSNameKeyDown
+      end
+      object TxtSLname: TRzEdit
+        Left = 526
+        Top = 9
+        Width = 304
+        Height = 22
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        FrameVisible = True
+        ParentFont = False
+        TabOrder = 7
+        OnKeyDown = TxtSLnameKeyDown
+      end
+      object RzDBEdit1: TRzDBEdit
+        Left = 112
+        Top = 58
+        Width = 182
+        Height = 22
+        DataSource = DsRoyal
+        DataField = 'ryininame'
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        FrameVisible = True
+        ParentFont = False
+        TabOrder = 8
+      end
+      object DtRoyal: TRzDBDateTimeEdit
+        Left = 112
+        Top = 33
+        Width = 183
+        Height = 24
+        DataSource = DsRoyal
+        DataField = 'ryrdate'
+        FrameVisible = True
+        TabOrder = 9
+        EditType = etDate
+      end
+    end
+    object pnBody: TRzPanel
+      Left = 0
+      Top = 139
+      Width = 837
+      Height = 379
+      Align = alClient
+      BorderOuter = fsLowered
+      TabOrder = 2
+      object Splitter1: TSplitter
+        Left = 493
+        Top = 2
+        Height = 375
+        Align = alRight
+      end
+      object pnBodyRight: TRzPanel
+        Left = 496
+        Top = 2
+        Width = 339
+        Height = 375
+        Align = alRight
+        BorderOuter = fsFlatRounded
+        Color = 15794175
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        DesignSize = (
+          337
+          373)
+        object Label7: TLabel
+          Left = 2
+          Top = 80
+          Width = 335
+          Height = 22
+          Align = alCustom
+          Anchors = [akLeft, akTop, akRight]
+          AutoSize = False
+          Caption = ' 2.) '#3606#3657#3634#3648#3588#3618#3652#3604#3657#3614#3619#3632#3619#3634#3594#3607#3634#3609' '#3652#3604#3657#3619#3633#3610#3614#3619#3632#3619#3634#3594#3607#3634#3609#3594#3633#3657#3609#3605#3619#3634#3651#3604
+          Color = clSilver
+          Font.Charset = THAI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          Layout = tlCenter
+        end
+        object Label8: TLabel
+          Left = 2
+          Top = 2
+          Width = 335
+          Height = 22
+          Align = alTop
+          Alignment = taCenter
+          AutoSize = False
+          Caption = ' '#3586#3657#3629#3617#3641#3621#3649#3610#3610#3626#3629#3610#3606#3634#3617
+          Color = 11579568
+          Font.Charset = THAI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+          Layout = tlCenter
+        end
+        object Label9: TLabel
+          Left = 2
+          Top = 24
+          Width = 335
+          Height = 22
+          Align = alTop
+          AutoSize = False
+          Caption = ' 1.) '#3648#3588#3618#3652#3604#3657#3619#3633#3610#3614#3619#3632#3619#3634#3594#3607#3634#3609#3648#3588#3619#3639#3656#3629#3591#3619#3634#3594#3629#3636#3626#3619#3636#3618#3634#3616#3619#3603#3660' '
+          Color = clSilver
+          Font.Charset = THAI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          Layout = tlCenter
+        end
+        object Label10: TLabel
+          Left = 2
+          Top = 187
+          Width = 333
+          Height = 22
+          Align = alCustom
+          Anchors = [akLeft, akTop, akRight]
+          AutoSize = False
+          Caption = ' 3.) '#3606#3657#3634#3648#3588#3618#3652#3604#3657#3619#3633#3610' '#3626#3656#3623#3609#3619#3634#3594#3585#3634#3619#3651#3604#3648#3611#3655#3609#3612#3641#3657#3648#3626#3609#3629#3586#3629#3614#3619#3632#3619#3634#3594#3607#3634#3609#3651#3627#3657
+          Color = clSilver
+          Font.Charset = THAI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          Layout = tlCenter
+        end
+        object Label11: TLabel
+          Left = 2
+          Top = 243
+          Width = 333
+          Height = 22
+          Align = alCustom
+          Anchors = [akLeft, akTop, akRight]
+          AutoSize = False
+          Caption = ' 4.) '#3629#3634#3594#3637#3614#3611#3633#3592#3592#3640#3610#3633#3609
+          Color = clSilver
+          Font.Charset = THAI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          Layout = tlCenter
+        end
+        object Label12: TLabel
+          Left = 2
+          Top = 299
+          Width = 333
+          Height = 22
+          Align = alCustom
+          Anchors = [akLeft, akTop, akRight]
+          AutoSize = False
+          Caption = ' 5.) '#3648#3610#3629#3619#3660#3650#3607#3619
+          Color = clSilver
+          Font.Charset = THAI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          Layout = tlCenter
+        end
+        object R1: TRzRadioButton
+          Left = 18
+          Top = 112
+          Width = 118
+          Height = 18
+          Caption = #3611#3600#3617#3604#3636#3648#3619#3585#3588#3640#3603#3634#3616#3619#3603#3660
+          TabOrder = 0
+        end
+        object R3: TRzRadioButton
+          Left = 18
+          Top = 128
+          Width = 119
+          Height = 18
+          Caption = #3605#3605#3636#3618#3604#3636#3648#3619#3585#3588#3640#3603#3634#3616#3619#3603#3660
+          TabOrder = 1
+        end
+        object R5: TRzRadioButton
+          Left = 18
+          Top = 144
+          Width = 133
+          Height = 18
+          Caption = #3648#3610#3597#3592#3617#3604#3636#3648#3619#3585#3588#3640#3603#3634#3616#3619#3603#3660
+          TabOrder = 2
+        end
+        object R2: TRzRadioButton
+          Left = 168
+          Top = 112
+          Width = 126
+          Height = 18
+          Caption = #3607#3640#3605#3636#3618#3632#3604#3636#3648#3619#3585#3588#3640#3603#3634#3616#3619#3603#3660
+          TabOrder = 3
+        end
+        object R4: TRzRadioButton
+          Left = 168
+          Top = 128
+          Width = 126
+          Height = 18
+          Caption = #3592#3605#3640#3605#3606#3604#3636#3648#3619#3585#3588#3640#3603#3634#3616#3619#3603#3660
+          TabOrder = 4
+        end
+        object R6: TRzRadioButton
+          Left = 168
+          Top = 144
+          Width = 155
+          Height = 18
+          Caption = #3648#3627#3619#3637#3618#3597#3607#3629#3591#3604#3636#3648#3619#3585#3588#3640#3603#3634#3616#3619#3603#3660
+          TabOrder = 5
+        end
+        object R7: TRzRadioButton
+          Left = 18
+          Top = 160
+          Width = 150
+          Height = 18
+          Caption = #3648#3627#3619#3637#3618#3597#3648#3591#3636#3609#3604#3636#3648#3619#3585#3588#3640#3603#3634#3616#3619#3603#3660
+          TabOrder = 6
+        end
+        object RzEdit7: TRzEdit
+          Left = 16
+          Top = 215
+          Width = 306
+          Height = 22
+          Anchors = [akLeft]
+          Ctl3D = False
+          FocusColor = 16766975
+          ParentCtl3D = False
+          TabOrder = 7
+        end
+        object RzEdit8: TRzEdit
+          Left = 16
+          Top = 271
+          Width = 306
+          Height = 22
+          Anchors = [akLeft]
+          Ctl3D = False
+          FocusColor = 16766975
+          ParentCtl3D = False
+          TabOrder = 8
+        end
+        object RzEdit9: TRzEdit
+          Left = 16
+          Top = 327
+          Width = 306
+          Height = 22
+          Anchors = [akLeft]
+          Ctl3D = False
+          FocusColor = 16766975
+          ParentCtl3D = False
+          TabOrder = 9
+        end
+        object RzGroupBox1: TRzGroupBox
+          Left = 5
+          Top = 46
+          Width = 329
+          Height = 29
+          BorderColor = 15794175
+          Checked = False
+          Color = 15794175
+          Ctl3D = False
+          FlatColor = clBtnFace
+          ParentCtl3D = False
+          TabOrder = 10
+          object RTrue: TRzRadioButton
+            Left = 11
+            Top = 8
+            Width = 39
+            Height = 18
+            Caption = #3648#3588#3618
+            TabOrder = 0
+          end
+          object RFalse: TRzRadioButton
+            Left = 163
+            Top = 8
+            Width = 54
+            Height = 18
+            Caption = #3652#3617#3656#3648#3588#3618
+            TabOrder = 1
+          end
+        end
+      end
+      object pnBodyContainner: TRzPanel
+        Left = 2
+        Top = 2
+        Width = 491
+        Height = 375
+        Align = alClient
+        BorderOuter = fsNone
+        TabOrder = 1
+        object pnBodyButtom: TRzPanel
+          Left = 0
+          Top = 341
+          Width = 491
+          Height = 34
+          Align = alBottom
+          BorderOuter = fsNone
+          Color = clSilver
+          TabOrder = 0
+          DesignSize = (
+            491
+            34)
+          object TxtTotal: TRzLabel
+            Left = 127
+            Top = 6
+            Width = 28
+            Height = 16
+            Alignment = taRightJustify
+            Caption = '0.00'
+            Font.Charset = THAI_CHARSET
+            Font.Color = clMaroon
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object RzLabel3: TRzLabel
+            Left = 166
+            Top = 6
+            Width = 25
+            Height = 16
+            Caption = #3610#3634#3607
+            Font.Charset = THAI_CHARSET
+            Font.Color = clMaroon
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object RzLabel2: TRzLabel
+            Left = 19
+            Top = 6
+            Width = 49
+            Height = 16
+            Caption = #3618#3629#3604#3619#3623#3617
+            Font.Charset = THAI_CHARSET
+            Font.Color = clMaroon
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object RzBitBtn2: TRzBitBtn
+            Left = 309
+            Top = 3
+            Width = 88
+            Height = 27
+            Anchors = [akTop, akRight]
+            Caption = #3648#3621#3639#3629#3585#3607#3633#3657#3591#3627#3617#3604
+            Color = 14155694
+            Font.Charset = THAI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            HotTrack = True
+            ParentFont = False
+            TabOrder = 0
+            TabStop = False
+            OnClick = RzBitBtn2Click
+          end
+          object RzBitBtn3: TRzBitBtn
+            Left = 401
+            Top = 3
+            Width = 88
+            Height = 27
+            Anchors = [akTop, akRight]
+            Caption = #3621#3657#3634#3591#3607#3633#3657#3591#3627#3617#3604
+            Color = 14155694
+            Font.Charset = THAI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            HotTrack = True
+            ParentFont = False
+            TabOrder = 1
+            TabStop = False
+            OnClick = RzBitBtn3Click
+          end
+        end
+        object cxGrid1: TcxGrid
+          Left = 0
+          Top = 32
+          Width = 491
+          Height = 309
+          Align = alClient
+          Font.Charset = THAI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          LookAndFeel.Kind = lfUltraFlat
+          object cxGrid1DBTableView1: TcxGridDBTableView
+            DataController.DataSource = DsBilling
+            DataController.Filter.Criteria = {FFFFFFFF0000000000}
+            DataController.Summary.DefaultGroupSummaryItems = <>
+            DataController.Summary.FooterSummaryItems = <>
+            DataController.Summary.SummaryGroups = <>
+            NavigatorButtons.ConfirmDelete = False
+            OptionsCustomize.ColumnFiltering = False
+            OptionsCustomize.ColumnSorting = False
+            OptionsData.CancelOnExit = False
+            OptionsData.Deleting = False
+            OptionsData.DeletingConfirmation = False
+            OptionsData.Inserting = False
+            OptionsView.GroupByBox = False
+            OptionsView.Indicator = True
+            object cxGrid1DBTableView1chkbill: TcxGridDBColumn
+              Caption = '#'
+              PropertiesClassName = 'TcxCheckBoxProperties'
+              Properties.Alignment = taRightJustify
+              Properties.DisplayChecked = '1'
+              Properties.DisplayUnchecked = '0'
+              Properties.ValueChecked = 1
+              Properties.ValueUnchecked = 0
+              Properties.OnChange = cxGrid1DBTableView1chkbillPropertiesChange
+              Properties.OnEditValueChanged = cxGrid1DBTableView1chkbillPropertiesEditValueChanged
+              HeaderAlignmentHorz = taCenter
+              HeaderGlyphAlignmentHorz = taCenter
+              Width = 43
+              DataBinding.FieldName = 'chkbill'
+            end
+            object cxGrid1DBTableView1bdate: TcxGridDBColumn
+              Caption = #3623#3633#3609#3607#3637#3656#3619#3633#3610#3610#3619#3636#3592#3634#3588
+              HeaderAlignmentHorz = taCenter
+              HeaderGlyphAlignmentHorz = taCenter
+              MinWidth = 195
+              Options.Editing = False
+              Options.Filtering = False
+              Options.Focusing = False
+              Options.IncSearch = False
+              Options.Grouping = False
+              Options.HorzSizing = False
+              Width = 195
+              DataBinding.FieldName = 'bdate'
+            end
+            object cxGrid1DBTableView1bno: TcxGridDBColumn
+              Caption = #3648#3621#3586#3607#3637#3656#3610#3636#3621
+              HeaderAlignmentHorz = taCenter
+              HeaderGlyphAlignmentHorz = taCenter
+              MinWidth = 80
+              Options.Editing = False
+              Options.Filtering = False
+              Options.Focusing = False
+              Options.IncSearch = False
+              Options.Grouping = False
+              Options.HorzSizing = False
+              Width = 80
+              DataBinding.FieldName = 'bno'
+            end
+            object cxGrid1DBTableView1btotal: TcxGridDBColumn
+              Caption = #3592#3635#3609#3623#3609#3648#3591#3636#3609
+              HeaderAlignmentHorz = taCenter
+              HeaderGlyphAlignmentHorz = taCenter
+              MinWidth = 143
+              Options.Filtering = False
+              Options.Focusing = False
+              Options.IncSearch = False
+              Options.Grouping = False
+              Options.HorzSizing = False
+              Options.Moving = False
+              Width = 143
+              DataBinding.FieldName = 'btotal'
+            end
+          end
+          object cxGrid1Level1: TcxGridLevel
+            GridView = cxGrid1DBTableView1
+          end
+        end
+        object pnBodyTitle: TRzPanel
+          Left = 0
+          Top = 0
+          Width = 491
+          Height = 32
+          Align = alTop
+          BorderOuter = fsNone
+          Color = clSilver
+          TabOrder = 2
+          object RzLabel1: TRzLabel
+            Left = 8
+            Top = 6
+            Width = 107
+            Height = 14
+            Caption = #3592#3635#3609#3623#3609' 100 '#3619#3634#3618#3585#3634#3619
+            Font.Charset = THAI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+        end
+      end
+    end
+    object pnButtom: TRzPanel
+      Left = 0
+      Top = 518
+      Width = 837
+      Height = 33
+      Align = alBottom
+      BorderOuter = fsNone
+      TabOrder = 3
+      DesignSize = (
+        837
+        33)
+      object btnAddInsignia: TRzBitBtn
+        Left = 586
+        Top = 3
+        Width = 160
+        Height = 27
+        Anchors = [akTop, akRight]
+        Caption = #3610#3633#3609#3607#3638#3585#3586#3629#3648#3588#3619#3639#3656#3629#3591#3619#3634#3594#3631'(F5)'
+        Color = 16753994
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        HotTrack = True
+        ParentFont = False
+        TabOrder = 0
+        TabStop = False
+        OnClick = btnAddInsigniaClick
+      end
+      object btnClose: TRzBitBtn
+        Left = 747
+        Top = 3
+        Width = 88
+        Height = 27
+        Anchors = [akTop, akRight]
+        Caption = #3611#3636#3604
+        Color = 16753994
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        HotTrack = True
+        ParentFont = False
+        TabOrder = 1
+        TabStop = False
+        OnClick = btnCloseClick
+      end
+    end
+  end
+  object rzTopPanel: TRzPanel
+    Left = 0
+    Top = 0
+    Width = 837
+    Height = 4
+    Align = alTop
+    BorderOuter = fsNone
+    GradientColorStyle = gcsCustom
+    TabOrder = 2
+    VisualStyle = vsGradient
+  end
+  object cdsBilling: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select 0 as chkbill,* from bill where bryid is null'
+    FieldDefs = <
+      item
+        Name = 'chkbill'
+        DataType = ftInteger
+      end
+      item
+        Name = 'bid'
+        DataType = ftString
+        Size = 8
+      end
+      item
+        Name = 'bno'
+        DataType = ftString
+        Size = 7
+      end
+      item
+        Name = 'bperiod'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'bdate'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'btotal'
+        DataType = ftBCD
+        Precision = 14
+        Size = 2
+      end
+      item
+        Name = 'bpaytype'
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'bbank'
+        DataType = ftString
+        Size = 25
+      end
+      item
+        Name = 'bbankname'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'bbrance'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'brefno'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'brefdate'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'buserid'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'bfrom'
+        DataType = ftString
+        Size = 150
+      end
+      item
+        Name = 'bryid'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'bloc'
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'bspiid'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'bentry'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'bcomid'
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'bcancelid'
+        DataType = ftString
+        Size = 7
+      end
+      item
+        Name = 'receivedate'
+        DataType = ftTimeStamp
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspBilling'
+    StoreDefs = True
+    OnReconcileError = cdsBillingReconcileError
+    Left = 18
+    Top = 361
+    object cdsBillingchkbill: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'chkbill'
+      MaxValue = 1
+    end
+    object cdsBillingbno: TStringField
+      FieldName = 'bno'
+      Size = 7
+    end
+    object cdsBillingbtotal: TBCDField
+      FieldName = 'btotal'
+      Precision = 14
+      Size = 2
+    end
+    object cdsBillingbdate: TSQLTimeStampField
+      FieldName = 'bdate'
+    end
+    object cdsBillingbid: TStringField
+      FieldName = 'bid'
+      Size = 8
+    end
+    object cdsBillingbperiod: TStringField
+      FieldName = 'bperiod'
+      Size = 5
+    end
+    object cdsBillingbpaytype: TStringField
+      FieldName = 'bpaytype'
+      Size = 2
+    end
+    object cdsBillingbbank: TStringField
+      FieldName = 'bbank'
+      Size = 25
+    end
+    object cdsBillingbbrance: TStringField
+      FieldName = 'bbrance'
+      Size = 40
+    end
+    object cdsBillingbrefno: TStringField
+      FieldName = 'brefno'
+      Size = 30
+    end
+    object cdsBillingbrefdate: TSQLTimeStampField
+      FieldName = 'brefdate'
+    end
+    object cdsBillingbuserid: TStringField
+      FieldName = 'buserid'
+      Size = 5
+    end
+    object cdsBillingbfrom: TStringField
+      FieldName = 'bfrom'
+      Size = 150
+    end
+    object cdsBillingbryid: TStringField
+      FieldName = 'bryid'
+      Size = 5
+    end
+    object cdsBillingbloc: TStringField
+      FieldName = 'bloc'
+      Size = 2
+    end
+    object cdsBillingbspiid: TStringField
+      FieldName = 'bspiid'
+      Size = 5
+    end
+  end
+  object DsBilling: TDataSource
+    DataSet = cdsBilling
+    OnUpdateData = DsBillingUpdateData
+    Left = 18
+    Top = 409
+  end
+  object Conn: TSQLConnection
+    ConnectionName = 'Devart SQL Server'
+    DriverName = 'DevartSQLServer'
+    GetDriverFunc = 'getSQLDriverSQLServer'
+    LibraryName = 'dbexpsda.dll'
+    LoginPrompt = False
+    Params.Strings = (
+      'BlobSize=-1'
+      'HostName=192.168.1.211'
+      'DataBase=fddb_temp2'
+      'DriverName=DevartSQLServer'
+      'User_Name=sa'
+      'Password=Uit@uit'
+      'LongStrings=True'
+      'EnableBCD=True'
+      'FetchAll=True')
+    VendorLib = 'sqloledb.dll'
+    Connected = True
+    Left = 18
+    Top = 217
+  end
+  object SQLDataSet: TSQLDataSet
+    CommandText = 'select 0 as chkbill,* from bill where bryid is null'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = Conn
+    Left = 18
+    Top = 265
+  end
+  object dspBilling: TDataSetProvider
+    DataSet = SQLDataSet
+    Options = [poAllowMultiRecordUpdates, poAutoRefresh, poAllowCommandText]
+    Left = 18
+    Top = 313
+  end
+  object CdsRoyal: TClientDataSet
+    Aggregates = <>
+    PacketRecords = 30
+    Params = <>
+    ProviderName = 'dspRoyal'
+    OnNewRecord = CdsRoyalNewRecord
+    OnReconcileError = CdsRoyalReconcileError
+    Left = 88
+    Top = 361
+  end
+  object DsRoyal: TDataSource
+    DataSet = CdsRoyal
+    Left = 88
+    Top = 409
+  end
+  object DsSearch: TDataSource
+    DataSet = CdsSearch
+    Left = 152
+    Top = 409
+  end
+  object CdsRYCode: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspRYCode'
+    Left = 376
+    Top = 225
+  end
+  object DsRyCode: TDataSource
+    DataSet = CdsRYCode
+    Left = 376
+    Top = 281
+  end
+  object CdsSearch: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspSearch'
+    OnReconcileError = CdsSearchReconcileError
+    Left = 152
+    Top = 361
+  end
+  object Auto_id: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dsp'
+    Left = 88
+    Top = 217
+  end
+  object dspRoyal: TDataSetProvider
+    DataSet = SQLDataSet
+    Options = [poAllowMultiRecordUpdates, poAutoRefresh, poAllowCommandText]
+    Left = 82
+    Top = 313
+  end
+  object dspSearch: TDataSetProvider
+    DataSet = SQLDataSet
+    Options = [poAllowMultiRecordUpdates, poAutoRefresh, poAllowCommandText]
+    Left = 152
+    Top = 313
+  end
+  object dspRYCode: TDataSetProvider
+    DataSet = SQLDataSet
+    Options = [poAllowMultiRecordUpdates, poAutoRefresh, poAllowCommandText]
+    Left = 312
+    Top = 225
+  end
+  object CdsUpDate: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspSearch'
+    Left = 240
+    Top = 313
+  end
+  object cdsTemp: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspBilling'
+    Left = 242
+    Top = 225
+  end
+end
