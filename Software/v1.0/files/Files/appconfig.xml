@@ -1,0 +1,3 @@
+<Configuration>
+  <AppConfig ADDRESS=".\SQLEXPRESS" HOSTNAME="dev.siamdev.org" USER="sa" PASSWORD="123456" DATABASE="fddb_temp2"/>
+</Configuration>
