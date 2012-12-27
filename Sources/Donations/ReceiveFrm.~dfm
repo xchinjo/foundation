@@ -1652,8 +1652,9 @@ object frmReceive: TfrmReceive
   end
   object SQLDataSet: TSQLDataSet
     CommandText = 
-      'select top 1 * from found_code where fd_codetype='#39'2'#39' order by fd' +
-      '_code'
+      'select a.*,b.o_title,c.fd_title from billdetail a LEFT join obje' +
+      'ct_code b on a.bdobject=b.o_code left join found_code c on a.bdf' +
+      'ound=c.fd_code where a.bdno='#39'0000019'#39' '
     MaxBlobSize = -1
     Params = <>
     SQLConnection = Conn
@@ -1734,7 +1735,10 @@ object frmReceive: TfrmReceive
   end
   object cdsDonatorHistoryDtl: TClientDataSet
     Aggregates = <>
-    CommandText = 'select * from billdetail where bdno='#39'1021011'#39
+    CommandText = 
+      'select a.*,b.o_title,c.fd_title from billdetail a LEFT join obje' +
+      'ct_code b on a.bdobject=b.o_code left join found_code c on a.bdf' +
+      'ound=c.fd_code where a.bdno='#39'0000019'#39' '
     Params = <>
     ProviderName = 'dsp'
     Left = 512

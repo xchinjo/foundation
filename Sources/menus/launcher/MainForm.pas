@@ -1355,7 +1355,7 @@ begin
   with cdsLogin do
   begin
     close;
-    CommandText:='select * from user_account where us_user='''+Trim(edUserID.Text)+''' and us_password='''+EncryptEx(trim(edPassword.Text))+'''';
+    CommandText:='select * from user_account where us_user='''+Trim(edUserID.Text)+''' and us_password='''+EncryptEx(trim(edPassword.Text))+''' and us_status=''A'' ';
     open;
 
     if cdsLogin.Active then

@@ -1,8 +1,8 @@
 object frmNewUser: TfrmNewUser
-  Left = 390
-  Top = 238
-  Width = 565
-  Height = 188
+  Left = 412
+  Top = 222
+  Width = 602
+  Height = 230
   BorderIcons = [biSystemMenu]
   Caption = 'New User'
   Color = clBtnFace
@@ -14,6 +14,7 @@ object frmNewUser: TfrmNewUser
   KeyPreview = True
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
@@ -21,23 +22,23 @@ object frmNewUser: TfrmNewUser
   object PaneUser: TRzPanel
     Left = 0
     Top = 4
-    Width = 557
-    Height = 156
+    Width = 594
+    Height = 198
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 0
-    object RzPanel2: TRzPanel
+    object pnAllClients: TRzPanel
       Left = 0
       Top = 0
-      Width = 557
-      Height = 114
+      Width = 594
+      Height = 169
       Align = alTop
       BorderOuter = fsNone
       TabOrder = 0
       object Label9: TLabel
         Left = 1
         Top = 2
-        Width = 74
+        Width = 116
         Height = 24
         AutoSize = False
         Caption = ' '#3619#3627#3633#3626
@@ -54,7 +55,7 @@ object frmNewUser: TfrmNewUser
       object Label1: TLabel
         Left = 1
         Top = 27
-        Width = 74
+        Width = 116
         Height = 24
         AutoSize = False
         Caption = ' '#3594#3639#3656#3629'-'#3626#3585#3640#3621
@@ -68,27 +69,10 @@ object frmNewUser: TfrmNewUser
         ParentFont = False
         Layout = tlCenter
       end
-      object Label2: TLabel
-        Left = 289
-        Top = 27
-        Width = 74
-        Height = 24
-        AutoSize = False
-        Caption = ' '#3648#3621#3586#3607#3637#3656#3610#3633#3605#3619
-        Color = 11579568
-        Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        Layout = tlCenter
-      end
       object Label3: TLabel
         Left = 1
         Top = 52
-        Width = 74
+        Width = 116
         Height = 24
         AutoSize = False
         Caption = ' Username'
@@ -102,30 +86,13 @@ object frmNewUser: TfrmNewUser
         ParentFont = False
         Layout = tlCenter
       end
-      object Label5: TLabel
-        Left = 1
-        Top = 77
-        Width = 74
-        Height = 24
-        AutoSize = False
-        Caption = ' '#3623#3633#3609#3607#3637#3656#3610#3633#3609#3607#3638#3585
-        Color = 11579568
-        Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        Layout = tlCenter
-      end
       object Label6: TLabel
         Left = 289
-        Top = 52
+        Top = 4
         Width = 74
         Height = 24
         AutoSize = False
-        Caption = ' Tel.'
+        Caption = ' '#3585#3621#3640#3656#3617#3612#3641#3657#3651#3594#3657#3591#3634#3609
         Color = 11579568
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
@@ -136,13 +103,13 @@ object frmNewUser: TfrmNewUser
         ParentFont = False
         Layout = tlCenter
       end
-      object Label7: TLabel
-        Left = 289
-        Top = 2
-        Width = 74
+      object Label2: TLabel
+        Left = 1
+        Top = 77
+        Width = 116
         Height = 24
         AutoSize = False
-        Caption = ' '#3649#3612#3609#3585
+        Caption = ' Password'
         Color = 11579568
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
@@ -153,94 +120,96 @@ object frmNewUser: TfrmNewUser
         ParentFont = False
         Layout = tlCenter
       end
-      object TxtId: TRzDBEdit
-        Left = 77
-        Top = 2
-        Width = 185
+      object Label4: TLabel
+        Left = 1
+        Top = 102
+        Width = 116
+        Height = 24
+        AutoSize = False
+        Caption = ' Confirm Password'
+        Color = 11579568
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object cmbRoles: TRzComboBox
+        Left = 365
+        Top = 6
+        Width = 186
         Height = 21
-        DataField = 'us_code'
-        ReadOnly = True
-        Color = clInfoBk
+        Ctl3D = False
         FrameVisible = True
+        ItemHeight = 13
+        ParentCtl3D = False
         TabOrder = 0
       end
-      object TxtName: TRzDBEdit
-        Left = 77
-        Top = 27
-        Width = 185
-        Height = 21
-        DataField = 'us_name'
+      object edUserCode: TRzEdit
+        Left = 119
+        Top = 3
+        Width = 166
+        Height = 24
+        AutoSize = False
         FrameVisible = True
         TabOrder = 1
       end
-      object TxtUser: TRzDBEdit
-        Left = 77
+      object edFullName: TRzEdit
+        Left = 119
+        Top = 27
+        Width = 166
+        Height = 24
+        AutoSize = False
+        FrameVisible = True
+        TabOrder = 2
+      end
+      object edUserName: TRzEdit
+        Left = 119
         Top = 52
-        Width = 185
-        Height = 21
-        DataField = 'us_user'
-        FrameVisible = True
-        TabOrder = 5
-      end
-      object DtDate: TRzDBDateTimeEdit
-        Left = 77
-        Top = 77
-        Width = 185
-        Height = 21
-        FrameVisible = True
-        TabOrder = 6
-        EditType = etDate
-      end
-      object TxtTel: TRzDBEdit
-        Left = 365
-        Top = 53
-        Width = 185
-        Height = 21
+        Width = 166
+        Height = 24
+        AutoSize = False
         FrameVisible = True
         TabOrder = 3
       end
-      object RzDBEdit1: TRzDBEdit
-        Left = 365
-        Top = 3
-        Width = 185
-        Height = 21
+      object edPassword: TRzEdit
+        Left = 119
+        Top = 76
+        Width = 166
+        Height = 24
+        AutoSize = False
         FrameVisible = True
+        PasswordChar = '*'
         TabOrder = 4
       end
-      object TxtCode: TRzMaskEdit
-        Left = 365
-        Top = 28
-        Width = 184
-        Height = 21
-        EditMask = '0-0000-00000-00-0'
+      object edConfirmPassword: TRzEdit
+        Left = 119
+        Top = 101
+        Width = 166
+        Height = 24
+        AutoSize = False
         FrameVisible = True
-        MaxLength = 17
-        TabOrder = 2
-        Text = ' -    -     -  - '
-      end
-      object cmbRoles: TRzComboBox
-        Left = 364
-        Top = 78
-        Width = 186
-        Height = 21
-        ItemHeight = 13
-        TabOrder = 7
+        PasswordChar = '*'
+        TabOrder = 5
       end
     end
     object RzPanel3: TRzPanel
       Left = 0
-      Top = 117
-      Width = 557
+      Top = 159
+      Width = 594
       Height = 39
       Align = alBottom
       BorderOuter = fsNone
       Color = 11579568
       TabOrder = 1
       DesignSize = (
-        557
+        594
         39)
       object BtnSave: TRzBitBtn
-        Left = 340
+        Left = 377
         Top = 7
         Width = 102
         Height = 27
@@ -259,7 +228,7 @@ object frmNewUser: TfrmNewUser
         OnClick = BtnSaveClick
       end
       object BtnCancel: TRzBitBtn
-        Left = 444
+        Left = 481
         Top = 7
         Width = 101
         Height = 27
@@ -282,7 +251,7 @@ object frmNewUser: TfrmNewUser
   object rzTopPanel: TRzPanel
     Left = 0
     Top = 0
-    Width = 557
+    Width = 594
     Height = 4
     Align = alTop
     BorderOuter = fsNone

@@ -44,7 +44,6 @@ type
     RzPanel5: TRzPanel;
     Label9: TLabel;
     Label1: TLabel;
-    Label2: TLabel;
     Label3: TLabel;
     Label5: TLabel;
     TxtId: TRzDBEdit;
@@ -52,18 +51,11 @@ type
     TxtUser: TRzDBEdit;
     Conn: TSQLConnection;
     DtDate: TRzDBDateTimeEdit;
-    Label6: TLabel;
-    TxtTel: TRzDBEdit;
     CdsUserList: TClientDataSet;
     BtnAdd: TRzBitBtn;
-    BtnEdit: TRzBitBtn;
-    BtnSave: TRzBitBtn;
-    BtnDel: TRzBitBtn;
-    BtnCancel: TRzBitBtn;
+    BtnActive: TRzBitBtn;
+    BtnInactive: TRzBitBtn;
     Auto: TClientDataSet;
-    Label7: TLabel;
-    RzDBEdit1: TRzDBEdit;
-    TxtCode: TRzMaskEdit;
     rzTopPanel: TRzPanel;
     PageControlUsr: TPageControl;
     TabUserList: TTabSheet;
@@ -101,13 +93,10 @@ type
     btnSavePermission: TRzBitBtn;
     cdsRoles: TClientDataSet;
     btnChangePassword: TRzBitBtn;
+    btnRefresh: TRzBitBtn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure BtnAddClick(Sender: TObject);
-    procedure BtnEditClick(Sender: TObject);
-    procedure BtnDelClick(Sender: TObject);
-    procedure BtnSaveClick(Sender: TObject);
-    procedure BtnCancelClick(Sender: TObject);
     function AUTOID(F: string): string;
     procedure CdsUserListNewRecord(DataSet: TDataSet);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
@@ -124,6 +113,12 @@ type
       Shift: TShiftState);
     procedure grdUserListDBTableView1DblClick(Sender: TObject);
     procedure btnChangePasswordClick(Sender: TObject);
+    procedure btnRefreshClick(Sender: TObject);
+    procedure BtnInactiveClick(Sender: TObject);
+    procedure BtnActiveClick(Sender: TObject);
+    procedure grdUserListDBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
   private
     { Private declarations }
     procedure LoadUser ;
@@ -160,7 +155,7 @@ end;
 procedure TFrmUserList.LoadUser;
 begin
   CdsUserList.Close ;
-  CdsUserList.CommandText := 'select a.*,c.* from user_account a  left join UserRole b on a.us_code=b.uid left join Roles c on b.role=c.RoleId order by a.us_code';
+  CdsUserList.CommandText := 'select a.*,c.* from user_account a  left join UserRole b on a.us_code=b.uid left join Roles c on b.role=c.RoleId  order by a.us_code';
   CdsUserList.Open ;
   //loadCmbItems(TcxComboBoxProperties(grdUserListDBTableView1UserRole.Properties).Items,cdsTemp,'select * from roles where RoleStatus=''A''','RoleId','RoleName','1');
 end;
@@ -175,20 +170,19 @@ end;
 function TFrmUserList.EnaBtn(R: Boolean): Boolean;
 begin
   BtnAdd.Enabled     := R ;
-  BtnEdit.Enabled    := R ;
-  BtnSave.Enabled    := not R ;
-  BtnCancel.Enabled  := not R ;
+
 
   TxtName.ReadOnly  := R ;
-  TxtCode.ReadOnly := R ;
+//  TxtCode.ReadOnly := R ;
   TxtUser.ReadOnly    := R ;
 
-  TxtTel.ReadOnly    := R ;
+//  TxtTel.ReadOnly    := R ;
   DtDate.ReadOnly := R ;
 end;
 
 procedure TFrmUserList.BtnAddClick(Sender: TObject);
 var frm : TfrmNewUser;
+    strSQL:string;
 begin
 (*
   CdsUserList.Append ;
@@ -204,42 +198,19 @@ begin
   *)
 
   frm := TfrmNewUser.Create(self);
+  frm.MainForm := self;
   frm.ShowModal;
 
-end;
-
-procedure TFrmUserList.BtnEditClick(Sender: TObject);
-begin
-  CdsUserList.Edit ;
-  TxtName.SetFocus ;
-  EnaBtn(False) ;
-end;
-
-procedure TFrmUserList.BtnDelClick(Sender: TObject) ;
-begin
-  if CdsUserList.RecordCount = 0 then exit ;
-
-  if Application.MessageBox('ต้องการทำการลบข้อมูล', 'ลบข้อมูล', MB_OKCANCEL + MB_ICONQUESTION) = IDOK then
+  if frm.IsOK then
   begin
-    CdsUserList.Delete ;
-    CdsUserList.ApplyUpdates(0) ;
-  end;
-end;
+    strSQL:=''+
+    ' insert into user_account(us_code,us_user,us_name,us_password,us_role,us_status) '+
+    ' values('''+frm.UserCode+''','''+frm.UserName+''','''+frm.FullName+''','''+EncryptEx(frm.Password)+''',2,''A'') ';
 
-procedure TFrmUserList.BtnSaveClick(Sender: TObject);
-begin
-  if Application.MessageBox('ต้องการทำการบันทึกข้อมูล', 'บันทึกข้อมูล', MB_OKCANCEL + MB_ICONQUESTION) = IDOK then
-  begin
-    CdsUserList.ApplyUpdates(0) ;
-    EnaBtn(True) ;
+    ExecSQL(strSQL);
+    ShowMessage('บันทึกเรียบร้อย');
   end;
 
-end;
-
-procedure TFrmUserList.BtnCancelClick(Sender: TObject);
-begin
-  CdsUserList.Cancel ;
-  EnaBtn(True) ;
 end;
 
 function TFrmUserList.AUTOID(F: string): string;
@@ -266,9 +237,6 @@ procedure TFrmUserList.FormKeyDown(Sender: TObject; var Key: Word;
 begin
   case key of
     vk_f3: BtnAddClick(Sender) ;
-    vk_f7: BtnEditClick(sender) ;
-    vk_f9: BtnDelClick(sender);
-    vk_f5: if DsUserList.State in [dsinsert,dsedit] then BtnSaveClick(sender);
   end;
 end;
 
@@ -565,6 +533,36 @@ begin
      ExecSQL(strSQL);
      ShowMessage('Successfull change password.');
    end;
+end;
+
+procedure TFrmUserList.btnRefreshClick(Sender: TObject);
+begin
+  LoadUser;
+end;
+
+procedure TFrmUserList.BtnInactiveClick(Sender: TObject);
+var strSQL:string;
+begin
+     strSQL:=' update user_account set us_status=''I'' where us_code='''+CdsUserList.fieldbyname('us_code').AsString+''' ';
+     ExecSQL(strSQL);
+
+     LoadUser;
+end;
+procedure TFrmUserList.BtnActiveClick(Sender: TObject);
+var strSQL:string;
+begin
+     strSQL:=' update user_account set us_status=''A'' where us_code='''+CdsUserList.fieldbyname('us_code').AsString+''' ';
+     ExecSQL(strSQL);
+
+     LoadUser;
+end;
+
+procedure TFrmUserList.grdUserListDBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
 end;
 
 end.

@@ -71,6 +71,7 @@ object frmReceive: TfrmReceive
         OptionsData.Editing = False
         OptionsData.Inserting = False
         OptionsView.GroupByBox = False
+        OnCustomDrawColumnHeader = cxGridBillDetailsDBTableView1CustomDrawColumnHeader
         object cxGridBillDetailsDBTableView1item: TcxGridDBColumn
           Caption = 'No.'
           Options.Sorting = False

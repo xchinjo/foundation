@@ -54,7 +54,7 @@ object FrmUserList: TFrmUserList
       Left = 0
       Top = 30
       Width = 881
-      Height = 114
+      Height = 64
       Align = alTop
       BorderOuter = fsNone
       TabOrder = 1
@@ -76,8 +76,8 @@ object FrmUserList: TFrmUserList
         Layout = tlCenter
       end
       object Label1: TLabel
-        Left = 0
-        Top = 27
+        Left = 264
+        Top = 3
         Width = 74
         Height = 24
         AutoSize = False
@@ -92,26 +92,9 @@ object FrmUserList: TFrmUserList
         ParentFont = False
         Layout = tlCenter
       end
-      object Label2: TLabel
-        Left = 288
-        Top = 27
-        Width = 74
-        Height = 24
-        AutoSize = False
-        Caption = ' '#3648#3621#3586#3607#3637#3656#3610#3633#3605#3619
-        Color = 11579568
-        Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        Layout = tlCenter
-      end
       object Label3: TLabel
         Left = 0
-        Top = 52
+        Top = 28
         Width = 74
         Height = 24
         AutoSize = False
@@ -127,8 +110,8 @@ object FrmUserList: TFrmUserList
         Layout = tlCenter
       end
       object Label5: TLabel
-        Left = 0
-        Top = 77
+        Left = 264
+        Top = 29
         Width = 74
         Height = 24
         AutoSize = False
@@ -143,49 +126,15 @@ object FrmUserList: TFrmUserList
         ParentFont = False
         Layout = tlCenter
       end
-      object Label6: TLabel
-        Left = 288
-        Top = 52
-        Width = 74
-        Height = 24
-        AutoSize = False
-        Caption = ' Tel.'
-        Color = 11579568
-        Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        Layout = tlCenter
-      end
-      object Label7: TLabel
-        Left = 288
-        Top = 2
-        Width = 74
-        Height = 24
-        AutoSize = False
-        Caption = ' '#3649#3612#3609#3585
-        Color = 11579568
-        Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        Layout = tlCenter
-      end
       object RzPanel5: TRzPanel
         Left = 0
-        Top = 106
+        Top = 56
         Width = 881
         Height = 8
         Align = alBottom
         BorderOuter = fsNone
         Color = 11579568
-        TabOrder = 7
+        TabOrder = 4
       end
       object TxtId: TRzDBEdit
         Left = 76
@@ -200,8 +149,8 @@ object FrmUserList: TFrmUserList
         TabOrder = 0
       end
       object TxtName: TRzDBEdit
-        Left = 76
-        Top = 27
+        Left = 340
+        Top = 3
         Width = 185
         Height = 24
         DataSource = DsUserList
@@ -211,53 +160,26 @@ object FrmUserList: TFrmUserList
       end
       object TxtUser: TRzDBEdit
         Left = 76
-        Top = 52
+        Top = 28
         Width = 185
         Height = 24
         DataSource = DsUserList
         DataField = 'us_user'
         FrameVisible = True
-        TabOrder = 5
+        TabOrder = 2
       end
       object DtDate: TRzDBDateTimeEdit
-        Left = 76
-        Top = 77
-        Width = 185
-        Height = 24
-        FrameVisible = True
-        TabOrder = 6
-        EditType = etDate
-      end
-      object TxtTel: TRzDBEdit
-        Left = 364
-        Top = 53
+        Left = 340
+        Top = 29
         Width = 185
         Height = 24
         FrameVisible = True
         TabOrder = 3
-      end
-      object RzDBEdit1: TRzDBEdit
-        Left = 364
-        Top = 3
-        Width = 185
-        Height = 24
-        FrameVisible = True
-        TabOrder = 4
-      end
-      object TxtCode: TRzMaskEdit
-        Left = 364
-        Top = 28
-        Width = 184
-        Height = 24
-        EditMask = '0-0000-00000-00-0'
-        FrameVisible = True
-        MaxLength = 17
-        TabOrder = 2
-        Text = ' -    -     -  - '
+        EditType = etDate
       end
       object btnChangePassword: TRzBitBtn
-        Left = 287
-        Top = 77
+        Left = 527
+        Top = 26
         Width = 115
         Height = 27
         Caption = #3648#3611#3621#3637#3656#3618#3609#3619#3627#3633#3626#3612#3656#3634#3609
@@ -269,9 +191,27 @@ object FrmUserList: TFrmUserList
         Font.Style = [fsBold]
         HotTrack = True
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 5
         TabStop = False
         OnClick = btnChangePasswordClick
+      end
+      object btnRefresh: TRzBitBtn
+        Left = 642
+        Top = 26
+        Width = 102
+        Height = 27
+        Caption = 'Refresh'
+        Color = 16770250
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        HotTrack = True
+        ParentFont = False
+        TabOrder = 6
+        TabStop = False
+        OnClick = btnRefreshClick
       end
     end
     object RzPanel3: TRzPanel
@@ -287,12 +227,12 @@ object FrmUserList: TFrmUserList
         881
         39)
       object BtnAdd: TRzBitBtn
-        Left = 352
+        Left = 549
         Top = 7
         Width = 102
         Height = 27
         Anchors = [akTop, akRight]
-        Caption = 'F3-'#3648#3614#3636#3656#3617
+        Caption = 'F3-'#3648#3614#3636#3656#3617#3612#3641#3657#3651#3594#3657#3651#3627#3617#3656
         Color = 16753994
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
@@ -305,13 +245,13 @@ object FrmUserList: TFrmUserList
         TabStop = False
         OnClick = BtnAddClick
       end
-      object BtnEdit: TRzBitBtn
-        Left = 456
+      object BtnActive: TRzBitBtn
+        Left = 672
         Top = 7
         Width = 102
         Height = 27
         Anchors = [akTop, akRight]
-        Caption = 'F7-'#3649#3585#3657#3652#3586
+        Caption = #3648#3611#3636#3604#3651#3594#3657#3591#3634#3609
         Color = 16753994
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
@@ -322,17 +262,16 @@ object FrmUserList: TFrmUserList
         ParentFont = False
         TabOrder = 1
         TabStop = False
-        OnClick = BtnEditClick
+        OnClick = BtnActiveClick
       end
-      object BtnSave: TRzBitBtn
-        Left = 664
+      object BtnInactive: TRzBitBtn
+        Left = 776
         Top = 7
         Width = 102
         Height = 27
         Anchors = [akTop, akRight]
-        Caption = 'F5-'#3610#3633#3609#3607#3638#3585
+        Caption = #3611#3636#3604#3651#3594#3657#3591#3634#3609
         Color = 16753994
-        Enabled = False
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
@@ -342,52 +281,14 @@ object FrmUserList: TFrmUserList
         ParentFont = False
         TabOrder = 2
         TabStop = False
-        OnClick = BtnSaveClick
-      end
-      object BtnDel: TRzBitBtn
-        Left = 560
-        Top = 7
-        Width = 102
-        Height = 27
-        Anchors = [akTop, akRight]
-        Caption = 'F9-'#3621#3610
-        Color = 16753994
-        Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        HotTrack = True
-        ParentFont = False
-        TabOrder = 3
-        TabStop = False
-        OnClick = BtnDelClick
-      end
-      object BtnCancel: TRzBitBtn
-        Left = 768
-        Top = 7
-        Width = 101
-        Height = 27
-        Anchors = [akTop, akRight]
-        Caption = #3618#3585#3648#3621#3636#3585
-        Color = 16753994
-        Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        HotTrack = True
-        ParentFont = False
-        TabOrder = 4
-        TabStop = False
-        OnClick = BtnCancelClick
+        OnClick = BtnInactiveClick
       end
     end
     object pnClients: TRzPanel
       Left = 0
-      Top = 144
+      Top = 94
       Width = 881
-      Height = 366
+      Height = 416
       Align = alClient
       BorderOuter = fsNone
       TabOrder = 3
@@ -395,7 +296,7 @@ object FrmUserList: TFrmUserList
         Left = 0
         Top = 0
         Width = 881
-        Height = 366
+        Height = 416
         ActivePage = TabUserList
         Align = alClient
         Style = tsFlatButtons
@@ -406,7 +307,7 @@ object FrmUserList: TFrmUserList
             Left = 0
             Top = 0
             Width = 873
-            Height = 332
+            Height = 382
             Align = alClient
             TabOrder = 0
             object grdUserListDBTableView1: TcxGridDBTableView
@@ -417,8 +318,10 @@ object FrmUserList: TFrmUserList
               DataController.Summary.FooterSummaryItems = <>
               DataController.Summary.SummaryGroups = <>
               NavigatorButtons.ConfirmDelete = False
+              OptionsView.GridLines = glNone
               OptionsView.GroupByBox = False
               OptionsView.Indicator = True
+              OnCustomDrawColumnHeader = grdUserListDBTableView1CustomDrawColumnHeader
               object grdUserListDBTableView1DBColumn1: TcxGridDBColumn
                 Caption = #3619#3627#3633#3626
                 MinWidth = 64
@@ -450,7 +353,9 @@ object FrmUserList: TFrmUserList
                 Caption = #3585#3621#3640#3656#3617#3612#3641#3657#3651#3594#3657#3591#3634#3609
                 OnGetProperties = grdUserListDBTableView1UserRoleGetProperties
                 MinWidth = 300
+                Options.Editing = False
                 Options.Filtering = False
+                Options.Focusing = False
                 Options.IncSearch = False
                 Options.Grouping = False
                 Options.HorzSizing = False
@@ -496,7 +401,7 @@ object FrmUserList: TFrmUserList
             Left = 576
             Top = 0
             Width = 297
-            Height = 332
+            Height = 382
             Align = alRight
             BorderOuter = fsNone
             TabOrder = 1
@@ -578,7 +483,7 @@ object FrmUserList: TFrmUserList
               Left = 0
               Top = 41
               Width = 297
-              Height = 291
+              Height = 341
               Align = alClient
               Columns = <
                 item
@@ -603,7 +508,7 @@ object FrmUserList: TFrmUserList
             Left = 0
             Top = 0
             Width = 576
-            Height = 332
+            Height = 382
             Align = alClient
             TabOrder = 2
             object grdRolePermissionDBTableView1: TcxGridDBTableView

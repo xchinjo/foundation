@@ -335,10 +335,7 @@ begin
     ' where a.us_code='''+UID+''' ';
     }
 
-
     //inputbox('','',cdsMenuData.CommandText);
-
-
 
     cdsMenuData.Open();
 

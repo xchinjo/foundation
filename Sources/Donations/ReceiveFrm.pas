@@ -231,6 +231,9 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure edRefDateKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure cxGridBillDetailsDBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
   private
     _currObjCode,_currObjAccCode,_currFundCode:string;
 
@@ -2200,6 +2203,14 @@ end;
 procedure TfrmReceive.SetBranchCode(const Value: string);
 begin
   FBranchCode := Value;
+end;
+
+procedure TfrmReceive.cxGridBillDetailsDBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
 end;
 
 end.
