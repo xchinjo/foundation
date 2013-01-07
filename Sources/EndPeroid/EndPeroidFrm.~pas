@@ -680,6 +680,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
   dllParams.ReportCode:='RPT01004';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 end;
 
@@ -695,6 +697,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
   dllParams.ReportCode:='RPT01001';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 
 end;
@@ -769,6 +773,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',FcurrShowPeroid));
   dllParams.ReportCode:='RPT01003';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 end;
 {
@@ -826,6 +832,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',FcurrShowPeroid));
   dllParams.ReportCode:='RPT01004';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 end;
 {
@@ -931,6 +939,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
   dllParams.ReportCode:='RPT02';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 end;
 
@@ -944,6 +954,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',FcurrShowPeroid));
   dllParams.ReportCode:='RPT01001';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 
 end;
@@ -1046,6 +1058,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',FcurrShowPeroid));
   dllParams.ReportCode:='RPT01002';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 end;
   {
@@ -1073,6 +1087,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
   dllParams.ReportCode:='PRT04';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 end;
 
@@ -1088,6 +1104,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
   dllParams.ReportCode:='RPT03';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 end;
 
@@ -1150,6 +1168,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',FcurrShowPeroid));
   dllParams.ReportCode:='RPT02';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 end;
 
@@ -1162,6 +1182,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',FcurrShowPeroid));
   dllParams.ReportCode:='PRT04';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 end;
 
@@ -1174,6 +1196,8 @@ begin
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',FcurrShowPeroid));
   dllParams.ReportCode:='RPT03';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 end;
 

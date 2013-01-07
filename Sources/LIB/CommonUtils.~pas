@@ -9,7 +9,7 @@ type
 
   function ShowInsigniaRegister(
     _MainApp: TApplication; _DBConn: TJvUIBDataBase;
-    _Type: TShowWindowType; _Parameter: String): TForm; stdcall;
+    _Type: TShowWindowType; _Parameter: string): TForm; stdcall;
 
   function ShowReportGenerator(
     _MainApp: TApplication; _DBConn: TJvUIBDataBase;
@@ -17,7 +17,7 @@ type
 
   function ShowFavorRegister(
     _MainApp: TApplication; _DBConn: TJvUIBDataBase;
-    _Type: TShowWindowType; _Parameter: String): TForm; stdcall;
+    _Type: TShowWindowType; _Parameter: string): TForm; stdcall;
 
   function SelectFund(_MainApp: TApplication; _DBConn: TJvUIBDataBase;
   _Type: TShowWindowType; _Parameter: TDLLParameter; out _Output : TDLLParameter): TForm;stdcall;    
@@ -33,7 +33,7 @@ const
 
   function ShowInsigniaRegister(
     _MainApp: TApplication; _DBConn: TJvUIBDataBase;
-    _Type: TShowWindowType; _Parameter: String):TForm; external InsignigReg name 'Execute';
+    _Type: TShowWindowType; _Parameter: string):TForm; external InsignigReg name 'Execute';
 
   function ShowReportGenerator(
     _MainApp: TApplication; _DBConn: TJvUIBDataBase;
@@ -41,7 +41,7 @@ const
 
   function ShowFavorRegister(
     _MainApp: TApplication; _DBConn: TJvUIBDataBase;
-    _Type: TShowWindowType; _Parameter: String):TForm; external FavorReg name 'Execute';
+    _Type: TShowWindowType; _Parameter: string):TForm; external FavorReg name 'Execute';
 
   function SelectFund(_MainApp: TApplication; _DBConn: TJvUIBDataBase;
   _Type: TShowWindowType; _Parameter: TDLLParameter; out _Output : TDLLParameter): TForm;  external FndUtils name 'SelectFund';

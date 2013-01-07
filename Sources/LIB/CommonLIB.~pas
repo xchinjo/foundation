@@ -178,6 +178,7 @@ function UnixToDateTime(USec: Longint): TDateTime;
 
 function getBookBankID(_cds:TClientDataSet;objcode:string):String;
 function getUserFullName(_cds:TClientDataSet;UID:string):String;
+function getDonationsPointName(_cds:TClientDataSet;cde:string):String;
 
 procedure initDataset(frm:TForm;_conn:TSQLConnection);
 procedure initDatasetA(frm:TForm;_conn:TSQLConnection;_cds:TClientDataSet);
@@ -496,6 +497,27 @@ function getUserFullName(_cds:TClientDataSet;UID:string):String;
       if recordcount>0 then
       begin
         rep:=trim(FieldByName('us_name').AsString);
+      end;
+
+      Result:=rep;
+    end;
+
+  end;
+
+function getDonationsPointName(_cds:TClientDataSet;cde:string):String;
+  var
+      rep:string;
+  begin
+
+    with _cds do
+    begin
+      close;
+      CommandText:='select MTTCDE,MTTDES from MTTCDE where MTTGRP=''FRONT'' and MTTACT=''A'' and MTTCDE='''+cde+'''';
+      open;
+
+      if recordcount>0 then
+      begin
+        rep:=trim(FieldByName('MTTDES').AsString);
       end;
 
       Result:=rep;

@@ -644,6 +644,8 @@ begin
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
 
   dllParams.ReportCode:='RPT01002';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;  
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 {
   Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));

@@ -1,3 +1,11 @@
+{ *********************************************************************** }
+{                                                                         }
+{ The Bantung Software  Runtime Library                                   }
+{ Bantung - Common Utility Library                                 }
+{                                                                         }
+{ Copyright (c) 2012 Bantung Software Co., Ltd.                           }
+{                                                                         }
+{ *********************************************************************** }
 unit CommonUtils;
 
 interface
