@@ -90,7 +90,7 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=..\..\bin\ngf
+OutputDir=..\..\bin
 UnitOutputDir=..\..\Compiled Units
 PackageDLLOutputDir=
 PackageDCPOutputDir=
@@ -115,7 +115,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=0
 Release=1
-Build=56
+Build=57
 Debug=0
 PreRelease=0
 Special=0
@@ -126,7 +126,7 @@ CodePage=874
 [Version Info Keys]
 CompanyName=The Computer Research Group Company Limited
 FileDescription=NGF Role Manager
-FileVersion=1.0.1.56
+FileVersion=1.0.1.57
 InternalName=Role Manager
 LegalCopyright=(C) 2005, CRG Software Co., Ltd.
 LegalTrademarks=The CRG Software
@@ -139,15 +139,20 @@ Written By=Montri Patchaiyo (thecrgrt@yahoo.com, thecrgrt@gmail.com)
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=1
-Item0=L:\
+Count=3
+Item0=..\..\..\libraries
+Item1=..\..\libraries
+Item2=L:\
 [HistoryLists\hlUnitOutputDirectory]
-Count=2
+Count=3
 Item0=..\..\Compiled Units
-Item1=S:\NFS\Compiled Units
+Item1=..\..\..\Compiled Units
+Item2=S:\NFS\Compiled Units
 [HistoryLists\hlOutputDirectorry]
-Count=4
-Item0=..\..\bin\ngf
-Item1=bin\
-Item2=P:\NFS\Insurance\Setup
-Item3=E:\Temp
+Count=6
+Item0=..\..\bin
+Item1=..\..\..\bin
+Item2=..\..\bin\ngf
+Item3=bin\
+Item4=P:\NFS\Insurance\Setup
+Item5=E:\Temp

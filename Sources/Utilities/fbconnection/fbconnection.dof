@@ -90,7 +90,7 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=..\..\..\bin\ngf
+OutputDir=..\..\..\bin
 UnitOutputDir=..\..\..\Compiled Units
 PackageDLLOutputDir=
 PackageDCPOutputDir=
@@ -115,7 +115,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=0
 Release=0
-Build=72
+Build=73
 Debug=0
 PreRelease=0
 Special=0
@@ -126,7 +126,7 @@ CodePage=874
 [Version Info Keys]
 CompanyName=NullSoft Co.,Ltd
 FileDescription=Database Connection Manager for Firebird
-FileVersion=1.0.0.72
+FileVersion=1.0.0.73
 InternalName=fconnection.dll
 LegalCopyright=NullSoft Co.,Ltd
 LegalTrademarks=NullSoft Co.,Ltd
@@ -135,26 +135,24 @@ ProductName=Database Connection Manager for Firebird
 ProductVersion=1.0.0.0
 Comments=Provides function to manage a database connection for Firebird RDBMS
 Written By=NullSoft Co.,Ltd
-[Excluded Packages]
-C:\Program Files\Borland\Delphi7\Projects\Bpl\dxSkinscxPCPainterD7.bpl=ExpressSkins Library Painter for PageControl by Developer Express Inc.
-C:\Program Files\Borland\Delphi7\Projects\Bpl\dxSkinscxSchedulerPainterD7.bpl=ExpressSkins Library Painter for Scheduler by Developer Express Inc.
-C:\Program Files\Borland\Delphi7\Projects\Bpl\dxSkinsdxDLPainterD7.bpl=ExpressSkins Library Painter for Docking Library by Developer Express Inc.
-C:\Program Files\Borland\Delphi7\Projects\Bpl\dxSkinsdxBarPainterD7.bpl=ExpressSkins Library Painter for Bars by Developer Express Inc.
-C:\Program Files\Borland\Delphi7\Projects\Bpl\dxSkinsdxNavBarPainterD7.bpl=ExpressSkins Library Painter for NavBar by Developer Express Inc.
-C:\Program Files\Borland\Delphi7\Projects\Bpl\dcldxPSdxLCLnkD7.bpl=ExpressPrinting System ReportLink for ExpressLayoutControl by Developer Express Inc.
 [HistoryLists\hlUnitAliases]
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=1
-Item0=L:\
+Count=3
+Item0=..\..\..\libraries
+Item1=..\..\libraries
+Item2=L:\
 [HistoryLists\hlUnitOutputDirectory]
-Count=2
+Count=3
 Item0=..\..\Compiled Units
-Item1=S:\NFS\Compiled Units
+Item1=..\..\..\Compiled Units
+Item2=S:\NFS\Compiled Units
 [HistoryLists\hlOutputDirectorry]
-Count=4
-Item0=..\..\bin\ngf
-Item1=bin\
-Item2=P:\NFS\Insurance\Setup
-Item3=E:\Temp
+Count=6
+Item0=..\..\bin
+Item1=..\..\..\bin
+Item2=..\..\bin\ngf
+Item3=bin\
+Item4=P:\NFS\Insurance\Setup
+Item5=E:\Temp

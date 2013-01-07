@@ -9,34 +9,16 @@ MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
 DCC = $(ROOT)\bin\dcc32.exe $**
 BRCC = $(ROOT)\bin\brcc32.exe $**
 #------------------------------------------------------------------------------
-PROJECTS = starter.exe menuseditor.dll crgabout.dll about.dll grantpermit.dll \
-  licensed.dll fbconnection.dll nsec.dll fctrlversion.dll roleman.dll orgman.dll \
-  crgextfunc.dll fshow.dll misceditor.dll menu.exe fbuserman.dll config.exe \
-  crglangmgr.dll finmgrapp.dll langeditor.dll cif_cus.dll dlgbox.dll fin_app.exe \
-  cif_acc.dll StopWatchApp.exe FilelistCreater.exe Insignia.dll InsigniaReg.dll \
-  donations.dll Favor.dll mttObjective.dll FavorReg.dll EndPeroid.dll \
-  runmydll32.exe projects.dll backoffice.dll FndUtils.dll reports.dll RGLib.dll \
-  dnoinquiry.dll Endorsee.dll EndMonth.dll UserMan.dll
+PROJECTS = grantpermit.dll fbconnection.dll nsec.dll fshow.dll menu.exe \
+  StopWatchApp.exe FilelistCreater.exe Insignia.dll InsigniaReg.dll donations.dll \
+  Favor.dll mttObjective.dll FavorReg.dll EndPeroid.dll runmydll32.exe \
+  projects.dll backoffice.dll FndUtils.dll reports.dll RGLib.dll dnoinquiry.dll \
+  Endorsee.dll EndMonth.dll UserMan.dll
 #------------------------------------------------------------------------------
 default: $(PROJECTS)
 #------------------------------------------------------------------------------
 
-starter.exe: Starter\starter.dpr
-  $(DCC)
-
-menuseditor.dll: Menus\Manager\menuseditor.dpr
-  $(DCC)
-
-crgabout.dll: AboutApplicationLoader\crgabout.dpr
-  $(DCC)
-
-about.dll: AboutProgram\about.dpr
-  $(DCC)
-
 grantpermit.dll: GrantManager\grantpermit.dpr
-  $(DCC)
-
-licensed.dll: appl_licensed\licensed.dpr
   $(DCC)
 
 fbconnection.dll: Utilities\fbconnection\fbconnection.dpr
@@ -45,52 +27,10 @@ fbconnection.dll: Utilities\fbconnection\fbconnection.dpr
 nsec.dll: Utilities\nsec\nsec.dpr
   $(DCC)
 
-fctrlversion.dll: Utilities\fctrlversion\fctrlversion.dpr
-  $(DCC)
-
-roleman.dll: UserRoleManager\roleman.dpr
-  $(DCC)
-
-orgman.dll: Organization\orgman.dpr
-  $(DCC)
-
-crgextfunc.dll: Utilities\crgextfunc\crgextfunc.dpr
-  $(DCC)
-
 fshow.dll: Utilities\fshow\fshow.dpr
   $(DCC)
 
-misceditor.dll: misceditor\misceditor.dpr
-  $(DCC)
-
 menu.exe: Menus\launcher\menu.dpr
-  $(DCC)
-
-fbuserman.dll: Utilities\fbuserman\fbuserman.dpr
-  $(DCC)
-
-config.exe: Utilities\config\config.dpr
-  $(DCC)
-
-crglangmgr.dll: Utilities\langman\crglangmgr.dpr
-  $(DCC)
-
-finmgrapp.dll: Application\finmgrapp.dpr
-  $(DCC)
-
-langeditor.dll: langeditor\langeditor.dpr
-  $(DCC)
-
-cif_cus.dll: cif\customer\cif_cus.dpr
-  $(DCC)
-
-dlgbox.dll: Utilities\dialog\dlgbox.dpr
-  $(DCC)
-
-fin_app.exe: Application\fin_app.dpr
-  $(DCC)
-
-cif_acc.dll: cif\account\cif_acc.dpr
   $(DCC)
 
 StopWatchApp.exe: Utilities\StopWatch\StopWatchApp.dpr
