@@ -9,11 +9,10 @@ MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
 DCC = $(ROOT)\bin\dcc32.exe $**
 BRCC = $(ROOT)\bin\brcc32.exe $**
 #------------------------------------------------------------------------------
-PROJECTS = nsec.dll fshow.dll menu.exe StopWatchApp.exe FilelistCreater.exe \
-  Insignia.dll InsigniaReg.dll donations.dll Favor.dll mttObjective.dll \
-  FavorReg.dll EndPeroid.dll runmydll32.exe projects.dll backoffice.dll \
-  FndUtils.dll reports.dll RGLib.dll dnoinquiry.dll Endorsee.dll EndMonth.dll \
-  UserMan.dll fctrlversion.dll
+PROJECTS = nsec.dll fshow.dll menu.exe Insignia.dll InsigniaReg.dll \
+  donations.dll Favor.dll mttObjective.dll FavorReg.dll EndPeroid.dll \
+  runmydll32.exe projects.dll backoffice.dll FndUtils.dll reports.dll RGLib.dll \
+  dnoinquiry.dll Endorsee.dll EndMonth.dll UserMan.dll fctrlversion.dll
 #------------------------------------------------------------------------------
 default: $(PROJECTS)
 #------------------------------------------------------------------------------
@@ -25,12 +24,6 @@ fshow.dll: Utilities\fshow\fshow.dpr
   $(DCC)
 
 menu.exe: Menus\launcher\menu.dpr
-  $(DCC)
-
-StopWatchApp.exe: Utilities\StopWatch\StopWatchApp.dpr
-  $(DCC)
-
-FilelistCreater.exe: Utilities\filelist\FilelistCreater.dpr
   $(DCC)
 
 Insignia.dll: Insignia\Insignia.dpr
