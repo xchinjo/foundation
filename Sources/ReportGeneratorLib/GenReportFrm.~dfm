@@ -463,19 +463,26 @@ object frmGenReport: TfrmGenReport
     Aggregates = <>
     Params = <>
     ProviderName = 'cdsReport'
-    Left = 152
-    Top = 368
+    Left = 160
+    Top = 344
   end
   object dsRepTemp: TDataSource
     DataSet = cdsRepTemp
-    Left = 24
-    Top = 280
+    Left = 48
+    Top = 256
   end
   object CdsName: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dsp'
     Left = 392
-    Top = 384
+    Top = 336
+  end
+  object cdsTemp: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dsp'
+    Left = 112
+    Top = 88
   end
 end

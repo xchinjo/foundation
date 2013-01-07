@@ -28,7 +28,7 @@ type
   TShowWindowType = (swNone, swModal, swNormal);
 
 function Execute(_MainApp: TApplication; _DBConn: TJvUIBDataBase;
-  _Type: TShowWindowType; _Parameter: String): TForm; stdcall;
+  _Type: TShowWindowType; _Parameter: TDLLParameter): TForm; stdcall;
 begin
   //Application.Initialize;
   Result := TfrmEndPeroid.Create(_MainApp);

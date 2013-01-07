@@ -53,7 +53,7 @@ object frmEndPeroid: TfrmEndPeroid
       Top = 28
       Width = 913
       Height = 625
-      ActivePage = TabClosedPeriod
+      ActivePage = TabCurrentPeriod
       Align = alClient
       Style = tsFlatButtons
       TabOrder = 1

@@ -1147,15 +1147,15 @@ begin
     end;
 
     if edRefDate.Enabled then
-    if edRefDate.Text<>'' then
-    if not IsValidDate(edRefDate.Text) then
-    begin
-        Application.MessageBox(pchar('วันที่อ้างอิง ไม่ถูกต้อง กรุณาทำรายการใหม่'),pchar('Warning'),MB_OK or MB_ICONWARNING);
-        if edRefDate.Enabled then
-          edRefDate.SetFocus;
-        _isRecive:=true;
-        exit;
-    end;
+      if edRefDate.Text<>'' then
+        if not IsValidDate(edRefDate.Text) then
+        begin
+            Application.MessageBox(pchar('วันที่อ้างอิง ไม่ถูกต้อง กรุณาทำรายการใหม่'),pchar('Warning'),MB_OK or MB_ICONWARNING);
+            if edRefDate.Enabled then
+              edRefDate.SetFocus;
+            _isRecive:=true;
+            exit;
+        end;
 
     frmConfirm := TfrmConfirmBillNo.Create(self);
     frmConfirm.BillNO :=inttostr(BillNO);
@@ -1462,6 +1462,7 @@ begin
   edRefCode.Text:='';
   edRefDate.Text:='';
   edBankName.Text:='';
+  edAccNo.Text:='';
 
   if not IsProject then
     edRecDesc.Text:='';

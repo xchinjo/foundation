@@ -43,8 +43,15 @@ begin
       if DefaultValue<>nil then
       TfrmGenReport(Result).defaultValue:=DefaultValue;
 
+      TfrmGenReport(Result).UserID:=_Parameter.UserID;
+      TfrmGenReport(Result).Branch:=_Parameter.Branch;
+
+
       Result.FormStyle := fsNormal;
       Result.WindowState := wsNormal;
+
+
+
       Result.ShowModal;
       FreeAndNil(Result);
   end;

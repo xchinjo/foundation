@@ -1146,16 +1146,16 @@ begin
         exit;
     end;
 
-    if edRefDate.Enabled then
-    if edRefDate.Text<>'' then
-    if not IsValidDate(edRefDate.Text) then
-    begin
-        Application.MessageBox(pchar('วันที่อ้างอิง ไม่ถูกต้อง กรุณาทำรายการใหม่'),pchar('Warning'),MB_OK or MB_ICONWARNING);
-        if edRefDate.Enabled then
-          edRefDate.SetFocus;
-        _isRecive:=true;
-        exit;
-    end;
+    if ((edRefDate.Enabled) and (TString(cmbPayType.Items.Objects[cmbPayType.ItemIndex]).Str<>'28')) then
+      if edRefDate.Text<>'' then
+        if not IsValidDate(edRefDate.Text) then
+        begin
+            Application.MessageBox(pchar('วันที่อ้างอิง ไม่ถูกต้อง กรุณาทำรายการใหม่'),pchar('Warning'),MB_OK or MB_ICONWARNING);
+            if edRefDate.Enabled then
+              edRefDate.SetFocus;
+            _isRecive:=true;
+            exit;
+        end;
 
     frmConfirm := TfrmConfirmBillNo.Create(self);
     frmConfirm.BillNO :=inttostr(BillNO);

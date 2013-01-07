@@ -128,6 +128,7 @@ TString = class(TObject)
     dsRepTemp: TDataSource;
     DBGrid2: TDBGrid;
     CdsName: TClientDataSet;
+    cdsTemp: TClientDataSet;
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnOKClick(Sender: TObject);
@@ -986,6 +987,7 @@ begin
                   if showreport then
                   begin
                       frxReport.Variables['PARAM_UID'] :=QuotedStr(UserID);
+                      frxReport.Variables['PARAM_UNAME'] :=getUserFullName(cdsTemp,UserID);
                       frxReport.Variables['PARAM_REPORTID'] :=QuotedStr(reportid);
                       frxReport.PrepareReport();
                       frxReport.ShowReport();
