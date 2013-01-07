@@ -1,9 +1,16 @@
 program menu;
 
 uses
-  Windows, Messages, Forms, Tlhelp32,sysutils,
+  Windows,
+  Messages,
+  Forms,
+  Tlhelp32,
+  sysutils,
   MainForm in 'MainForm.pas' {frmMainMenu},
-  ChangPWDForm in 'ChangPWDForm.pas' {frmChangPWD};
+  ChangPWDForm in 'ChangPWDForm.pas' {frmChangPWD},
+  CommonLIB in '..\..\LIB\CommonLIB.pas',
+  CommonUtils in '..\..\LIB\CommonUtils.pas',
+  uCiaXml in '..\..\LIB\uCiaXml.pas';
 
 {$R *.RES}
 var
