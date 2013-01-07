@@ -140,7 +140,7 @@ var
 
 implementation
 
-uses uCiaXml, crgSec,CommonLIB, EditRolesFrm, CommonUtils, SelectRoleFrm,
+uses uCiaXml, nSec,CommonLIB, EditRolesFrm, CommonUtils, SelectRoleFrm,
   ChangePasswordFrm, NewUserFrm;
 
 {$R *.dfm}

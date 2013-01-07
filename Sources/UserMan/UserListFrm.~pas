@@ -116,6 +116,9 @@ type
     procedure btnRefreshClick(Sender: TObject);
     procedure BtnInactiveClick(Sender: TObject);
     procedure BtnActiveClick(Sender: TObject);
+    procedure grdUserListDBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
   private
     { Private declarations }
     procedure LoadUser ;
@@ -552,6 +555,14 @@ begin
      ExecSQL(strSQL);
 
      LoadUser;
+end;
+
+procedure TFrmUserList.grdUserListDBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
 end;
 
 end.

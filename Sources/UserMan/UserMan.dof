@@ -115,7 +115,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=0
 Release=0
-Build=31
+Build=34
 Debug=0
 PreRelease=0
 Special=0
@@ -126,7 +126,7 @@ CodePage=874
 [Version Info Keys]
 CompanyName=
 FileDescription=
-FileVersion=1.0.0.31
+FileVersion=1.0.0.34
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -144,13 +144,13 @@ Item1=..\..\libraries
 Item2=L:\
 [HistoryLists\hlUnitOutputDirectory]
 Count=3
-Item0=..\..\Compiled Units
-Item1=..\..\..\Compiled Units
+Item0=..\..\..\Compiled Units
+Item1=..\..\Compiled Units
 Item2=S:\NFS\Compiled Units
 [HistoryLists\hlOutputDirectorry]
 Count=6
-Item0=..\..\bin
-Item1=..\..\..\bin
+Item0=..\..\..\bin
+Item1=..\..\bin
 Item2=..\..\bin\ngf
 Item3=bin\
 Item4=P:\NFS\Insurance\Setup

@@ -1,9 +1,9 @@
 { *********************************************************************** }
 {                                                                         }
-{ The CRG Software Cross-Platform Runtime Library                         }
-{ CRG - File Control Manager DLL Library                                  }
+{ The Bantung Software  Runtime Library                                   }
+{ Bantung - File Control Manager DLL Library                              }
 {                                                                         }
-{ Copyright (c) 2006 CRG Software Co., Ltd.                               }
+{ Copyright (c) 2012 Bantung Software Co., Ltd.                           }
 {                                                                         }
 { *********************************************************************** }
 

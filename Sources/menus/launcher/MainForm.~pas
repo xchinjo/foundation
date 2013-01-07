@@ -171,7 +171,7 @@ var
 
 implementation
 
-uses fshow, crgSec, fbconnection, fbuserman, fctrlversion, ChangPWDForm,
+uses fshow, nSec, fctrlversion, ChangPWDForm,
   CommonLIB, CommonUtils;
 
 {$R *.dfm}
@@ -1189,37 +1189,7 @@ end;
 //************************ Chang Password Menu Click *************************//
 procedure TfrmMainMenu.mmChangePasswordClick(Sender: TObject);
 begin
-  with TfrmChangPWD.Create(Self) do
-  try
-    edUserID.Text := FUserID;
-
-    Password := FPassword;
-    edOldPassword.Enabled := True;
-
-    if ((ShowModal() = mrOK)) then
-    begin
-      trnsDefault.StartTransaction();
-      try
-        ExecSQL(
-          'UPDATE TB_USERS ' +
-          'SET ' +
-          '  USER_PWD = ' + QuotedStr(EncryptEx(edPassword1.Text)) + ', ' +
-          '  STATUS = 0 ' +
-          'WHERE ' +
-          '  USER_ID = ' + QuotedStr(FUserID));
-
-        ChangePassword(FUserID, edPassword1.Text);
-        dbcDefault.PassWord := edPassword1.Text;
-      except
-        trnsDefault.Rollback();
-      end;
-
-      if (trnsDefault.InTransaction) then
-        trnsDefault.Commit();
-    end;
-  finally
-    Free();
-  end;
+ //
 end;
 
 procedure TfrmMainMenu.mmLanguageThaiClick(Sender: TObject);
@@ -1249,45 +1219,16 @@ begin
   _ShowLicensedBox('Application Loader');
 end;
 
-//******************* About Application Loader Menu Click ********************//
-procedure AboutBox(Title, Msg: PChar); stdcall external 'crgabout' name 'AboutBox';
 
 procedure TfrmMainMenu.mmAboutAppLoaderClick(Sender: TObject);
-const
-  _CR = #13;
 begin
-  AboutBox(
-    'CRG Main Menu',
-    PChar(
-      'Application Loader Version: ' +
-      GetFileVerionString(Application.ExeName) + _CR +
-      'Main Menu is a centralized controlling and loading'+ _CR +
-      'for any application.' + _CR +
-      _CR +
-      'The THUNDERBIRD name was derived form PHOENIX' + _CR +
-      'but its was built from scratch.' + _CR +
-      _CR +
-      'In associated with:' + _CR +
-      'The Computer Research Group.' + _CR +
-      'The CRG, The CRG RT , The CRG Software is' + _CR +
-      'trade mark of the CRG Software Co., Ltd.'));
+//
 end;
 
 //************************ About Program Menu Click **************************//
 procedure TfrmMainMenu.mmAboutProgramClick(Sender: TObject);
-var
-  _Handle: THandle;
-  _AboutProc: TProcedure; 
 begin
-  _Handle := LoadLibrary('about.dll');
-  if (_Handle <> 0) then
-  try
-    _AboutProc := GetProcAddress(_Handle, 'AboutBox');
-    if(Assigned(_AboutProc)) then
-      _AboutProc();
-  finally
-    FreeLibrary(_Handle);
-  end;
+
 end;
 
 //***************************** Close Menu Click *****************************//
@@ -1299,41 +1240,6 @@ end;
 //************************** SignOn OK Button Click **************************//
 procedure TfrmMainMenu.btnSignOnClick(Sender: TObject);
 
-  function ChangPWD(): Boolean;
-  begin
-    with TfrmChangPWD.Create(Self) do
-    try
-      edUserID.Text := FUserID;
-
-      Result := (ShowModal() = mrOK);
-      if (Result) then
-      begin
-        FPassword := edPassword1.Text;;
-        Self.edPassword.Text := FPassword;
-        dbcDefault.PassWord := FPassword;
-
-        trnsDefault.StartTransaction();
-        try
-          ExecSQL(
-            'UPDATE TB_USERS ' +
-            'SET ' +
-            '  USER_PWD = ' + QuotedStr(EncryptEx(FPassword)) + ', ' +
-            '  STATUS = 0 ' +
-            'WHERE ' +
-            '  USER_ID = ' + QuotedStr(FUserID));
-
-          ChangePassword(FUserID, FPassword);
-        except
-          trnsDefault.Rollback();
-        end;
-
-        if (trnsDefault.InTransaction) then
-          trnsDefault.Commit();
-      end;
-    finally
-      Free();
-    end;
-  end;
 
 var
   _Msg: String;
@@ -1355,7 +1261,7 @@ begin
   with cdsLogin do
   begin
     close;
-    CommandText:='select * from user_account where us_user='''+Trim(edUserID.Text)+''' and us_password='''+EncryptEx(trim(edPassword.Text))+'''';
+    CommandText:='select * from user_account where us_user='''+Trim(edUserID.Text)+''' and us_password='''+EncryptEx(trim(edPassword.Text))+''' and us_status=''A'' ';
     open;
 
     if cdsLogin.Active then

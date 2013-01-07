@@ -171,7 +171,7 @@ var
 
 implementation
 
-uses fshow, crgSec, fbconnection, fbuserman, fctrlversion, ChangPWDForm,
+uses fshow, nSec, fctrlversion, ChangPWDForm,
   CommonLIB, CommonUtils;
 
 {$R *.dfm}
@@ -906,47 +906,10 @@ end;
 
 procedure TfrmMainMenu.FormCreate(Sender: TObject);
 begin
-  if (not FileExists('licensed.dll')) then
-  begin
-    Application.MessageBox(
-      PChar(
-        'License file not found!!!'#10#10#13 +
-        'Problem:'#10#13 +
-        'File "license.rtf" was not found on current working directory.'#10#13+
-        'Application loader is a freely used software under the licensed agreement ' +
-        'and cannot be ran without licensed file, ' +
-        'thereby license file is must be always existed on this system.'#10#10#13 +
-        'Work around:'#10#13 +
-        'Please make sure the license file was already existed on current ' +
-        'working directory before your application loader is started.'#10#13 +
-        'You can copy this file from another machine and put it into your path, ' +
-        'the license file can be shared with one another for any machine.'),
-      'Application Loader - License Error', MB_OK or MB_ICONERROR);
-
-    Application.Terminate();
-    Exit;
-  end;
-
   initSqlConnection(Conn);
   initDataset(self,Conn);
-
-
   _LoadLibraries();
 
-  {
-  if (not _IsAcceptAgreement()) then
-  begin
-    _ShowLicensedBox('Application Loader');
-
-    if (not _IsAcceptAgreement()) then
-    begin
-      Application.Terminate();
-      Exit;
-    end;
-  end;
-  }
-
-  (*FAboutProgramText := LoadAboutData(mmS3, mmAboutAppLoader);  *)
 
   Left := 0; Top := 0;
 
@@ -1007,12 +970,7 @@ begin
 
   //edCtrlVerSvr.Text := dbcFileCtrlVersion.DatabaseName;
 
-  FMenusLanguage := GetMenuLanguage();
-  if (FMenusLanguage = '') then
-  begin
-    FMenusLanguage := 'THA';
-    SetMenuLanguage(FMenusLanguage);
-  end;
+
 (*
   mmLanguageThai.Checked := (FMenusLanguage = 'THA');
   mmLanguageEnglish.Checked := (FMenusLanguage = 'ENG');
@@ -1189,37 +1147,7 @@ end;
 //************************ Chang Password Menu Click *************************//
 procedure TfrmMainMenu.mmChangePasswordClick(Sender: TObject);
 begin
-  with TfrmChangPWD.Create(Self) do
-  try
-    edUserID.Text := FUserID;
-
-    Password := FPassword;
-    edOldPassword.Enabled := True;
-
-    if ((ShowModal() = mrOK)) then
-    begin
-      trnsDefault.StartTransaction();
-      try
-        ExecSQL(
-          'UPDATE TB_USERS ' +
-          'SET ' +
-          '  USER_PWD = ' + QuotedStr(EncryptEx(edPassword1.Text)) + ', ' +
-          '  STATUS = 0 ' +
-          'WHERE ' +
-          '  USER_ID = ' + QuotedStr(FUserID));
-
-        ChangePassword(FUserID, edPassword1.Text);
-        dbcDefault.PassWord := edPassword1.Text;
-      except
-        trnsDefault.Rollback();
-      end;
-
-      if (trnsDefault.InTransaction) then
-        trnsDefault.Commit();
-    end;
-  finally
-    Free();
-  end;
+ //
 end;
 
 procedure TfrmMainMenu.mmLanguageThaiClick(Sender: TObject);
@@ -1237,7 +1165,6 @@ begin
   if (mmLanguageEnglish.Checked) then
     FMenusLanguage := 'ENG';
   *)
-  SetMenuLanguage(FMenusLanguage);
 
   for i := 0 to (Screen.FormCount - 1) do
     PostMessage(Screen.Forms[i].Handle, WM_LANGUAGE_CHANGED, 0, 0);
@@ -1249,45 +1176,16 @@ begin
   _ShowLicensedBox('Application Loader');
 end;
 
-//******************* About Application Loader Menu Click ********************//
-procedure AboutBox(Title, Msg: PChar); stdcall external 'crgabout' name 'AboutBox';
 
 procedure TfrmMainMenu.mmAboutAppLoaderClick(Sender: TObject);
-const
-  _CR = #13;
 begin
-  AboutBox(
-    'CRG Main Menu',
-    PChar(
-      'Application Loader Version: ' +
-      GetFileVerionString(Application.ExeName) + _CR +
-      'Main Menu is a centralized controlling and loading'+ _CR +
-      'for any application.' + _CR +
-      _CR +
-      'The THUNDERBIRD name was derived form PHOENIX' + _CR +
-      'but its was built from scratch.' + _CR +
-      _CR +
-      'In associated with:' + _CR +
-      'The Computer Research Group.' + _CR +
-      'The CRG, The CRG RT , The CRG Software is' + _CR +
-      'trade mark of the CRG Software Co., Ltd.'));
+//
 end;
 
 //************************ About Program Menu Click **************************//
 procedure TfrmMainMenu.mmAboutProgramClick(Sender: TObject);
-var
-  _Handle: THandle;
-  _AboutProc: TProcedure; 
 begin
-  _Handle := LoadLibrary('about.dll');
-  if (_Handle <> 0) then
-  try
-    _AboutProc := GetProcAddress(_Handle, 'AboutBox');
-    if(Assigned(_AboutProc)) then
-      _AboutProc();
-  finally
-    FreeLibrary(_Handle);
-  end;
+
 end;
 
 //***************************** Close Menu Click *****************************//
@@ -1299,41 +1197,6 @@ end;
 //************************** SignOn OK Button Click **************************//
 procedure TfrmMainMenu.btnSignOnClick(Sender: TObject);
 
-  function ChangPWD(): Boolean;
-  begin
-    with TfrmChangPWD.Create(Self) do
-    try
-      edUserID.Text := FUserID;
-
-      Result := (ShowModal() = mrOK);
-      if (Result) then
-      begin
-        FPassword := edPassword1.Text;;
-        Self.edPassword.Text := FPassword;
-        dbcDefault.PassWord := FPassword;
-
-        trnsDefault.StartTransaction();
-        try
-          ExecSQL(
-            'UPDATE TB_USERS ' +
-            'SET ' +
-            '  USER_PWD = ' + QuotedStr(EncryptEx(FPassword)) + ', ' +
-            '  STATUS = 0 ' +
-            'WHERE ' +
-            '  USER_ID = ' + QuotedStr(FUserID));
-
-          ChangePassword(FUserID, FPassword);
-        except
-          trnsDefault.Rollback();
-        end;
-
-        if (trnsDefault.InTransaction) then
-          trnsDefault.Commit();
-      end;
-    finally
-      Free();
-    end;
-  end;
 
 var
   _Msg: String;

@@ -9,20 +9,14 @@ MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
 DCC = $(ROOT)\bin\dcc32.exe $**
 BRCC = $(ROOT)\bin\brcc32.exe $**
 #------------------------------------------------------------------------------
-PROJECTS = grantpermit.dll fbconnection.dll nsec.dll fshow.dll menu.exe \
-  StopWatchApp.exe FilelistCreater.exe Insignia.dll InsigniaReg.dll donations.dll \
-  Favor.dll mttObjective.dll FavorReg.dll EndPeroid.dll runmydll32.exe \
-  projects.dll backoffice.dll FndUtils.dll reports.dll RGLib.dll dnoinquiry.dll \
-  Endorsee.dll EndMonth.dll UserMan.dll
+PROJECTS = nsec.dll fshow.dll menu.exe StopWatchApp.exe FilelistCreater.exe \
+  Insignia.dll InsigniaReg.dll donations.dll Favor.dll mttObjective.dll \
+  FavorReg.dll EndPeroid.dll runmydll32.exe projects.dll backoffice.dll \
+  FndUtils.dll reports.dll RGLib.dll dnoinquiry.dll Endorsee.dll EndMonth.dll \
+  UserMan.dll fctrlversion.dll
 #------------------------------------------------------------------------------
 default: $(PROJECTS)
 #------------------------------------------------------------------------------
-
-grantpermit.dll: GrantManager\grantpermit.dpr
-  $(DCC)
-
-fbconnection.dll: Utilities\fbconnection\fbconnection.dpr
-  $(DCC)
 
 nsec.dll: Utilities\nsec\nsec.dpr
   $(DCC)
@@ -88,6 +82,9 @@ EndMonth.dll: EndMonth\EndMonth.dpr
   $(DCC)
 
 UserMan.dll: UserMan\UserMan.dpr
+  $(DCC)
+
+fctrlversion.dll: Utilities\fctrlversion\fctrlversion.dpr
   $(DCC)
 
 

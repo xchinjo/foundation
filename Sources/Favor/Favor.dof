@@ -144,13 +144,13 @@ Item1=..\..\libraries
 Item2=L:\
 [HistoryLists\hlUnitOutputDirectory]
 Count=3
-Item0=..\..\Compiled Units
-Item1=..\..\..\Compiled Units
+Item0=..\..\..\Compiled Units
+Item1=..\..\Compiled Units
 Item2=S:\NFS\Compiled Units
 [HistoryLists\hlOutputDirectorry]
 Count=6
-Item0=..\..\bin
-Item1=..\..\..\bin
+Item0=..\..\..\bin
+Item1=..\..\bin
 Item2=..\..\bin\ngf
 Item3=bin\
 Item4=P:\NFS\Insurance\Setup

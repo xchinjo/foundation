@@ -1,9 +1,9 @@
 { *********************************************************************** }
 {                                                                         }
-{ The CRG Software Cross-Platform Runtime Library                         }
-{ CRG - Form Show Manager DLL Library                                     }
+{ The Bantung Software  Runtime Library                                   }
+{ Bantung - Form Show Manager DLL Library                                 }
 {                                                                         }
-{ Copyright (c) 2006 CRG Software Co., Ltd.                               }
+{ Copyright (c) 2012 Bantung Software Co., Ltd.                           }
 {                                                                         }
 { *********************************************************************** }
 
