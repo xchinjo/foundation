@@ -182,6 +182,8 @@ type
     cdsCheckBillNo: TClientDataSet;
     cdsBookBank: TClientDataSet;
     cdsObjAcc: TClientDataSet;
+    Label21: TLabel;
+    edAccNo: TRzEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -491,6 +493,7 @@ begin
     edBankBranch.Enabled:=false;
 //    edRecDate.Enabled:=false;
     edRefCode.Enabled:=false;
+    edAccNo.Enabled := false;
      edRefDate.Enabled:=false;
     edRefDate.Enabled:=false;
    // edRecDesc.Enabled:=false;
@@ -503,6 +506,7 @@ begin
     edBankBranch.Enabled:=false;
 //    edRecDate.Enabled:=false;
     edRefCode.Enabled:=true;
+    edAccNo.Enabled:=true;
     edRefDate.Enabled:=true;
     edRecDesc.Enabled:=true;
  end;
@@ -514,6 +518,7 @@ begin
     edBankBranch.Enabled:=false;
 //    edRecDate.Enabled:=false;
     edRefCode.Enabled:=true;
+    edAccNo.Enabled:=true;
     edRefDate.Enabled:=true;
     edRecDesc.Enabled:=true;
  end else
@@ -525,6 +530,7 @@ begin
     edBankBranch.Enabled:=true;
 //    edRecDate.Enabled:=true;
     edRefCode.Enabled:=true;
+    edAccNo.Enabled:=true;
     edRefDate.Enabled:=true;
     edRecDesc.Enabled:=true;
  end else
@@ -534,9 +540,10 @@ begin
     btnSelectBank.Enabled:=true;
     edBankName.Enabled:=true;
     edBankBranch.Enabled:=true;
-    edRecDate.Enabled:=true;
+//    edRecDate.Enabled:=true;
     edRefCode.Enabled:=true;
-    edRefDate.Enabled:=false;
+    edAccNo.Enabled:=true;
+    edRefDate.Enabled:=true;
     edRecDesc.Enabled:=true;
  end;
 
@@ -577,7 +584,7 @@ begin
               begin
                 edBank.Text     := cdsTemp.fieldbyname('BankCode').AsString;
                 edBankBranch.Text := cdsTemp.fieldbyname('BankBrchName').AsString;
-                edRefCode.Text  := cdsTemp.fieldbyname('BookNo').AsString;
+                edAccNo.Text := cdsTemp.fieldbyname('BookNo').AsString;
 
                 btnSelectBankClick(sender);
               end;
@@ -652,14 +659,17 @@ end;
 
 procedure TfrmReceive.btnSelectBankClick(Sender: TObject);
 var frm:TfrmSelectBank;
+    UseAccBnkCode : boolean;
 begin
+  UseAccBnkCode := (TString(cmbPayType.Items.Objects[cmbPayType.ItemIndex]).Str<>'28');
+
   with cdsBankCode do
   begin
-
-
     close;
-    //CommandText:='select * from bank_code where bk_code ='''+trim(edBank.Text)+'''';
-    CommandText:='select Bankid,bankcode,bankname from san$BANK where  bankcode='''+UpperCase(trim(edBank.Text))+''' and  bankid not in (''1011'',''1014'')';
+    if not UseAccBnkCode then
+      CommandText:='select bk_code as bankid,bk_code as bankcode,bk_title as bankname from bank_code where bk_code ='''+trim(edBank.Text)+''''
+    else
+      CommandText:='select Bankid,bankcode,bankname from san$BANK where  bankcode='''+UpperCase(trim(edBank.Text))+''' and  bankid not in (''1011'',''1014'')';
     open;
     if recordcount>0 then
     begin
@@ -676,8 +686,10 @@ begin
     end else
       begin
       close;
-//      CommandText:='select * from bank_code where bk_code like '''+trim(edBank.Text)+'%''';
-        CommandText:='select Bankid,bankcode,bankname from san$BANK where  bankcode like '''+UpperCase(trim(edBank.Text))+'%'' and  bankid not in (''1011'',''1014'')';
+        if not UseAccBnkCode then
+          CommandText:='select bk_code as bankid,bk_code as bankcode,bk_title as bankname from bank_code where bk_code like '''+trim(edBank.Text)+'%'''
+        else
+          CommandText:='select Bankid,bankcode,bankname from san$BANK where  bankcode like '''+UpperCase(trim(edBank.Text))+'%'' and  bankid not in (''1011'',''1014'')';
 
       open;
 

@@ -685,7 +685,13 @@ begin
   with FMainForm.cdsRoyalHistory do
   begin
     close;
-//    CommandText:='';
+    CommandText:=''+
+     ' select '+
+     '   a.ryid,a.ryappdoc,a.ryrdate,a.ryrcode,b.ry_title,a.rystatus '+
+     ' from royal a '+
+     ' left join royal_code b on a.ryrcode=b.ry_code '+
+     ' where a.id='''+doid+''' ';
+
     open;
   end;
 end;

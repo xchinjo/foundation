@@ -1,6 +1,6 @@
 object frmDonatorProfile: TfrmDonatorProfile
-  Left = 200
-  Top = 41
+  Left = 241
+  Top = 62
   Width = 950
   Height = 625
   Caption = 'DonatorProfile'
@@ -1663,6 +1663,7 @@ object frmDonatorProfile: TfrmDonatorProfile
             end
             object cxGridDBTableView2rystatus: TcxGridDBColumn
               Caption = #3626#3606#3634#3609#3632
+              Visible = False
               Width = 100
               DataBinding.FieldName = 'rystatus'
             end
@@ -1852,6 +1853,7 @@ object frmDonatorProfile: TfrmDonatorProfile
             end
             object cxGridDBTableView4spstatus: TcxGridDBColumn
               Caption = #3626#3606#3634#3609#3632
+              Visible = False
               Width = 80
               DataBinding.FieldName = 'spstatus'
             end

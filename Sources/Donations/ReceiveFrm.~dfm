@@ -634,6 +634,23 @@ object frmReceive: TfrmReceive
           ParentFont = False
           Layout = tlCenter
         end
+        object Label21: TLabel
+          Left = 615
+          Top = 168
+          Width = 100
+          Height = 22
+          AutoSize = False
+          Caption = ' '#3648#3621#3586#3607#3637#3656#3610#3633#3597#3594#3637
+          Color = clSilver
+          Font.Charset = THAI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+          Layout = tlCenter
+        end
         object btnAddObjective: TRzBitBtn
           Left = 2
           Top = 242
@@ -1299,6 +1316,24 @@ object frmReceive: TfrmReceive
           TabOrder = 21
           Text = '  /  /    '
           OnKeyDown = edRefDateKeyDown
+        end
+        object edAccNo: TRzEdit
+          Left = 719
+          Top = 167
+          Width = 162
+          Height = 22
+          Ctl3D = False
+          Enabled = False
+          Font.Charset = THAI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          FocusColor = 16766975
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 22
+          OnKeyDown = edRefCodeKeyDown
         end
       end
       object RzPanel1: TRzPanel
