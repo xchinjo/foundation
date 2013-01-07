@@ -182,8 +182,11 @@ insert into   donator (
       ,[do_mu1]
       ,[do_soi1]
       ,[do_street1]
+      ,[do_tamboncode1]       
       ,[do_tambon1]
+      ,[do_amphorcode1]
       ,[do_amphor1]
+      ,[do_provincecode1] 
       ,[do_province1]
       ,[do_zipcode1]
       ,[do_remark1]
@@ -191,21 +194,52 @@ insert into   donator (
       ,[do_mu2]
       ,[do_soi2]
       ,[do_street2]
+      ,[do_tamboncode2]      
       ,[do_tambon2]
+      ,[do_amphorcode2]
       ,[do_amphor2]
+      ,[do_provincecode2] 
       ,[do_province2]
       ,[do_zipcode2]
       ,[do_remark2]
       ,[do_entrydate]
       ,[do_occupat]
 )
+-- select * from lookup_code where code_type='41'
+-- select * from lookup_code where code_type='42'
 select b.MTTCDE,[id],[prename],[name],[fname]
 	  --,[birth]
 	  ,[telephone],[mobile],[total],[contact]
-      ,[pid],[email],[addr],[mu],[soi],[street],[subdist],[district],[province],[zip]
-      ,[remark],[addr2],[mu2],[soi2],[street2],[subdist2],[district2],[province2]
+      ,[pid],[email],[addr],[mu],[soi],[street],e.code1,[subdist],d.code1,[district],c.code1,[province],[zip]
+      ,a.[remark],[addr2],[mu2],[soi2],[street2],f.code1,[subdist2],g.code1,[district2],f.code1,[province2]
       ,[zip2],[remark2],[date_en],[occupat]
 from pgdb.dbo.foundation a
 left join  MTTCDE b on ltrim(rtrim(a.prename))=ltrim(rtrim(b.MTTDES)) and b.MTTGRP='PRENAME'
+left join (
+	select * from lookup_code  where code_type='40'
+) as c  on ltrim(rtrim(a.province))=ltrim(rtrim(c.describe))   -- province
+left join 
+(
+	select * from lookup_code dd where code_type='41'  
+) 
+as d  on ltrim(rtrim(a.district))=ltrim(rtrim(d.describe)) and LEFT(d.code1,2)=c.code1  -- district
+left join (
+	select * from lookup_code where code_type='42'
+) as e  on ltrim(rtrim(a.subdist))=ltrim(rtrim(d.describe)) and LEFT(d.code1,4)=e.code1    -- sub district
 
+
+left join (
+	select * from lookup_code  where code_type='40'
+) as f  on ltrim(rtrim(a.province2))=ltrim(rtrim(f.describe))   -- province
+left join 
+(
+	select * from lookup_code dd where code_type='41'  
+) 
+as g  on ltrim(rtrim(a.district2))=ltrim(rtrim(g.describe)) and LEFT(g.code1,2)=f.code1  -- district
+left join (
+	select * from lookup_code where code_type='42'
+) as h  on ltrim(rtrim(a.subdist2))=ltrim(rtrim(h.describe)) and LEFT(g.code1,4)=h.code1    -- sub district
+
+
+-- 38037
 
