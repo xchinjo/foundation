@@ -652,6 +652,7 @@ begin
 
               if (Assigned(FProgramsItemInfo[_Item].MainFormHandle))  then
               begin
+                FProgramsItemInfo[_Item].MainFormHandle.Caption:=FProgramsItemInfo[_Item].Description;
                 xTab.Tabs.AddObject(FProgramsItemInfo[_Item].Description, TObject(FProgramsItemInfo[_Item].MainFormHandle));
                 xTab.ActiveTab := -1 + xTab.Tabs.Count;
 

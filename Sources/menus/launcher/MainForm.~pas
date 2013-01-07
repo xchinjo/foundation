@@ -906,47 +906,10 @@ end;
 
 procedure TfrmMainMenu.FormCreate(Sender: TObject);
 begin
-  if (not FileExists('licensed.dll')) then
-  begin
-    Application.MessageBox(
-      PChar(
-        'License file not found!!!'#10#10#13 +
-        'Problem:'#10#13 +
-        'File "license.rtf" was not found on current working directory.'#10#13+
-        'Application loader is a freely used software under the licensed agreement ' +
-        'and cannot be ran without licensed file, ' +
-        'thereby license file is must be always existed on this system.'#10#10#13 +
-        'Work around:'#10#13 +
-        'Please make sure the license file was already existed on current ' +
-        'working directory before your application loader is started.'#10#13 +
-        'You can copy this file from another machine and put it into your path, ' +
-        'the license file can be shared with one another for any machine.'),
-      'Application Loader - License Error', MB_OK or MB_ICONERROR);
-
-    Application.Terminate();
-    Exit;
-  end;
-
   initSqlConnection(Conn);
   initDataset(self,Conn);
-
-
   _LoadLibraries();
 
-  {
-  if (not _IsAcceptAgreement()) then
-  begin
-    _ShowLicensedBox('Application Loader');
-
-    if (not _IsAcceptAgreement()) then
-    begin
-      Application.Terminate();
-      Exit;
-    end;
-  end;
-  }
-
-  (*FAboutProgramText := LoadAboutData(mmS3, mmAboutAppLoader);  *)
 
   Left := 0; Top := 0;
 
@@ -1007,12 +970,7 @@ begin
 
   //edCtrlVerSvr.Text := dbcFileCtrlVersion.DatabaseName;
 
-  FMenusLanguage := GetMenuLanguage();
-  if (FMenusLanguage = '') then
-  begin
-    FMenusLanguage := 'THA';
-    SetMenuLanguage(FMenusLanguage);
-  end;
+
 (*
   mmLanguageThai.Checked := (FMenusLanguage = 'THA');
   mmLanguageEnglish.Checked := (FMenusLanguage = 'ENG');
@@ -1207,7 +1165,6 @@ begin
   if (mmLanguageEnglish.Checked) then
     FMenusLanguage := 'ENG';
   *)
-  SetMenuLanguage(FMenusLanguage);
 
   for i := 0 to (Screen.FormCount - 1) do
     PostMessage(Screen.Forms[i].Handle, WM_LANGUAGE_CHANGED, 0, 0);
