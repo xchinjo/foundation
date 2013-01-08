@@ -253,9 +253,9 @@ object frmBillingInfo: TfrmBillingInfo
           Layout = tlCenter
         end
         object btnCancel: TRzBitBtn
-          Left = 451
+          Left = 536
           Top = 4
-          Width = 137
+          Width = 52
           Height = 27
           Anchors = [akTop, akRight]
           Caption = #3618#3585#3648#3621#3636#3585#3651#3610#3648#3626#3619#3655#3592
@@ -270,7 +270,25 @@ object frmBillingInfo: TfrmBillingInfo
           ParentFont = False
           TabOrder = 0
           TabStop = False
+          Visible = False
           OnClick = btnCancelClick
+        end
+        object btCancel: TRzBitBtn
+          Left = 474
+          Top = 5
+          Width = 113
+          Anchors = [akTop, akRight]
+          Caption = #3618#3585#3648#3621#3636#3585#3651#3610#3648#3626#3619#3655#3592
+          Color = 16759295
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          HotTrack = True
+          ParentFont = False
+          TabOrder = 1
+          OnClick = btCancelClick
         end
       end
       object cxGridBillDetails: TcxGrid

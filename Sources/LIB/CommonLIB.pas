@@ -672,7 +672,8 @@ var rep:integer;
     with cds do
     begin
       close;
-      CommandText:='select * from MTTCDE where MTTABR='''+abr+''' and MTTGRP='''+grp+''' and MTTCDE='''+cde+''' ';
+      //CommandText:='select * from MTTCDE where MTTABR='''+abr+''' and MTTGRP='''+grp+''' and MTTCDE='''+cde+''' ';
+      CommandText:='select * from MTTCDE where  MTTGRP='''+grp+''' and MTTCDE='''+cde+''' ';
       open;
         if recordcount>0 then
         begin
@@ -693,7 +694,8 @@ var rep:integer;
     with cds do
     begin
       close;
-      CommandText:='select * from MTTCDE where MTTABR='''+abr+''' and MTTGRP='''+grp+''' and MTTCDE='''+cde+''' ';
+      //CommandText:='select * from MTTCDE where MTTABR='''+abr+''' and MTTGRP='''+grp+''' and MTTCDE='''+cde+''' ';
+      CommandText:='select * from MTTCDE where MTTGRP='''+grp+''' and MTTCDE='''+cde+''' ';
       open;
         if recordcount>0 then
         begin
@@ -703,7 +705,8 @@ var rep:integer;
       if rep>0 then
       begin
         close;
-        CommandText:='update MTTCDE set MTTNM1='+inttostr(rep+1)+'  where MTTABR='''+abr+''' and MTTGRP='''+grp+''' and MTTCDE='''+cde+'''';
+//        CommandText:='update MTTCDE set MTTNM1='+inttostr(rep+1)+'  where MTTABR='''+abr+''' and MTTGRP='''+grp+''' and MTTCDE='''+cde+'''';
+        CommandText:='update MTTCDE set MTTNM1='+inttostr(rep+1)+'  where  MTTGRP='''+grp+''' and MTTCDE='''+cde+'''';
         Execute;
       end;
 
@@ -721,7 +724,8 @@ var rep:integer;
     with cds do
     begin
       close;
-      CommandText:='select * from MTTCDE where MTTABR='''+abr+''' and MTTGRP=''PEROID'' and MTTCDE='''+cde+''' ';
+      //CommandText:='select * from MTTCDE where MTTABR='''+abr+''' and MTTGRP=''PEROID'' and MTTCDE='''+cde+''' ';
+      CommandText:='select * from MTTCDE where MTTGRP=''PEROID'' and MTTCDE='''+cde+''' ';
       open;
         if recordcount>0 then
         begin
@@ -760,7 +764,8 @@ var rep:integer;
     with cds do
     begin
       close;
-      CommandText:='select * from MTTCDE where MTTABR='''+abr+''' and MTTGRP=''PEROID'' and MTTCDE='''+cde+''' ';
+      //CommandText:='select * from MTTCDE where MTTABR='''+abr+''' and MTTGRP=''PEROID'' and MTTCDE='''+cde+''' ';
+      CommandText:='select * from MTTCDE where  MTTGRP=''PEROID'' and MTTCDE='''+cde+''' ';
       open;
         if recordcount>0 then
         begin
@@ -770,7 +775,8 @@ var rep:integer;
       if rep>0 then
       begin
         close;
-        CommandText:='update MTTCDE set MTTNM1='+inttostr(rep+1)+'  where MTTABR='''+abr+''' and MTTGRP=''PEROID'' and MTTCDE='''+cde+'''';
+        //CommandText:='update MTTCDE set MTTNM1='+inttostr(rep+1)+'  where MTTABR='''+abr+''' and MTTGRP=''PEROID'' and MTTCDE='''+cde+'''';
+        CommandText:='update MTTCDE set MTTNM1='+inttostr(rep+1)+'  where  MTTGRP=''PEROID'' and MTTCDE='''+cde+'''';
         Execute;
       end;
 

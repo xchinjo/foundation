@@ -40,12 +40,14 @@ type
     Label5: TLabel;
     lbStatus: TLabel;
     Label4: TLabel;
+    btCancel: TRzBitBtn;
     procedure FormShow(Sender: TObject);
     procedure ListViewChange(Sender: TObject; Item: TListItem;
       Change: TItemChange);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure btnCancelClick(Sender: TObject);
+    procedure btCancelClick(Sender: TObject);
   private
     FMainForm: TfrmReceive;
     FPeriodNo: string;
@@ -127,8 +129,6 @@ begin
   if ListView.Selected<> nil then
   begin
 
-
-
     if (trim(TString(ListView.Selected.Data).Str)<>'') then
     begin
       lbBillNo.Caption:=trim(TString(ListView.Selected.Data).Str);
@@ -166,28 +166,27 @@ begin
         if cdsBillingInfo.recordcount>0 then
          begin
           cdsBillingInfo.first;
-
-          btnCancel.Enabled := (trim(cdsBillingInfo.fieldbyname('bstatus').AsString)='A');
-          if  (trim(cdsBillingInfo.fieldbyname('bstatus').AsString)='A') then
+         // ShowMessage(trim(cdsBillingInfo.fieldbyname('bstatus').AsString));
+          btnCancel.visible := (UpperCase(trim(cdsBillingInfo.fieldbyname('bstatus').AsString))='A');
+          btCancel.Enabled := (UpperCase(trim(cdsBillingInfo.fieldbyname('bstatus').AsString))='A');
+          if  (UpperCase(trim(cdsBillingInfo.fieldbyname('bstatus').AsString))='A') then
           begin
+
             lbStatus.Font.Color:=clGreen;
             lbStatus.Caption:='ใช้งาน'
           end
           else
           begin
+
             lbStatus.Font.Color:=clRed;
             lbStatus.Caption:='ยกเลิก';
           end;
-
-
 
           lbBillAmount.Caption:=FormatCurr('#,###,##0.00',cdsBillingInfo.fieldbyname('btotal').AsCurrency);
           edDonatorNameInfo.Text:=trim(cdsBillingInfo.fieldbyname('do_prename').AsString)+' '+trim(cdsBillingInfo.fieldbyname('do_name').AsString)+' '+trim(cdsBillingInfo.fieldbyname('do_lname').AsString) ;
           lbAccumulate.Caption:=FormatCurr('#,###,##0.00',cdsBillingInfo.fieldbyname('do_gtotal').AsCurrency)+' บาท';
          end;
     end;
-
-
 
   end;
 end;
@@ -211,6 +210,16 @@ end;
 procedure TfrmBillingInfo.SetcurrBillNo(const Value: string);
 begin
   FcurrBillNo := Value;
+end;
+
+procedure TfrmBillingInfo.btCancelClick(Sender: TObject);
+begin
+ if Trim(currBillNo)<>'' then
+   if MessageDlg('ยินยันการบันทึกยกเลิก',mtConfirmation,mbOKCancel,0)=mrOK then
+     begin
+       MainForm.ExecSQL('update bill set bstatus=''I'' where bno='''+currBillNo+'''');
+       //close;
+     end;
 end;
 
 end.

@@ -613,7 +613,7 @@ begin
   dtRecDate.Date:=getServerDate(cdsTemp);
 
   // first time get period no
-  FcurrPeroidNo:=getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1');
+  FcurrPeroidNo:=getPeroidNo(cdsTemp,'PEROID1',BranchCode,'MTTNM1');
   lbUserName.Caption:=getUserFullName(cdsTemp,currUserID);
   lbDonationPoint.Caption:=getDonationsPointName(cdsTemp,BranchCode);
 
@@ -1097,7 +1097,7 @@ begin
 
     _isRecive := false;
 
-    FcurrPeroidNo:=getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1');
+    FcurrPeroidNo:=getPeroidNo(cdsTemp,'PEROID1',BranchCode,'MTTNM1');
     lbPeroidNo.Caption:=FormatCurr('00000', FcurrPeroidNo);
 
     billAmount:=0;
@@ -1137,7 +1137,8 @@ begin
     end
       //BillNO := strtoint(InputBox('กำหนดเลขที่ใบเสร็จเอง','กรุณากรอกเลขที่ใบเสร็จ',''))
     else
-      BillNO:=getBillNo(cdsTemp,'FRONT1','FRONT','00','MTTNM1');
+      //BillNO:=getBillNo(cdsTemp,'FRONT1','FRONT','00','MTTNM1');
+      BillNO:=getBillNo(cdsTemp,'FRONT1','FRONT',BranchCode,'MTTNM1');
 
     if IsExistsBillNo(BillNO) then
     begin
@@ -1252,7 +1253,7 @@ begin
 
               // POST Receive
               if not ckKeyBillNo.Checked then
-              setBillNo(cdsTemp,'FRONT1','FRONT','00','MTTNM1');
+              setBillNo(cdsTemp,'FRONT1','FRONT',BranchCode,'MTTNM1');
               newDonations:=currDonations+billAmount;
               setCurrDonations(currDonatorCode,newDonations);   // accummulate donations
 

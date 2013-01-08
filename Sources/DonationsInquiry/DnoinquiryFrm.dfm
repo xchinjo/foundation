@@ -1,6 +1,6 @@
 object FrmDnoinquiry: TFrmDnoinquiry
-  Left = 168
-  Top = 100
+  Left = 326
+  Top = 83
   Width = 988
   Height = 561
   Caption = 'FrmDnoinquiry'
@@ -63,9 +63,10 @@ object FrmDnoinquiry: TFrmDnoinquiry
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      ShowShadow = False
       TabIndex = 0
       TabOrder = 1
-      TabStyle = tsSquareCorners
+      TabStyle = tsRoundCorners
       FixedDimension = 20
       object TB1: TRzTabSheet
         Caption = '     '#3619#3634#3618#3623#3633#3609'   '
@@ -73,21 +74,21 @@ object FrmDnoinquiry: TFrmDnoinquiry
           Left = 0
           Top = 0
           Width = 617
-          Height = 33
+          Height = 35
           Align = alLeft
           BorderOuter = fsNone
           TabOrder = 0
           DesignSize = (
             617
-            33)
+            35)
           object Label3: TLabel
-            Left = 8
+            Left = 3
             Top = 7
-            Width = 67
-            Height = 22
+            Width = 70
+            Height = 24
             AutoSize = False
             Caption = '  '#3623#3633#3609#3607#3637#3656
-            Color = 11579568
+            Color = clSilver
             Font.Charset = THAI_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -98,13 +99,13 @@ object FrmDnoinquiry: TFrmDnoinquiry
             Layout = tlCenter
           end
           object Label1: TLabel
-            Left = 251
+            Left = 248
             Top = 7
-            Width = 67
-            Height = 22
+            Width = 66
+            Height = 24
             AutoSize = False
             Caption = '  '#3606#3638#3591#3623#3633#3609#3607#3637#3656
-            Color = 11579568
+            Color = clSilver
             Font.Charset = THAI_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -120,16 +121,18 @@ object FrmDnoinquiry: TFrmDnoinquiry
             Width = 169
             Height = 22
             EditType = etDate
+            AutoSelect = False
             FrameVisible = True
             TabOrder = 0
             OnKeyDown = DtStartKeyDown
           end
           object DtEnd: TRzDateTimeEdit
-            Left = 319
+            Left = 313
             Top = 7
             Width = 169
-            Height = 22
+            Height = 24
             EditType = etDate
+            AutoSize = False
             FrameVisible = True
             TabOrder = 1
             OnKeyDown = DtStartKeyDown
@@ -160,8 +163,8 @@ object FrmDnoinquiry: TFrmDnoinquiry
         object RzPanel2: TRzPanel
           Left = 0
           Top = 0
-          Width = 976
-          Height = 33
+          Width = 978
+          Height = 35
           Align = alClient
           BorderOuter = fsNone
           TabOrder = 0
@@ -169,21 +172,21 @@ object FrmDnoinquiry: TFrmDnoinquiry
             Left = 0
             Top = 0
             Width = 609
-            Height = 33
+            Height = 35
             Align = alLeft
             BorderOuter = fsNone
             TabOrder = 0
             DesignSize = (
               609
-              33)
+              35)
             object Label4: TLabel
-              Left = 251
+              Left = 248
               Top = 7
-              Width = 67
-              Height = 22
+              Width = 66
+              Height = 24
               AutoSize = False
               Caption = '  '#3606#3638#3591#3591#3623#3604#3607#3637#3656
-              Color = 11579568
+              Color = clSilver
               Font.Charset = THAI_CHARSET
               Font.Color = clWindowText
               Font.Height = -12
@@ -194,13 +197,13 @@ object FrmDnoinquiry: TFrmDnoinquiry
               Layout = tlCenter
             end
             object Label2: TLabel
-              Left = 8
+              Left = 2
               Top = 7
-              Width = 67
-              Height = 22
+              Width = 70
+              Height = 24
               AutoSize = False
               Caption = '  '#3591#3623#3604#3607#3637#3656
-              Color = 11579568
+              Color = clSilver
               Font.Charset = THAI_CHARSET
               Font.Color = clWindowText
               Font.Height = -12
@@ -230,10 +233,11 @@ object FrmDnoinquiry: TFrmDnoinquiry
               OnClick = BtnSearch2Click
             end
             object TxtEnd: TRzEdit
-              Left = 319
+              Left = 313
               Top = 7
               Width = 169
-              Height = 22
+              Height = 24
+              AutoSize = False
               FrameVisible = True
               TabOrder = 0
               OnKeyDown = TxtStartKeyDown
@@ -242,7 +246,8 @@ object FrmDnoinquiry: TFrmDnoinquiry
               Left = 76
               Top = 7
               Width = 169
-              Height = 22
+              Height = 24
+              AutoSize = False
               FrameVisible = True
               TabOrder = 2
               OnKeyDown = TxtStartKeyDown
@@ -257,62 +262,126 @@ object FrmDnoinquiry: TFrmDnoinquiry
       Width = 980
       Height = 43
       Align = alBottom
-      BorderOuter = fsNone
-      Color = clSilver
+      BorderOuter = fsButtonUp
       TabOrder = 2
       object RzLabel2: TRzLabel
-        Left = 19
-        Top = 10
-        Width = 54
-        Height = 19
-        Caption = #3618#3629#3604#3619#3623#3617
+        Left = 187
+        Top = 12
+        Width = 55
+        Height = 24
+        AutoSize = False
+        Caption = ' '#3618#3629#3604#3619#3623#3617
+        Color = clBlack
         Font.Charset = THAI_CHARSET
-        Font.Color = clMaroon
-        Font.Height = -16
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
-      object RzLabel3: TRzLabel
-        Left = 197
-        Top = 10
-        Width = 29
-        Height = 19
-        Caption = #3610#3634#3607
-        Font.Charset = THAI_CHARSET
-        Font.Color = clMaroon
-        Font.Height = -16
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
-      object TxtTotal: TRzDBLabel
-        Left = 73
-        Top = 11
-        Width = 116
-        Height = 17
-        Alignment = taCenter
-        Font.Charset = THAI_CHARSET
-        Font.Color = clMaroon
-        Font.Height = -16
+        Font.Color = clYellow
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
+        ParentColor = False
         ParentFont = False
+        Layout = tlCenter
+      end
+      object RzLabel3: TRzLabel
+        Left = 385
+        Top = 12
+        Width = 44
+        Height = 24
+        AutoSize = False
+        Caption = ' '#3610#3634#3607
+        Color = clBlack
+        Font.Charset = THAI_CHARSET
+        Font.Color = clYellow
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object TxtTotal: TRzDBLabel
+        Left = 242
+        Top = 12
+        Width = 143
+        Height = 24
+        Alignment = taCenter
+        Color = 3815994
+        Font.Charset = THAI_CHARSET
+        Font.Color = clLime
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
         DataField = 'btotalx'
         DataSource = DsSearch
       end
+      object RzLabel4: TRzLabel
+        Left = 6
+        Top = 12
+        Width = 58
+        Height = 24
+        AutoSize = False
+        Caption = ' '#3592#3635#3609#3623#3609
+        Color = clBlack
+        Font.Charset = THAI_CHARSET
+        Font.Color = clYellow
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        Transparent = False
+        Layout = tlCenter
+        BorderColor = clGreen
+      end
+      object TxtJ: TRzLabel
+        Left = 64
+        Top = 12
+        Width = 48
+        Height = 24
+        Alignment = taCenter
+        AutoSize = False
+        Caption = '0'
+        Color = 3815994
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object RzLabel5: TRzLabel
+        Left = 112
+        Top = 12
+        Width = 60
+        Height = 24
+        AutoSize = False
+        Caption = ' '#3619#3634#3618#3585#3634#3619
+        Color = clBlack
+        Font.Charset = THAI_CHARSET
+        Font.Color = clYellow
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        Layout = tlCenter
+        BorderColor = clSilver
+      end
       object RzPanel6: TRzPanel
-        Left = 716
-        Top = 0
-        Width = 264
-        Height = 43
+        Left = 590
+        Top = 2
+        Width = 388
+        Height = 39
         Align = alRight
         BorderOuter = fsNone
-        Color = clSilver
         TabOrder = 0
         object RzLabel1: TRzLabel
-          Left = 30
-          Top = 12
+          Left = 22
+          Top = 11
           Width = 65
           Height = 16
           Caption = #3612#3641#3657#3619#3633#3610#3610#3619#3636#3592#3634#3588
@@ -325,7 +394,7 @@ object FrmDnoinquiry: TFrmDnoinquiry
         end
         object TxtUser: TRzDBEdit
           Left = 97
-          Top = 11
+          Top = 8
           Width = 166
           Height = 24
           DataSource = DsSearch
@@ -342,10 +411,15 @@ object FrmDnoinquiry: TFrmDnoinquiry
       Height = 32
       Align = alTop
       BorderOuter = fsNone
-      Color = clSilver
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 3
       object Label5: TLabel
-        Left = 7
+        Left = 4
         Top = 5
         Width = 73
         Height = 22
@@ -354,7 +428,7 @@ object FrmDnoinquiry: TFrmDnoinquiry
         Color = clSilver
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
+        Font.Height = -12
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentColor = False
@@ -362,69 +436,30 @@ object FrmDnoinquiry: TFrmDnoinquiry
         Layout = tlCenter
       end
       object Label6: TLabel
-        Left = 263
+        Left = 250
         Top = 5
-        Width = 79
+        Width = 83
         Height = 22
         AutoSize = False
         Caption = ' '#3626#3585#3640#3621#3612#3641#3657#3610#3619#3636#3592#3634#3588
         Color = clSilver
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
+        Font.Height = -12
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
         Layout = tlCenter
       end
-      object RzLabel4: TRzLabel
-        Left = 814
-        Top = 7
-        Width = 40
-        Height = 16
-        Caption = #3592#3635#3609#3623#3609
-        Font.Charset = THAI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object RzLabel5: TRzLabel
-        Left = 918
-        Top = 7
-        Width = 46
-        Height = 16
-        Caption = #3619#3634#3618#3585#3634#3619
-        Font.Charset = THAI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object TxtJ: TRzLabel
-        Left = 885
-        Top = 7
-        Width = 8
-        Height = 16
-        Alignment = taCenter
-        Caption = '0'
-        Font.Charset = THAI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
       object RzDBEdit1: TRzDBEdit
-        Left = 81
-        Top = 6
+        Left = 80
+        Top = 4
         Width = 166
-        Height = 22
+        Height = 24
         DataSource = DsSearch
         DataField = 'do_name'
+        AutoSize = False
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
@@ -435,12 +470,13 @@ object FrmDnoinquiry: TFrmDnoinquiry
         TabOrder = 0
       end
       object RzDBEdit2: TRzDBEdit
-        Left = 343
-        Top = 6
-        Width = 166
-        Height = 22
+        Left = 337
+        Top = 4
+        Width = 199
+        Height = 24
         DataSource = DsSearch
         DataField = 'do_lname'
+        AutoSize = False
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
@@ -473,6 +509,12 @@ object FrmDnoinquiry: TFrmDnoinquiry
           Width = 545
           Height = 366
           Align = alClient
+          Font.Charset = THAI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 0
           object cxGrid1DBTableView1: TcxGridDBTableView
             DataController.DataSource = DsSearch
@@ -481,8 +523,9 @@ object FrmDnoinquiry: TFrmDnoinquiry
             DataController.Summary.FooterSummaryItems = <>
             DataController.Summary.SummaryGroups = <>
             NavigatorButtons.ConfirmDelete = False
+            OptionsView.GridLines = glNone
             OptionsView.GroupByBox = False
-            OptionsView.Indicator = True
+            OnCustomDrawColumnHeader = cxGrid1DBTableView1CustomDrawColumnHeader
             object cxGrid1DBTableView1DBColumn1: TcxGridDBColumn
               Caption = #3591#3623#3604#3607#3637#3656
               MinWidth = 84
@@ -561,6 +604,12 @@ object FrmDnoinquiry: TFrmDnoinquiry
         Width = 425
         Height = 366
         Align = alClient
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 2
         object cxGrid2DBTableView1: TcxGridDBTableView
           DataController.DataSource = DsBillDetail
@@ -569,8 +618,9 @@ object FrmDnoinquiry: TFrmDnoinquiry
           DataController.Summary.FooterSummaryItems = <>
           DataController.Summary.SummaryGroups = <>
           NavigatorButtons.ConfirmDelete = False
+          OptionsView.GridLines = glNone
           OptionsView.GroupByBox = False
-          OptionsView.Indicator = True
+          OnCustomDrawColumnHeader = cxGrid2DBTableView1CustomDrawColumnHeader
           object cxGrid2DBTableView1DBColumn2: TcxGridDBColumn
             Caption = #3650#3588#3619#3591#3585#3634#3619
             MinWidth = 274

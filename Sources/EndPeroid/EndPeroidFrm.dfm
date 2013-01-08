@@ -186,6 +186,7 @@ object frmEndPeroid: TfrmEndPeroid
               OptionsData.Editing = False
               OptionsData.Inserting = False
               OptionsView.GroupByBox = False
+              OnCustomDrawColumnHeader = grdPeroidDBTableView1CustomDrawColumnHeader
               object grdPeroidDBTableView1pe_id: TcxGridDBColumn
                 Caption = #3648#3621#3586#3607#3637#3656#3648#3623#3619
                 DataBinding.FieldName = 'pe_id'
@@ -265,6 +266,7 @@ object frmEndPeroid: TfrmEndPeroid
               OptionsData.Editing = False
               OptionsData.Inserting = False
               OptionsView.GroupByBox = False
+              OnCustomDrawColumnHeader = grdBillDBTableView1CustomDrawColumnHeader
               object grdBillDBTableView1bperiod: TcxGridDBColumn
                 Caption = #3648#3621#3586#3607#3637#3656#3648#3623#3619
                 Width = 60
@@ -360,6 +362,7 @@ object frmEndPeroid: TfrmEndPeroid
               NavigatorButtons.ConfirmDelete = False
               OptionsCustomize.ColumnFiltering = False
               OptionsView.GroupByBox = False
+              OnCustomDrawColumnHeader = cxGrid3DBTableView1CustomDrawColumnHeader
               object cxGrid3DBTableView1bperiod: TcxGridDBColumn
                 Caption = #3648#3621#3586#3607#3637#3656#3648#3623#3619
                 Width = 60

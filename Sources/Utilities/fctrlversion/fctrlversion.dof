@@ -115,7 +115,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=0
 Release=0
-Build=60
+Build=61
 Debug=0
 PreRelease=0
 Special=0
@@ -126,7 +126,7 @@ CodePage=874
 [Version Info Keys]
 CompanyName=The Computer Research Group Company Limited
 FileDescription=CRG - File Loader Control Version
-FileVersion=1.0.0.60
+FileVersion=1.0.0.61
 InternalName=fileloader.dll
 LegalCopyright=(C) 2005, CRG Software Co., Ltd.
 LegalTrademarks=The CRG Software

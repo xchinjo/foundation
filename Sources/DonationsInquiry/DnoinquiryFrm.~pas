@@ -48,8 +48,6 @@ type
     SQLDataSet: TSQLDataSet;
     CdsSearch: TClientDataSet;
     DsSearch: TDataSource;
-    RzLabel4: TRzLabel;
-    RzLabel5: TRzLabel;
     RzPanel9: TRzPanel;
     cxGrid1: TcxGrid;
     cxGrid1DBTableView1: TcxGridDBTableView;
@@ -66,9 +64,11 @@ type
     cxGrid2DBTableView1DBColumn3: TcxGridDBColumn;
     CdsBillDetail: TClientDataSet;
     DsBillDetail: TDataSource;
-    TxtJ: TRzLabel;
     TxtTotal: TRzDBLabel;
     rzTopPanel: TRzPanel;
+    RzLabel4: TRzLabel;
+    TxtJ: TRzLabel;
+    RzLabel5: TRzLabel;
     procedure BtnSearch1Click(Sender: TObject);
     procedure CdsSearchAfterScroll(DataSet: TDataSet);
     procedure BtnSearch2Click(Sender: TObject);
@@ -81,6 +81,12 @@ type
     procedure FormKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure cxGrid1DBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+    procedure cxGrid2DBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
   private
     { Private declarations }
 
@@ -171,10 +177,10 @@ begin
     end;
   if CdsSearch.RecordCount > 0 then
     begin
-      cxGrid1.SetFocus ;
+     // cxGrid1.SetFocus ;
       LoadBillDetail(CdsSearch.fieldByName('Bno').AsString) ;
-    end
-  else DtStart.SetFocus ;
+    end ;
+  //else DtStart.SetFocus ;
   x:= 'N' ;
 end;
 
@@ -200,6 +206,7 @@ end;
 
 procedure TFrmDnoinquiry.FormShow(Sender: TObject);
 begin
+  PageDI.ActivePage:=TB1;
   DtStart.SetFocus ;
 end;
 
@@ -214,6 +221,22 @@ procedure TFrmDnoinquiry.FormClose(Sender: TObject;
 begin
   if (FormStyle = fsMDIChild) then
     Action := caFree;
+end;
+
+procedure TFrmDnoinquiry.cxGrid1DBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
+end;
+
+procedure TFrmDnoinquiry.cxGrid2DBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
 end;
 
 end.

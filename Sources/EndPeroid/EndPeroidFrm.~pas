@@ -253,6 +253,15 @@ type
     procedure btnStickerAClick(Sender: TObject);
     procedure btnMailReportAClick(Sender: TObject);
     procedure btnCongratulationsAClick(Sender: TObject);
+    procedure grdPeroidDBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+    procedure grdBillDBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+    procedure cxGrid3DBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
   private
     FcurrWorkPeroid: string;
     FcurrTotalAmount: currency;
@@ -644,6 +653,8 @@ begin
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
 
   dllParams.ReportCode:='RPT01002';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;  
   ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
 {
   Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
@@ -1209,6 +1220,30 @@ end;
 procedure TfrmEndPeroid.SetUserID(const Value: string);
 begin
   FUserID := Value;
+end;
+
+procedure TfrmEndPeroid.grdPeroidDBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
+end;
+
+procedure TfrmEndPeroid.grdBillDBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
+end;
+
+procedure TfrmEndPeroid.cxGrid3DBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
 end;
 
 end.

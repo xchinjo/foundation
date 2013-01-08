@@ -253,6 +253,15 @@ type
     procedure btnStickerAClick(Sender: TObject);
     procedure btnMailReportAClick(Sender: TObject);
     procedure btnCongratulationsAClick(Sender: TObject);
+    procedure grdPeroidDBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+    procedure grdBillDBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+    procedure cxGrid3DBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
   private
     FcurrWorkPeroid: string;
     FcurrTotalAmount: currency;
@@ -515,8 +524,10 @@ procedure TfrmEndPeroid.ClosePeriod;
 var
   newPeriod,currPeriod:string;
 begin
-  newPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1')+1);
-  currPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+//  newPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1')+1);
+//  currPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+  newPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1')+1);
+  currPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1'));
 
   with cdsClosePeriod do
   begin
@@ -543,7 +554,8 @@ begin
 
       // apply new period
       //getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1')
-      setPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1');
+      //setPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1');
+      setPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1');
 
 
       // enable button
@@ -1211,6 +1223,30 @@ end;
 procedure TfrmEndPeroid.SetUserID(const Value: string);
 begin
   FUserID := Value;
+end;
+
+procedure TfrmEndPeroid.grdPeroidDBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
+end;
+
+procedure TfrmEndPeroid.grdBillDBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
+end;
+
+procedure TfrmEndPeroid.cxGrid3DBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
 end;
 
 end.
