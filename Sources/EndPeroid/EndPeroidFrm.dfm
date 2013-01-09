@@ -1303,7 +1303,7 @@ object frmEndPeroid: TfrmEndPeroid
             Left = 125
             Top = 33
             Width = 116
-            Height = 24
+            Height = 22
             TabStop = False
             Alignment = taRightJustify
             Color = clInfoBk
@@ -2327,7 +2327,6 @@ object frmEndPeroid: TfrmEndPeroid
           Width = 544.252320000000000000
           Height = 18.897637800000000000
           ShowHint = False
-          DataSet = frmGenReport.frxDBDataset1
           DataSetName = 'frxDBDataset1'
           DisplayFormat.DecimalSeparator = '.'
           DisplayFormat.FormatStr = '%2.2n'
@@ -2419,7 +2418,6 @@ object frmEndPeroid: TfrmEndPeroid
           Width = 56.692950000000000000
           Height = 18.897650000000000000
           ShowHint = False
-          DataSet = frmGenReport.frxDBDataset1
           DataSetName = 'frxDBDataset1'
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = THAI_CHARSET
@@ -2440,7 +2438,6 @@ object frmEndPeroid: TfrmEndPeroid
           Height = 18.897650000000000000
           ShowHint = False
           AutoWidth = True
-          DataSet = frmGenReport.frxDBDataset1
           DataSetName = 'frxDBDataset1'
           DisplayFormat.DecimalSeparator = '.'
           DisplayFormat.FormatStr = '%2.2n'

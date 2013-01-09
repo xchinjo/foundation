@@ -650,7 +650,8 @@ var
     dllParams : TDLLParameter;
     DefaltValue:TList;
 begin
-  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+  //Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1'));
   if IsClosed then Period := currClosePeroid;
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
@@ -671,7 +672,8 @@ var
     dllParams : TDLLParameter;
     DefaltValue:TList;
 begin
-  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+//  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1'));
   if IsClosed then Period := currClosePeroid;
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
@@ -689,7 +691,8 @@ var
     dllParams : TDLLParameter;
     DefaltValue:TList;
 begin
-  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+//  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1'));
   if IsClosed then Period := currClosePeroid;
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
@@ -706,7 +709,8 @@ var
     dllParams : TDLLParameter;
     DefaltValue:TList;
 begin
-  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+  //Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1'));
   if IsClosed then Period := currClosePeroid;
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
@@ -948,7 +952,8 @@ var
     dllParams : TDLLParameter;
     DefaltValue:TList;
 begin
-  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+//  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1'));
   if IsClosed then Period := currClosePeroid;
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
@@ -1096,7 +1101,8 @@ var
     dllParams : TDLLParameter;
     DefaltValue:TList;
 begin
-  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+//  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1'));
   if IsClosed then Period := currClosePeroid;
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));
@@ -1113,7 +1119,8 @@ var
     dllParams : TDLLParameter;
     DefaltValue:TList;
 begin
-  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+//  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+  Period:= formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1'));
   if IsClosed then Period := currClosePeroid;
   DefaltValue:=TList.Create;
   DefaltValue.Add(TStringValue.Create('PERIOD',Period));

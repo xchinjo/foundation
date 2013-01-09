@@ -39,6 +39,7 @@ type
       Shift: TShiftState);
     procedure BtnDelFavorClick(Sender: TObject);
     procedure RzBitBtn4Click(Sender: TObject);
+    procedure cxGrid1DBTableView1DblClick(Sender: TObject);
   private
     FEd_Fname: String;
     FEd_Lname: String;
@@ -142,7 +143,7 @@ type
 var
   frmFavor: TfrmFavor;
   StrSqlSearch,StrIf : String ;
-  ParaSupport : String ;
+  _ParaSupport : String ;
   _Status : TColor ;
 
 implementation
@@ -166,7 +167,7 @@ end;
 
 procedure TfrmFavor.btnAddFavorClick(Sender: TObject);
 begin
-  ShowFavorRegister(Application,nil,swModal,LeftStr(ParaSupport,8));
+  ShowFavorRegister(Application,nil,swModal,LeftStr(_ParaSupport,8));
   if CdsSp.Active = True then
     begin
      CdsSp.Refresh ;
@@ -229,9 +230,9 @@ begin
       frm.Free;
     end;
   TxtJ.Caption := IntToStr(CdsSp.RecordCount) ;
-  ParaSupport := CdsSp.fieldbyname('spid').AsString  + CdsSp.fieldbyname('spiid').AsString ;
+  _ParaSupport := CdsSp.fieldbyname('spid').AsString  + CdsSp.fieldbyname('spiid').AsString ;
 
-  if ParaSupport <> '' then cxGrid1.SetFocus
+  if _ParaSupport <> '' then cxGrid1.SetFocus
   else edSearchName.SetFocus ;
 end;
 
@@ -322,7 +323,7 @@ end;
 procedure TfrmFavor.CdsSpAfterScroll(DataSet: TDataSet);
 begin
   LoadBill(CdsSp.FieldByName('spiid').AsString) ;
-  ParaSupport := CdsSp.fieldbyname('spid').AsString  + CdsSp.fieldbyname('spiid').AsString ;
+  _ParaSupport := CdsSp.fieldbyname('spid').AsString  + CdsSp.fieldbyname('spiid').AsString ;
 end;
 
 procedure TfrmFavor.FormShow(Sender: TObject);
@@ -335,9 +336,9 @@ end;
 
 procedure TfrmFavor.BtnEditFavorClick(Sender: TObject);
 begin
-  if ParaSupport <> '' then
+  if _ParaSupport <> '' then
     begin
-     ShowFavorRegister(Application,nil,swModal,ParaSupport);
+     ShowFavorRegister(Application,nil,swModal,_ParaSupport);
      if CdsSp.RecordCount > 0 then cxGrid1.SetFocus
      else edSearchName.SetFocus ;
     end
@@ -351,7 +352,7 @@ end;
 procedure TfrmFavor.BtnHistFavorClick(Sender: TObject);
 var frm : TFrmHistorySupport ;
 begin
-  if Trim(ParaSupport) <> '' then
+  if Trim(_ParaSupport) <> '' then
     begin
       LoadHist(CdsSp.FieldByName('spiid').AsString) ;
       LoadSpCode ;
@@ -466,16 +467,20 @@ begin
       begin
         btnSearchClick(sender);
       end;
+    vk_f8:
+      begin
+        BtnHistFavorClick(sender);
+      end;
     VK_ESCAPE :
       begin
-        if ParaSupport <> '' then cxGrid1.SetFocus ;
+        if _ParaSupport <> '' then cxGrid1.SetFocus ;
       end;
   end;
 end;
 
 procedure TfrmFavor.BtnDelFavorClick(Sender: TObject);
 begin
-  if Trim(ParaSupport) <> '' then
+  if Trim(_ParaSupport) <> '' then
     begin
       if Application.MessageBox('ต้องการลบลบการขอบัตรอุปการคุณ','ลบการขอบัตรอุปการคุณ', MB_YESNO + MB_ICONQUESTION) = IDYES then
       begin
@@ -494,9 +499,24 @@ end;
 
 procedure TfrmFavor.RzBitBtn4Click(Sender: TObject);
 begin
-  if ParaSupport <> '' then
+  if _ParaSupport <> '' then
     begin
-     ShowFavorRegister(Application,nil,swModal,ParaSupport+'UP');
+     ShowFavorRegister(Application,nil,swModal,_ParaSupport+'UP');
+     if CdsSp.RecordCount > 0 then cxGrid1.SetFocus
+     else edSearchName.SetFocus ;
+    end
+  else
+    begin
+      Application.MessageBox('กรุณาเลือกรายการบัตรอุปการคุณ', 'ไม่มีรายการ', MB_OK + MB_ICONQUESTION);
+      edSearchName.SetFocus ;
+    end ;
+end;
+
+procedure TfrmFavor.cxGrid1DBTableView1DblClick(Sender: TObject);
+begin
+  if _ParaSupport <> '' then
+    begin
+     ShowFavorRegister(Application,nil,swModal,_ParaSupport);
      if CdsSp.RecordCount > 0 then cxGrid1.SetFocus
      else edSearchName.SetFocus ;
     end

@@ -1,6 +1,6 @@
 object frmFavor: TfrmFavor
-  Left = 249
-  Top = 33
+  Left = 73
+  Top = 69
   Width = 1202
   Height = 694
   Caption = 'Favor'
@@ -22,7 +22,7 @@ object frmFavor: TfrmFavor
   object xTopPanel: TPanel
     Left = 0
     Top = 0
-    Width = 1186
+    Width = 1194
     Height = 30
     Align = alTop
     BevelOuter = bvNone
@@ -32,7 +32,7 @@ object frmFavor: TfrmFavor
   object rzTopPanel: TRzPanel
     Left = 0
     Top = 30
-    Width = 1186
+    Width = 1194
     Height = 4
     Align = alTop
     BorderOuter = fsNone
@@ -43,8 +43,8 @@ object frmFavor: TfrmFavor
   object pnClientContainer: TPanel
     Left = 0
     Top = 34
-    Width = 1186
-    Height = 622
+    Width = 1194
+    Height = 632
     Align = alClient
     BevelOuter = bvNone
     Font.Charset = THAI_CHARSET
@@ -57,15 +57,15 @@ object frmFavor: TfrmFavor
     object Splitter1: TSplitter
       Left = 0
       Top = 128
-      Width = 1186
+      Width = 1194
       Height = 3
       Cursor = crVSplit
       Align = alTop
     end
     object Splitter2: TSplitter
       Left = 0
-      Top = 554
-      Width = 1186
+      Top = 564
+      Width = 1194
       Height = 3
       Cursor = crVSplit
       Align = alBottom
@@ -73,7 +73,7 @@ object frmFavor: TfrmFavor
     object pnHeader: TRzPanel
       Left = 0
       Top = 0
-      Width = 1186
+      Width = 1194
       Height = 28
       Align = alTop
       BorderOuter = fsNone
@@ -95,8 +95,8 @@ object frmFavor: TfrmFavor
     end
     object pnButtom: TRzPanel
       Left = 0
-      Top = 557
-      Width = 1186
+      Top = 567
+      Width = 1194
       Height = 65
       Align = alBottom
       BorderOuter = fsGroove
@@ -196,8 +196,8 @@ object frmFavor: TfrmFavor
     object pnBody: TRzPanel
       Left = 0
       Top = 131
-      Width = 1186
-      Height = 423
+      Width = 1194
+      Height = 433
       Align = alClient
       BorderOuter = fsLowered
       Color = 11579568
@@ -205,7 +205,7 @@ object frmFavor: TfrmFavor
       object Splitter3: TSplitter
         Left = 2
         Top = 28
-        Width = 1182
+        Width = 1190
         Height = 3
         Cursor = crVSplit
         Align = alTop
@@ -213,7 +213,7 @@ object frmFavor: TfrmFavor
       object RzPanel1: TRzPanel
         Left = 2
         Top = 2
-        Width = 1182
+        Width = 1190
         Height = 26
         Align = alTop
         BorderOuter = fsNone
@@ -263,8 +263,8 @@ object frmFavor: TfrmFavor
       object cxGrid2: TcxGrid
         Left = 2
         Top = 259
-        Width = 1182
-        Height = 162
+        Width = 1190
+        Height = 172
         Align = alClient
         TabOrder = 1
         object cxGrid2DBTableView1: TcxGridDBTableView
@@ -354,7 +354,7 @@ object frmFavor: TfrmFavor
       object RzPanel2: TRzPanel
         Left = 2
         Top = 31
-        Width = 1182
+        Width = 1190
         Height = 228
         Align = alTop
         BorderOuter = fsNone
@@ -362,7 +362,7 @@ object frmFavor: TfrmFavor
         object RzPanel3: TRzPanel
           Left = 0
           Top = 202
-          Width = 1182
+          Width = 1190
           Height = 26
           Align = alBottom
           BorderOuter = fsNone
@@ -413,7 +413,7 @@ object frmFavor: TfrmFavor
         object cxGrid1: TcxGrid
           Left = 0
           Top = 0
-          Width = 1182
+          Width = 1190
           Height = 202
           Align = alClient
           TabOrder = 1
@@ -533,7 +533,7 @@ object frmFavor: TfrmFavor
     object pnTop: TRzPanel
       Left = 0
       Top = 28
-      Width = 1186
+      Width = 1194
       Height = 100
       Align = alTop
       BorderOuter = fsGroove

@@ -524,8 +524,10 @@ procedure TfrmEndPeroid.ClosePeriod;
 var
   newPeriod,currPeriod:string;
 begin
-  newPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1')+1);
-  currPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+//  newPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1')+1);
+//  currPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1'));
+  newPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1')+1);
+  currPeriod := formatcurr('00000',getPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1'));
 
   with cdsClosePeriod do
   begin
@@ -552,7 +554,8 @@ begin
 
       // apply new period
       //getPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1')
-      setPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1');
+      //setPeroidNo(cdsTemp,'PEROID1','PRD01','MTTNM1');
+      setPeroidNo(cdsTemp,'PEROID1',Branch,'MTTNM1');
 
 
       // enable button
