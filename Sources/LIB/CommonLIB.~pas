@@ -174,6 +174,7 @@ procedure setBillNo(cds:TClientDataSet;abr,grp,cde,value_fieldname:string);
 
 
 // peroid
+function ckPeroidNo(cds:TClientDataSet;Branch:string;periodNo:integer):boolean;
 function getPeroidNo(cds:TClientDataSet;abr,cde,value_fieldname:string):integer;
 procedure setPeroidNo(cds:TClientDataSet;abr,cde,value_fieldname:string);
 
@@ -737,6 +738,22 @@ var rep:integer;
 
   end;
 
+function ckPeroidNo(cds:TClientDataSet;Branch:string;periodNo:integer):boolean;
+var rep:boolean;
+  begin
+    rep:=false;
+    with cds do
+    begin
+      close;
+      CommandText:='select * from period_data where pe_branch='''+Branch+''' and pe_id='''+inttostr(periodNo)+''' and  and pe_status=''A''';
+      open;
+      if Active then rep:= recordcount>0 ;
+    end;
+
+    result:=rep;
+
+  end;
+
 
 function getNewDonatorId(cds:TClientDataSet):integer;
 var rep:integer;
@@ -764,7 +781,8 @@ var rep:integer;
     with cds do
     begin
       close;
-      CommandText:='select * from MTTCDE where MTTABR='''+abr+''' and MTTGRP=''PEROID'' and MTTCDE='''+cde+''' ';
+      //CommandText:='select * from MTTCDE where MTTABR='''+abr+''' and MTTGRP=''PEROID'' and MTTCDE='''+cde+''' ';
+      CommandText:='select * from MTTCDE where  MTTGRP=''PEROID'' and MTTCDE='''+cde+''' ';
       open;
         if recordcount>0 then
         begin
@@ -774,7 +792,8 @@ var rep:integer;
       if rep>0 then
       begin
         close;
-        CommandText:='update MTTCDE set MTTNM1='+inttostr(rep+1)+'  where MTTABR='''+abr+''' and MTTGRP=''PEROID'' and MTTCDE='''+cde+'''';
+        //CommandText:='update MTTCDE set MTTNM1='+inttostr(rep+1)+'  where MTTABR='''+abr+''' and MTTGRP=''PEROID'' and MTTCDE='''+cde+'''';
+        CommandText:='update MTTCDE set MTTNM1='+inttostr(rep+1)+'  where  MTTGRP=''PEROID'' and MTTCDE='''+cde+'''';
         Execute;
       end;
 

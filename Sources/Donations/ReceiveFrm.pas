@@ -611,9 +611,11 @@ begin
   initPayType;
 
   dtRecDate.Date:=getServerDate(cdsTemp);
-
   // first time get period no
   FcurrPeroidNo:=getPeroidNo(cdsTemp,'PEROID1',BranchCode,'MTTNM1');
+  if not ckPeroidNo(cdsTemp,BranchCode,FcurrPeroidNo) then
+    Application.MessageBox(pchar('พบเลขที่เวรมีปัญหาไม่สามารถรับบริจาคได้'),pchar('Warning'),MB_OK or MB_ICONWARNING);
+
   lbUserName.Caption:=getUserFullName(cdsTemp,currUserID);
   lbDonationPoint.Caption:=getDonationsPointName(cdsTemp,BranchCode);
 
@@ -1092,6 +1094,14 @@ var BillNO,i,k:integer;
 begin
   try
     // renew period no every time
+
+    if not ckPeroidNo(cdsTemp,BranchCode,FcurrPeroidNo) then
+    begin
+      Application.MessageBox(pchar('พบเลขที่เวรมีปัญหาไม่สามารถรับบริจาคได้'),pchar('Warning'),MB_OK or MB_ICONWARNING);
+      exit;
+    end;
+
+
 
     if not _isRecive then exit;
 

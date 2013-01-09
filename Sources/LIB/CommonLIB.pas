@@ -174,6 +174,7 @@ procedure setBillNo(cds:TClientDataSet;abr,grp,cde,value_fieldname:string);
 
 
 // peroid
+function ckPeroidNo(cds:TClientDataSet;Branch:string;periodNo:integer):boolean;
 function getPeroidNo(cds:TClientDataSet;abr,cde,value_fieldname:string):integer;
 procedure setPeroidNo(cds:TClientDataSet;abr,cde,value_fieldname:string);
 
@@ -731,6 +732,22 @@ var rep:integer;
         begin
           rep:=FieldByName(value_fieldname).AsInteger;
         end;
+    end;
+
+    result:=rep;
+
+  end;
+
+function ckPeroidNo(cds:TClientDataSet;Branch:string;periodNo:integer):boolean;
+var rep:boolean;
+  begin
+    rep:=false;
+    with cds do
+    begin
+      close;
+      CommandText:='select * from period_data where pe_branch='''+Branch+''' and pe_id='''+inttostr(periodNo)+''' and  pe_status=''A''';
+      open;
+      if Active then rep:= recordcount>0 ;
     end;
 
     result:=rep;

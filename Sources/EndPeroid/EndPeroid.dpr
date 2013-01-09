@@ -47,12 +47,11 @@ begin
     end else
     begin
 
-      Result.FormStyle := fsMDIChild;
+
       Result.WindowState:=wsMaximized;
       TfrmEndPeroid(Result).UserID := _Parameter.UserID;
       TfrmEndPeroid(Result).Branch := _Parameter.Branch;
-
-
+      Result.FormStyle := fsMDIChild;
       Result.Show();
 
     end;

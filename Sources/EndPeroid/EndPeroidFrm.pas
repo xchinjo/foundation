@@ -364,10 +364,18 @@ end;
 procedure TfrmEndPeroid.btnClosePeroidClick(Sender: TObject);
 var frm : TfrmConfirmClose;
 begin
+  if trim(FcurrWorkPeroid)='' then
+  begin
+    Application.MessageBox(pchar('เกิดความผิดพลาดไม่สามารถดำเนินการต่อได้!!!'),pchar('Error'),mb_ok or MB_ICONERROR);
+    ClosePeriod;
+  end else
+  begin
+
+
    frm := TfrmConfirmClose.Create(self);
    frm.MainForm :=self;
    frm.PeroidNo := FcurrWorkPeroid;
-   frm.UserName :='ADMIN';
+   frm.UserName :=UserID;
    frm.LocationName :='มูลนิธีโรงพยาบาลราชวิถี';
    frm.StartDate :=Now;
    frm.EndDate :=Now;
@@ -381,6 +389,7 @@ begin
    end;
     
    frm.Free;
+  end;
 
 end;
 
@@ -403,7 +412,10 @@ begin
 '	,b.us_code,b.us_name '+
 ' from period_data a  '+
 ' left join user_account b  on a.pe_user=b.us_code '+
-' where a.pe_status=''A''  ';
+' where a.pe_status=''A''  and a.pe_branch='''+Branch+''' ';
+
+
+  //inputbox('','',cdsPeroid.CommandText);
 
 
  cdsPeroid.Open;
@@ -542,6 +554,7 @@ begin
     begin
       cdsClosePeriod.EmptyDataSet;
       cdsClosePeriod.Append;
+      cdsClosePeriod.FieldByName('pe_branch').AsString:=Branch;
       cdsClosePeriod.FieldByName('pe_id').AsString:=newPeriod;
       cdsClosePeriod.FieldByName('pe_status').AsString:='A';
       cdsClosePeriod.FieldByName('pe_seq').AsString:='';
@@ -587,7 +600,7 @@ begin
 
       currClosePeroid :=currPeriod;
       IsClosed:=true;
-      ShowMessage('Successfull.');
+      ShowMessage('บันทึกปิดเวรเรียบร้อย.');
 
     end;
     
