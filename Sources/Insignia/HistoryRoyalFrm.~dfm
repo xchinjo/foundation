@@ -2,8 +2,8 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
   Left = 334
   Top = 44
   Width = 805
-  Height = 615
-  Caption = 'FrmHistoryRoyal'
+  Height = 576
+  Caption = #3611#3619#3632#3623#3633#3605#3636#3585#3634#3619#3586#3629#3648#3588#3619#3639#3656#3629#3591#3619#3634#3594#3629#3636#3626#3619#3636#3618#3634#3616#3619#3603#3660
   Color = clBtnFace
   Font.Charset = THAI_CHARSET
   Font.Color = clWindowText
@@ -21,15 +21,15 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
   object RzPanel1: TRzPanel
     Left = 0
     Top = 0
-    Width = 789
-    Height = 577
+    Width = 797
+    Height = 548
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 0
     object pnHeader: TRzPanel
       Left = 0
       Top = 0
-      Width = 789
+      Width = 797
       Height = 28
       Align = alTop
       BorderOuter = fsNone
@@ -49,7 +49,7 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
         ParentFont = False
       end
     end
-    object RzGroupBox1: TRzGroupBox
+    object G1: TRzGroupBox
       Left = 12
       Top = 32
       Width = 758
@@ -221,6 +221,7 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
           'N')
         Columns = 2
         TabOrder = 4
+        TabStop = True
       end
       object RzDBLookupComboBox2: TRzDBLookupComboBox
         Left = 115
@@ -240,7 +241,7 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
         FrameVisible = True
       end
     end
-    object RzGroupBox2: TRzGroupBox
+    object G2: TRzGroupBox
       Left = 12
       Top = 132
       Width = 758
@@ -330,7 +331,7 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
         EditType = etDate
       end
     end
-    object RzGroupBox3: TRzGroupBox
+    object G3: TRzGroupBox
       Left = 12
       Top = 180
       Width = 758
@@ -424,101 +425,12 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
         FrameVisible = True
       end
     end
-    object RzGroupBox4: TRzGroupBox
+    object G4: TRzGroupBox
       Left = 12
       Top = 255
       Width = 758
       Height = 44
       TabOrder = 4
-      object Label14: TLabel
-        Left = 15
-        Top = 14
-        Width = 138
-        Height = 22
-        AutoSize = False
-        Caption = #3623#3633#3609#3607#3637#3656#3627#3609#3633#3591#3626#3639#3629#3585#3621#3633#3610#3592#3634#3585#3608#3640#3619#3585#3634#3619
-        Color = 11579568
-        Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        Layout = tlCenter
-      end
-      object Label15: TLabel
-        Left = 325
-        Top = 14
-        Width = 92
-        Height = 22
-        AutoSize = False
-        Caption = #3648#3621#3586#3607#3637#3656#3605#3629#3610#3619#3633#3610
-        Color = 11579568
-        Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        Layout = tlCenter
-      end
-      object Label16: TLabel
-        Left = 557
-        Top = 14
-        Width = 48
-        Height = 22
-        AutoSize = False
-        Caption = #3611#3637#3607#3637#3656#3652#3604#3657
-        Color = 11579568
-        Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        Layout = tlCenter
-      end
-      object RzDBEdit17: TRzDBEdit
-        Left = 424
-        Top = 14
-        Width = 123
-        Height = 22
-        DataSource = frmInsignia.DsHistRy
-        DataField = 'ryansdoc'
-        FrameVisible = True
-        TabOrder = 1
-      end
-      object RzDBEdit18: TRzDBEdit
-        Left = 613
-        Top = 14
-        Width = 128
-        Height = 22
-        DataSource = frmInsignia.DsHistRy
-        DataField = 'ryapyear'
-        FrameVisible = True
-        TabOrder = 2
-      end
-      object RzDBDateTimeEdit7: TRzDBDateTimeEdit
-        Left = 160
-        Top = 14
-        Width = 152
-        Height = 22
-        DataSource = frmInsignia.DsHistRy
-        DataField = 'ryansdate'
-        FrameVisible = True
-        TabOrder = 0
-        EditType = etDate
-      end
-    end
-    object RzGroupBox5: TRzGroupBox
-      Left = 12
-      Top = 303
-      Width = 758
-      Height = 44
-      TabOrder = 5
       object Label17: TLabel
         Left = 15
         Top = 14
@@ -548,47 +460,12 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
         EditType = etDate
       end
     end
-    object RzGroupBox6: TRzGroupBox
+    object G5: TRzGroupBox
       Left = 12
-      Top = 351
+      Top = 303
       Width = 758
       Height = 44
-      TabOrder = 6
-      object Label18: TLabel
-        Left = 15
-        Top = 14
-        Width = 180
-        Height = 22
-        AutoSize = False
-        Caption = #3623#3633#3609#3607#3637#3656#3652#3611#3619#3633#3610#3648#3588#3619#3639#3656#3629#3591#3619#3634#3594#3631#3592#3634#3585#3626#3656#3623#3609#3585#3621#3634#3591
-        Color = 11579568
-        Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        Layout = tlCenter
-      end
-      object RzDBDateTimeEdit1: TRzDBDateTimeEdit
-        Left = 200
-        Top = 15
-        Width = 217
-        Height = 22
-        DataSource = frmInsignia.DsHistRy
-        DataField = 'rydate2'
-        FrameVisible = True
-        TabOrder = 0
-        EditType = etDate
-      end
-    end
-    object RzGroupBox7: TRzGroupBox
-      Left = 12
-      Top = 399
-      Width = 758
-      Height = 44
-      TabOrder = 7
+      TabOrder = 5
       object Label19: TLabel
         Left = 15
         Top = 14
@@ -618,12 +495,12 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
         EditType = etDate
       end
     end
-    object RzGroupBox9: TRzGroupBox
+    object G6: TRzGroupBox
       Left = 10
-      Top = 447
+      Top = 351
       Width = 758
-      Height = 79
-      TabOrder = 8
+      Height = 140
+      TabOrder = 6
       object Label20: TLabel
         Left = 15
         Top = 14
@@ -675,16 +552,6 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
         ParentFont = False
         Layout = tlCenter
       end
-      object RzDBEdit23: TRzDBEdit
-        Left = 128
-        Top = 44
-        Width = 613
-        Height = 22
-        DataSource = frmInsignia.DsHistRy
-        DataField = 'ryremark'
-        FrameVisible = True
-        TabOrder = 1
-      end
       object RzDBDateTimeEdit10: TRzDBDateTimeEdit
         Left = 200
         Top = 14
@@ -696,22 +563,32 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
         TabOrder = 0
         EditType = etDate
       end
+      object RzDBMemo1: TRzDBMemo
+        Left = 128
+        Top = 42
+        Width = 612
+        Height = 89
+        DataField = 'ryremark'
+        DataSource = frmInsignia.DsHistRy
+        TabOrder = 1
+        FrameVisible = True
+      end
     end
     object RzPanel2: TRzPanel
       Left = 0
-      Top = 536
-      Width = 789
+      Top = 507
+      Width = 797
       Height = 41
       Align = alBottom
       BorderOuter = fsNone
       Color = 11579568
-      TabOrder = 9
+      TabOrder = 7
       object btnSaveInsignia: TRzBitBtn
-        Left = 431
+        Left = 243
         Top = 8
-        Width = 110
+        Width = 206
         Height = 27
-        Caption = #3610#3633#3609#3607#3638#3585'(F5)'
+        Caption = 'F5-'#3610#3633#3609#3607#3638#3585#3585#3634#3619#3586#3629#3648#3588#3619#3639#3656#3629#3591#3619#3634#3594#3631
         Color = 16753994
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
@@ -725,14 +602,14 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
         OnClick = btnSaveInsigniaClick
       end
       object BtnEditInsignia: TRzBitBtn
-        Left = 545
+        Left = 451
         Top = 8
-        Width = 110
+        Width = 206
         Height = 27
-        Caption = #3649#3585#3657#3652#3586'(F7)'
+        Caption = 'F7-'#3649#3585#3657#3652#3586#3586#3657#3629#3617#3641#3621#3585#3634#3619#3586#3629#3648#3588#3619#3639#3656#3629#3591#3619#3634#3594#3631
         Color = 16753994
         Font.Charset = THAI_CHARSET
-        Font.Color = clWindowText
+        Font.Color = clRed
         Font.Height = -12
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]

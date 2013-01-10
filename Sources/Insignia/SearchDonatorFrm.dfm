@@ -3,7 +3,7 @@ object FrmSearchDonator: TFrmSearchDonator
   Top = 66
   Width = 711
   Height = 602
-  Caption = 'FrmSearchDonator'
+  Caption = #3588#3657#3609#3627#3634#3612#3641#3657#3610#3619#3636#3592#3634#3588
   Color = clBtnFace
   Font.Charset = THAI_CHARSET
   Font.Color = clWindowText
@@ -21,8 +21,8 @@ object FrmSearchDonator: TFrmSearchDonator
   object RzPanel1: TRzPanel
     Left = 0
     Top = 0
-    Width = 695
-    Height = 564
+    Width = 703
+    Height = 574
     Align = alClient
     BorderOuter = fsNone
     Font.Charset = THAI_CHARSET
@@ -35,7 +35,7 @@ object FrmSearchDonator: TFrmSearchDonator
     object pnHeader: TRzPanel
       Left = 0
       Top = 0
-      Width = 695
+      Width = 703
       Height = 28
       Align = alTop
       BorderOuter = fsNone
@@ -58,8 +58,8 @@ object FrmSearchDonator: TFrmSearchDonator
     object cxGrid1: TcxGrid
       Left = 0
       Top = 28
-      Width = 695
-      Height = 536
+      Width = 703
+      Height = 546
       Align = alClient
       TabOrder = 1
       object cxGrid1DBTableView1: TcxGridDBTableView
@@ -70,10 +70,12 @@ object FrmSearchDonator: TFrmSearchDonator
         DataController.Summary.FooterSummaryItems = <>
         DataController.Summary.SummaryGroups = <>
         NavigatorButtons.ConfirmDelete = False
+        OptionsView.GridLines = glNone
         OptionsView.GroupByBox = False
-        OptionsView.Indicator = True
+        OnCustomDrawColumnHeader = cxGrid1DBTableView1CustomDrawColumnHeader
         object cxGrid1DBTableView1DBColumn1: TcxGridDBColumn
           Caption = #3594#3639#3656#3629#3627#3609#3657#3634
+          HeaderAlignmentHorz = taCenter
           MinWidth = 130
           Options.Editing = False
           Options.Filtering = False
@@ -88,6 +90,7 @@ object FrmSearchDonator: TFrmSearchDonator
         end
         object cxGrid1DBTableView1DBColumn2: TcxGridDBColumn
           Caption = #3594#3639#3656#3629
+          HeaderAlignmentHorz = taCenter
           MinWidth = 265
           Options.Editing = False
           Options.Filtering = False
@@ -102,6 +105,7 @@ object FrmSearchDonator: TFrmSearchDonator
         end
         object cxGrid1DBTableView1DBColumn3: TcxGridDBColumn
           Caption = #3609#3634#3617#3626#3585#3640#3621
+          HeaderAlignmentHorz = taCenter
           MinWidth = 265
           Options.Editing = False
           Options.Filtering = False

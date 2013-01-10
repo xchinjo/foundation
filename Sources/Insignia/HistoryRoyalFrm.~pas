@@ -12,13 +12,11 @@ type
     RzPanel1: TRzPanel;
     pnHeader: TRzPanel;
     lbHeader: TRzLabel;
-    RzGroupBox1: TRzGroupBox;
-    RzGroupBox2: TRzGroupBox;
-    RzGroupBox3: TRzGroupBox;
-    RzGroupBox4: TRzGroupBox;
-    RzGroupBox5: TRzGroupBox;
-    RzGroupBox6: TRzGroupBox;
-    RzGroupBox7: TRzGroupBox;
+    G1: TRzGroupBox;
+    G2: TRzGroupBox;
+    G3: TRzGroupBox;
+    G4: TRzGroupBox;
+    G5: TRzGroupBox;
     Label39: TLabel;
     Label1: TLabel;
     Label2: TLabel;
@@ -35,27 +33,18 @@ type
     Label12: TLabel;
     RzDBEdit13: TRzDBEdit;
     Label13: TLabel;
-    Label14: TLabel;
-    Label15: TLabel;
-    RzDBEdit17: TRzDBEdit;
-    Label16: TLabel;
-    RzDBEdit18: TRzDBEdit;
     Label17: TLabel;
-    Label18: TLabel;
     Label19: TLabel;
-    RzDBDateTimeEdit1: TRzDBDateTimeEdit;
     RzDBDateTimeEdit2: TRzDBDateTimeEdit;
     RzDBDateTimeEdit4: TRzDBDateTimeEdit;
     RzDBDateTimeEdit5: TRzDBDateTimeEdit;
     RzDBDateTimeEdit6: TRzDBDateTimeEdit;
-    RzDBDateTimeEdit7: TRzDBDateTimeEdit;
     RzDBDateTimeEdit8: TRzDBDateTimeEdit;
     RzDBDateTimeEdit9: TRzDBDateTimeEdit;
-    RzGroupBox9: TRzGroupBox;
+    G6: TRzGroupBox;
     Label20: TLabel;
     Label21: TLabel;
     Label22: TLabel;
-    RzDBEdit23: TRzDBEdit;
     RzDBDateTimeEdit10: TRzDBDateTimeEdit;
     RzDBLookupComboBox1: TRzDBLookupComboBox;
     RzDBRadioGroup1: TRzDBRadioGroup;
@@ -65,6 +54,7 @@ type
     BtnEditInsignia: TRzBitBtn;
     RzBitBtn2: TRzBitBtn;
     RzDBLookupComboBox2: TRzDBLookupComboBox;
+    RzDBMemo1: TRzDBMemo;
     procedure FormKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure BtnEditInsigniaClick(Sender: TObject);
@@ -76,10 +66,11 @@ type
   private
     FMainForm: TfrmInsignia;
     procedure SetMainForm(const Value: TfrmInsignia);
-    function EnableTxt(E:Boolean):Boolean ;
+    procedure EnableTxt ;
+    procedure ChkStep ;
   public
     { Public declarations }
-    property MainForm : TfrmInsignia  read FMainForm write SetMainForm;
+    property MainForm : TfrmInsignia  read FMainForm write SetMainForm ;
   end;
 
 var
@@ -105,26 +96,56 @@ end;
 
 procedure TFrmHistoryRoyal.BtnEditInsigniaClick(Sender: TObject);
 begin
-  FMainForm.CdsHistRy.Edit ;
-  EnableTxt(True) ;
+  if FMainForm.CdsHistRy.FieldByName('rystep').AsString = '1' then exit ;
+
+  if Application.MessageBox('ต้องการทำการแก้ไขข้อมูลก่อนหน้า', 'แก้ไข', MB_OKCANCEL + MB_ICONQUESTION) = IDOK then
+  begin
+    FMainForm.CdsHistRy.FieldByName('rystep').AsString := IntToStr(StrToInt(FMainForm.CdsHistRy.FieldByName('rystep').AsString)- 1) ;
+    FMainForm.CdsHistRy.ApplyUpdates(0) ;
+    FMainForm.CdsHistRy.Edit ;
+    ChkStep ;
+  end;
 end;
 
 procedure TFrmHistoryRoyal.btnSaveInsigniaClick(Sender: TObject);
 begin
   try
-    if Application.MessageBox('ต้องการบันทึกรายการขอเครื่องราชฯ',
-      'บันทึกการขอเครื่องราชฯ', MB_YESNO + MB_ICONQUESTION) = IDYES then
+    if FMainForm.CdsHistRy.FieldByName('rystep').AsString = '1' then
+      begin
+        if (RzDBDateTimeEdit5.Text ='') and (RzDBEdit10.Text ='') and (RzDBDateTimeEdit9.Text ='') then exit ;
+      end;
+    if FMainForm.CdsHistRy.FieldByName('rystep').AsString = '2' then
+      begin
+        if (RzDBDateTimeEdit6.Text ='') and (RzDBEdit13.Text ='') and (RzDBLookupComboBox1.Text ='') then exit ;
+      end;
+    if FMainForm.CdsHistRy.FieldByName('rystep').AsString = '3' then
+      begin
+        if (RzDBDateTimeEdit8.Text ='')then exit ;
+      end;
+    if FMainForm.CdsHistRy.FieldByName('rystep').AsString = '4' then
+      begin
+        if (RzDBDateTimeEdit2.Text ='')then exit ;
+      end;
+      
+    if Application.MessageBox('ต้องการบันทึกรายการขอเครื่องราชฯ','บันทึกการขอเครื่องราชฯ', MB_YESNO + MB_ICONQUESTION) = IDYES then
     begin
+
+      if StrToInt(FMainForm.CdsHistRy.FieldByName('rystep').AsString) < 5  then
+        begin
+          FMainForm.CdsHistRy.FieldByName('rystep').AsString :=  IntToStr(StrToInt(FMainForm.CdsHistRy.FieldByName('rystep').AsString)+1) ;
+        end;
+
       FMainForm.CdsHistRy.ApplyUpdates(0) ;
       FMainForm.CdsRoYal.Refresh ;
-      EnableTxt(False);
+      Self.Close ;
     end;
   except
     Application.MessageBox('ไม่สามารถทำการบันทึกได้', 'ผิดพลาด', MB_OK + MB_ICONSTOP);
   end;
+
 end;
 
-procedure TFrmHistoryRoyal.RzBitBtn2Click(Sender: TObject);
+procedure TFrmHistoryRoyal.RzBitBtn2Click(Sender: TObject) ;
 begin
   self.Close ;
 end;
@@ -138,29 +159,65 @@ begin
   end;
 end;
 
-function TFrmHistoryRoyal.EnableTxt(E: Boolean): Boolean;
+procedure TFrmHistoryRoyal.EnableTxt ;
 begin
-  RzDBDateTimeEdit1.ReadOnly := not E ;
-  RzDBDateTimeEdit2.ReadOnly := not E ;
-  RzDBDateTimeEdit5.ReadOnly := not E ;
-  RzDBDateTimeEdit6.ReadOnly := not E ;
-  RzDBDateTimeEdit7.ReadOnly := not E ;
-  RzDBDateTimeEdit8.ReadOnly := not E ;
-  RzDBDateTimeEdit9.ReadOnly := not E ;
-  RzDBDateTimeEdit10.ReadOnly := not E ;
-  
-  RzDBEdit10.ReadOnly := not E ;
-  RzDBEdit13.ReadOnly := not E ;
-  RzDBEdit17.ReadOnly := not E ;
-  RzDBEdit18.ReadOnly := not E ;
-  RzDBEdit23.ReadOnly := not E ;
-  RzDBLookupComboBox1.ReadOnly := not E ;
-  RzDBRadioGroup1.ReadOnly := not E ;
+  RzDBDateTimeEdit2.ReadOnly := True ;
+  RzDBDateTimeEdit5.ReadOnly := True ;
+  RzDBDateTimeEdit6.ReadOnly := True ;
+  RzDBDateTimeEdit8.ReadOnly := True ;
+  RzDBDateTimeEdit9.ReadOnly := True ;
+
+  RzDBEdit10.ReadOnly := True ;
+  RzDBEdit13.ReadOnly := True ;
+
+  RzDBLookupComboBox1.ReadOnly := True ;
+//  RzDBRadioGroup1.ReadOnly := True ;
 end;
 
 procedure TFrmHistoryRoyal.FormShow(Sender: TObject);
 begin
-  EnableTxt(False) ;
+  FMainForm.CdsHistRy.Edit ;
+  ChkStep ;
+end;
+
+procedure TFrmHistoryRoyal.ChkStep ;
+begin
+  EnableTxt ;
+  g1.Color := clBtnFace ;
+  g2.Color := clBtnFace ;
+  g3.Color := clBtnFace ;
+  g4.Color := clBtnFace ;
+  g5.Color := clBtnFace ;
+  if FMainForm.CdsHistRy.FieldByName('rystep').AsString = '1' then
+    begin
+      RzDBDateTimeEdit4.ReadOnly := False;
+      RzDBEdit2.ReadOnly := False;
+      RzDBLookupComboBox2.ReadOnly := False;
+      RzDBEdit5.ReadOnly := False;
+      RzDBEdit7.ReadOnly := False;
+      RzDBDateTimeEdit5.ReadOnly := False;
+      RzDBEdit10.ReadOnly := False ;
+      RzDBDateTimeEdit9.ReadOnly := False ;
+      g1.Color := $00FDBBFF ;
+      g2.Color := $00FDBBFF ;
+    end
+  else if FMainForm.CdsHistRy.FieldByName('rystep').AsString = '2' then
+    begin
+      RzDBDateTimeEdit6.ReadOnly := False ;
+      RzDBEdit13.ReadOnly := False ;
+      RzDBLookupComboBox1.ReadOnly := False ;
+      g3.Color := $00FDBBFF ;
+    end
+  else if FMainForm.CdsHistRy.FieldByName('rystep').AsString = '3' then
+    begin
+      RzDBDateTimeEdit8.ReadOnly := False ;
+      g4.Color := $00FDBBFF ;
+    end
+  else if FMainForm.CdsHistRy.FieldByName('rystep').AsString = '4' then
+    begin
+      RzDBDateTimeEdit2.ReadOnly := False ;
+      g5.Color := $00FDBBFF ;
+    end ;
 end;
 
 end.

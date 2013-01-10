@@ -84,6 +84,7 @@ type
     DsHistRy: TDataSource;
     CdsRyCode: TClientDataSet;
     DsRyCode: TDataSource;
+    cdsTemp: TClientDataSet;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -106,6 +107,13 @@ type
     procedure cxGrid1DBTableView1CustomDrawCell(
       Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+    procedure cxGrid1DBTableView1DblClick(Sender: TObject);
+    procedure cxGrid1DBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+    procedure cxGrid2DBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
   private
     FDo_Fname: String;
     FDo_LName: String;
@@ -196,10 +204,8 @@ procedure TfrmInsignia.btnAddInsigniaClick(Sender: TObject);
 begin
   try
     ShowInsigniaRegister(Application,nil,swModal,LeftStr(ParaRoyal,8)+'ADD') ;
-    edSearchName.SetFocus ;
-
   finally
-    
+    edSearchName.SetFocus ;
   end;
 end;
 procedure TfrmInsignia.btnEditInsigniaClick(Sender: TObject);
@@ -223,27 +229,43 @@ var
 begin
     if R1.Checked = True then
       begin
-        StrSqlRoyal := 'select D.do_id ,D.do_prename,D.do_name,D.do_lname,A.ryid,A.id,A.ryrdate '+
-                          ' ,A.ryrcode,A.ryname,A.ryfname,A.ryininame,B.ry_code,B.ry_title,'+
-                          ' (A.ryname +'+ QuotedStr(' ')+ ' + A.ryfname) as FuName,'+
-                          ' A.rylevel,'+
-                          'A.ryapyear,A.rydate1,A.ryappdate, A.ryansdate ,B.ry_title ,A.rytotal,A.ryend '+
-                          'from donator D left join royal A on D.do_id  = A.id '+
-                          'left join royal_code B on A.ryrcode = B.ry_code '+
-                          'where D.do_name like ' + QuotedStr(edSearchName.Text+'%') +
-                          ' and D.do_lname like '+ QuotedStr(edSearchLName.Text+'%')+
-                          ' order by D.do_id' ;
+        StrSqlRoyal := ' select A.do_id ,'+
+                       ' A.do_prename,A.do_name '+
+                       ' ,A.do_lname,R.ryid'+
+                       ' ,R.id,R.ryrdate '+
+                       ' ,R.ryrcode,R.ryname'+
+                       ' ,R.ryfname '+
+                       ' ,R.ryininame,B.ry_code'+
+                       ' ,B.ry_title '+
+                       ' ,(R.ryname +'+ QuotedStr(' ')+ ' + R.ryfname) as FuName '+
+                       ' , R.rylevel,R.ryapyear'+
+                       ' ,R.rydate1 '+
+                       ' ,R.ryappdate,R.ryansdate,'+
+                       ' B.ry_title '+
+                       ' ,R.rytotal,R.ryend '+
+                       ' from donator A '+
+                       ' left join (select aa.* from (select min(b.ryrcode) as ryrcode,b.id '+
+                       ' from royal b  where b.rystatus ='+QuotedStr('A')+' group by b.id  ) bb '+
+                       ' left join royal aa on bb.ryrcode=aa.ryrcode and bb.id=bb.id  )  R on A.do_id=R.id '+
+                       ' left join royal_code B on R.ryrcode = B.ry_code '+
+                       ' where A.do_name like ' + QuotedStr(edSearchName.Text+'%') +
+                       ' and A.do_lname like '+ QuotedStr(edSearchLName.Text+'%') +
+                       ' order by A.do_id ' ;
+
         cxGrid1DBTableView1DBColumn2.DataBinding.FieldName := 'FuNameX' ;
       end
     else if R2.Checked = True then
       begin
-        StrSqlRoyal := 'select A.ryid,A.id,A.ryrdate,A.ryname,A.ryfname,A.ryininame,A.ryrcode,(A.ryname +'+ QuotedStr (' ')+
-                           ' + A.ryfname) as FuName,A.ryapyear,A.rydate1,A.ryappdate, A.ryansdate'+
-                           ' ,B.ry_code,B.ry_title ,A.rylevel,A.ryend,A.rytotal '+
-                           ' from royal A left join royal_code B on A.ryrcode = B.ry_code where ryname like ' +
-                            QuotedStr(edSearchName.Text+'%')+' and ryfname like '+
-                            QuotedStr(edSearchLName.Text+'%') +
-                            ' order by A.ryid' ;
+
+           StrSqlRoyal := 'select (R.ryname +'+ QuotedStr (' ')+ ' + R.ryfname) as FuName '+
+                          ',R.* from (select min(b.ryrcode) as ryrcode,b.id '+
+                          'from royal b  where b.rystatus =''A'' group by b.id  ) R2 '+
+                          'left join royal R on R2.ryrcode=R.ryrcode and R2.id=R2.id '+
+                          'left join royal_code Rc on R2.ryrcode = Rc.ry_code '+
+                          'where ryname like ' + QuotedStr(edSearchName.Text+'%')+
+                          ' and ryfname like '+ QuotedStr(edSearchLName.Text+'%') +
+                          ' order by R.ryid' ;
+
         cxGrid1DBTableView1DBColumn2.DataBinding.FieldName := 'FuName' ;
       end ;
 
@@ -254,21 +276,56 @@ begin
       end
     else
       begin
+
         LoadDonator(edSearchName.Text,edSearchLName.Text) ;
           Screen.Cursor := crDefault ;
+
+
         frm := TFrmSearchDonator.Create(self);
         frm.MainForm := Self ;
         frm.ShowModal;
-          SelectRy_Id := frm.Ry_id ;
+        SelectRy_Id := frm.Ry_id ;
 
-        if frm.Ry_id = '' then exit ;
 
-        LoadRoYal(SelectRy_Id) ;
+        if frm.DonatorId<>'' then
+          with cdsTemp do
+          begin
+            cdsTemp.close;
+            cdsTemp.CommandText:='select * from donator where do_id='''+frm.DonatorId+'''';
+            cdsTemp.open;
+            if cdsTemp.RecordCount>0 then
+            begin
+              Do_Fname := cdsTemp.FieldByName('do_name').AsString ;
+              Do_Lname := cdsTemp.FieldByName('do_lname').AsString ;
+            end;
+          end;
+
+        if (frm.Ry_id = '') then
+        begin
+          Application.MessageBox(pchar('ไม่พบรายการขอเครื่องราชอิสริยาภรณ์!!!'),pchar('Warning'),MB_OK or MB_ICONWARNING);
+          exit;
+        end;
+
+        //LoadRoYal(SelectRy_Id) ;
+
+        CdsRoYal.Close ;
+        CdsRoYal.CommandText := ' select (r.ryname + ' +QuotedStr(' ') + '+ r.ryfname) as FuName '+
+                                ',(d.do_name  + ' +QuotedStr(' ') + '+ d.do_lname ) as FuNamex,* '+
+                                ' from royal R '+
+                                ' left join royal_code C on r.ryrcode = c.ry_code '+
+                                ' left join donator D on R.id = D.do_id '+
+                                ' where id=''' + SelectRy_Id + '''/* and ryend=''N''*/ order by ryid' ;
+
+        CdsRoYal.Open ;
+
+
         Do_Fname := CdsSearch.FieldByName('ryname').AsString ;
         Do_Lname := CdsSearch.FieldByName('ryfname').AsString ;
         LoadBill(SelectRy_Id,CdsRoYal.fieldbyname('ryid').AsString) ;
+
         frm.Free;
       end ;
+
     ParaRoyal := CdsRoYal.fieldbyname('id').AsString + CdsRoYal.fieldbyname('ryid').AsString  ;
     LbB.Caption := IntToStr(CdsBill.RecordCount) ;
     TxtJ.Caption := IntToStr(CdsRoYal.RecordCount) ;
@@ -287,6 +344,7 @@ begin
   finally
     Screen.Cursor := crHourGlass ;
   end;
+
 end;
 
 procedure TfrmInsignia.edSearchNameKeyDown(Sender: TObject; var Key: Word;
@@ -481,6 +539,37 @@ begin
   CdsRyCode.Close ;
   CdsRyCode.CommandText := 'select * from royal_code order by ry_code' ;
   CdsRyCode.Open ; 
+end;
+
+procedure TfrmInsignia.cxGrid1DBTableView1DblClick(Sender: TObject);
+begin
+  if ParaRoyal <> '' then
+    begin
+      ShowInsigniaRegister(Application,nil,swModal,ParaRoyal);
+      cxGrid1.SetFocus ;
+      CdsRoYal.Refresh ;
+    end
+  else
+    begin
+      Application.MessageBox('กรุณาเลือกรายการขอเครื่องราชฯ', 'ไม่มีรายการ', MB_OK + MB_ICONQUESTION);
+      edSearchName.SetFocus ;
+    end ;
+end;
+
+procedure TfrmInsignia.cxGrid1DBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
+end;
+
+procedure TfrmInsignia.cxGrid2DBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
 end;
 
 end.

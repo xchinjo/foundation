@@ -1067,6 +1067,7 @@ end;
 
 function TfrmReceive.getCurrDonations(cds:Tclientdataset;doid: string): currency;
 var rep:currency;
+
 begin
   rep:=0;
   with cds do
@@ -1091,6 +1092,7 @@ var BillNO,i,k:integer;
     billAmount : currency;
     frmConfirm : TfrmConfirmBillNo;
     strSQL,ReportFile,strBillNo:string;
+    dd,mm,yyyy:word;
 begin
   try
     // renew period no every time
@@ -1196,7 +1198,12 @@ begin
 
 
         if isDate(edRefDate.Text) then
-        FieldByName('brefdate').AsString:=edRefDate.Text;
+        begin
+          FieldByName('brefdate').AsString:=edRefDate.Text;
+          DecodeDate(FieldByName('brefdate').AsDateTime,yyyy,mm,dd);
+          if yyyy>2500 then
+            FieldByName('brefdate').AsDateTime:=EncodeDate(yyyy-543,mm,dd);
+        end;
 
         FieldByName('bdate').AsDateTime:=dtRecDate.Date;
 

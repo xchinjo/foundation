@@ -1095,11 +1095,11 @@ begin
   try
     // renew period no every time
 
-  if not ckPeroidNo(cdsTemp,BranchCode,FcurrPeroidNo) then
-  begin
-    Application.MessageBox(pchar('พบเลขที่เวรมีปัญหาไม่สามารถรับบริจาคได้'),pchar('Warning'),MB_OK or MB_ICONWARNING);
-    exit;
-  end;
+    if not ckPeroidNo(cdsTemp,BranchCode,FcurrPeroidNo) then
+    begin
+      Application.MessageBox(pchar('พบเลขที่เวรมีปัญหาไม่สามารถรับบริจาคได้'),pchar('Warning'),MB_OK or MB_ICONWARNING);
+      exit;
+    end;
 
 
 

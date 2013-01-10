@@ -445,6 +445,7 @@ object FormKVP: TFormKVP
           DataController.Summary.FooterSummaryItems = <>
           DataController.Summary.SummaryGroups = <>
           NavigatorButtons.ConfirmDelete = False
+          OptionsView.GridLines = glNone
           OptionsView.GroupByBox = False
           OptionsView.Indicator = True
           object cxGrid1DBTableView1DBColumn1: TcxGridDBColumn

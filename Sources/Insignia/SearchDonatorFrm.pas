@@ -26,22 +26,30 @@ type
       Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure cxGrid1DBTableView1DblClick(Sender: TObject);
+    procedure cxGrid1DBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
   private
     FMainForm: TfrmInsignia;
     FRy_id: String;
+    FDonatorId: string;
     procedure SetMainForm(const Value: TfrmInsignia);
     procedure SetRy_id(const Value: String);
+    procedure SetDonatorId(const Value: string);
     { Private declarations }
   public
     { Public declarations }
     property MainForm : TfrmInsignia  read FMainForm write SetMainForm;
     property Ry_id : String  read FRy_id write SetRy_id;
+    property DonatorId : string read FDonatorId write SetDonatorId;
   end;
 
 var
   FrmSearchDonator: TFrmSearchDonator;
 
 implementation
+
+uses CommonLIB;
 
 {$R *.dfm}
 
@@ -58,7 +66,9 @@ begin
   if key=vk_return then
     if FMainForm.CdsSearch.RecordCount> 0 then
     begin
-      Ry_id := FMainForm.CdsSearch.fieldByname('id').AsString ;      
+      Ry_id := FMainForm.CdsSearch.fieldByname('id').AsString ;
+      DonatorId := FMainForm.CdsSearch.fieldByname('do_id').AsString ;
+
       close;
     end ;
 end;
@@ -97,6 +107,19 @@ procedure TFrmSearchDonator.cxGrid1DBTableView1DblClick(Sender: TObject);
 begin
   Ry_id := FMainForm.CdsSearch.fieldByname('id').AsString ;
   close;
+end;
+
+procedure TFrmSearchDonator.cxGrid1DBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor2;
+  ACanvas.Canvas.Font.Color:=0;
+end;
+
+procedure TFrmSearchDonator.SetDonatorId(const Value: string);
+begin
+  FDonatorId := Value;
 end;
 
 end.

@@ -3,7 +3,8 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
   Top = 44
   Width = 805
   Height = 576
-  Caption = 'FrmHistoryRoyal'
+  BorderIcons = [biSystemMenu]
+  Caption = #3611#3619#3632#3623#3633#3605#3636#3585#3634#3619#3586#3629#3648#3588#3619#3639#3656#3629#3591#3619#3634#3594#3629#3636#3626#3619#3636#3618#3634#3616#3619#3603#3660
   Color = clBtnFace
   Font.Charset = THAI_CHARSET
   Font.Color = clWindowText
@@ -21,15 +22,15 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
   object RzPanel1: TRzPanel
     Left = 0
     Top = 0
-    Width = 789
-    Height = 538
+    Width = 797
+    Height = 548
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 0
     object pnHeader: TRzPanel
       Left = 0
       Top = 0
-      Width = 789
+      Width = 797
       Height = 28
       Align = alTop
       BorderOuter = fsNone
@@ -576,8 +577,8 @@ object FrmHistoryRoyal: TFrmHistoryRoyal
     end
     object RzPanel2: TRzPanel
       Left = 0
-      Top = 497
-      Width = 789
+      Top = 507
+      Width = 797
       Height = 41
       Align = alBottom
       BorderOuter = fsNone

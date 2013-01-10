@@ -1,6 +1,6 @@
 object frmInsignia: TfrmInsignia
-  Left = 204
-  Top = 80
+  Left = 52
+  Top = 36
   Width = 1158
   Height = 648
   Caption = 'Insignia'
@@ -22,7 +22,7 @@ object frmInsignia: TfrmInsignia
   object xTopPanel: TPanel
     Left = 0
     Top = 0
-    Width = 1142
+    Width = 1150
     Height = 30
     Align = alTop
     BevelOuter = bvNone
@@ -32,23 +32,23 @@ object frmInsignia: TfrmInsignia
   object pnClientContainer: TPanel
     Left = 0
     Top = 34
-    Width = 1142
-    Height = 576
+    Width = 1150
+    Height = 586
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
     object Splitter1: TSplitter
       Left = 0
       Top = 128
-      Width = 1142
+      Width = 1150
       Height = 3
       Cursor = crVSplit
       Align = alTop
     end
     object Splitter2: TSplitter
       Left = 0
-      Top = 508
-      Width = 1142
+      Top = 518
+      Width = 1150
       Height = 3
       Cursor = crVSplit
       Align = alBottom
@@ -56,7 +56,7 @@ object frmInsignia: TfrmInsignia
     object pnHeader: TRzPanel
       Left = 0
       Top = 0
-      Width = 1142
+      Width = 1150
       Height = 28
       Align = alTop
       BorderOuter = fsNone
@@ -78,8 +78,8 @@ object frmInsignia: TfrmInsignia
     end
     object pnButtom: TRzPanel
       Left = 0
-      Top = 511
-      Width = 1142
+      Top = 521
+      Width = 1150
       Height = 65
       Align = alBottom
       BorderOuter = fsGroove
@@ -198,8 +198,8 @@ object frmInsignia: TfrmInsignia
     object pnBody: TRzPanel
       Left = 0
       Top = 131
-      Width = 1142
-      Height = 377
+      Width = 1150
+      Height = 387
       Align = alClient
       BorderOuter = fsLowered
       Color = clSilver
@@ -207,7 +207,7 @@ object frmInsignia: TfrmInsignia
       object Splitter3: TSplitter
         Left = 2
         Top = 2
-        Width = 1138
+        Width = 1146
         Height = 3
         Cursor = crVSplit
         Align = alTop
@@ -215,8 +215,8 @@ object frmInsignia: TfrmInsignia
       object cxGrid2: TcxGrid
         Left = 2
         Top = 260
-        Width = 1138
-        Height = 115
+        Width = 1146
+        Height = 125
         Align = alClient
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
@@ -234,6 +234,7 @@ object frmInsignia: TfrmInsignia
           NavigatorButtons.ConfirmDelete = False
           OptionsView.GroupByBox = False
           OptionsView.Indicator = True
+          OnCustomDrawColumnHeader = cxGrid2DBTableView1CustomDrawColumnHeader
           object cxGrid2DBTableView1DBColumn1: TcxGridDBColumn
             Caption = #3648#3621#3586#3607#3637#3656#3651#3610#3648#3626#3619#3655#3592
             MinWidth = 120
@@ -307,7 +308,7 @@ object frmInsignia: TfrmInsignia
       object RzPanel1: TRzPanel
         Left = 2
         Top = 5
-        Width = 1138
+        Width = 1146
         Height = 255
         Align = alTop
         BorderOuter = fsNone
@@ -316,7 +317,7 @@ object frmInsignia: TfrmInsignia
         object RzPanel2: TRzPanel
           Left = 0
           Top = 229
-          Width = 1138
+          Width = 1146
           Height = 26
           Align = alBottom
           BorderOuter = fsNone
@@ -366,7 +367,7 @@ object frmInsignia: TfrmInsignia
         object cxGrid1: TcxGrid
           Left = 0
           Top = 26
-          Width = 1138
+          Width = 1146
           Height = 203
           Align = alClient
           Font.Charset = THAI_CHARSET
@@ -387,6 +388,7 @@ object frmInsignia: TfrmInsignia
             OnCustomDrawCell = cxGrid1DBTableView1CustomDrawCell
             OptionsView.GroupByBox = False
             OptionsView.Indicator = True
+            OnCustomDrawColumnHeader = cxGrid1DBTableView1CustomDrawColumnHeader
             object cxGrid1DBTableView1DBColumn1: TcxGridDBColumn
               Caption = #3623#3633#3609#3607#3637#3656#3586#3629
               MinWidth = 83
@@ -525,7 +527,7 @@ object frmInsignia: TfrmInsignia
         object RzPanel3: TRzPanel
           Left = 0
           Top = 0
-          Width = 1138
+          Width = 1146
           Height = 26
           Align = alTop
           BorderOuter = fsNone
@@ -564,19 +566,19 @@ object frmInsignia: TfrmInsignia
     object pnTop: TRzPanel
       Left = 0
       Top = 28
-      Width = 1142
+      Width = 1150
       Height = 100
       Align = alTop
       BorderOuter = fsGroove
       TabOrder = 3
       object Label39: TLabel
         Left = 215
-        Top = 11
+        Top = 10
         Width = 100
-        Height = 22
+        Height = 24
         AutoSize = False
         Caption = ' '#3594#3639#3656#3629#3612#3641#3657#3610#3619#3636#3592#3634#3588
-        Color = 11579568
+        Color = clSilver
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
@@ -588,12 +590,12 @@ object frmInsignia: TfrmInsignia
       end
       object Label40: TLabel
         Left = 215
-        Top = 37
+        Top = 36
         Width = 100
-        Height = 22
+        Height = 24
         AutoSize = False
         Caption = ' '#3609#3634#3617#3626#3585#3640#3621#3612#3641#3657#3610#3619#3636#3592#3634#3588
-        Color = 11579568
+        Color = clSilver
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
@@ -605,9 +607,9 @@ object frmInsignia: TfrmInsignia
       end
       object edSearchName: TRzEdit
         Left = 318
-        Top = 11
+        Top = 10
         Width = 305
-        Height = 22
+        Height = 24
         Ctl3D = False
         FocusColor = 16766975
         ParentCtl3D = False
@@ -616,9 +618,9 @@ object frmInsignia: TfrmInsignia
       end
       object edSearchLName: TRzEdit
         Left = 318
-        Top = 37
+        Top = 36
         Width = 305
-        Height = 22
+        Height = 24
         Ctl3D = False
         FocusColor = 16766975
         ParentCtl3D = False
@@ -627,7 +629,7 @@ object frmInsignia: TfrmInsignia
       end
       object btnSearch: TRzBitBtn
         Left = 492
-        Top = 62
+        Top = 61
         Width = 131
         Height = 27
         Caption = #3588#3657#3609#3627#3634#3612#3641#3657#3610#3619#3636#3592#3634#3588'..(F6)'
@@ -644,8 +646,8 @@ object frmInsignia: TfrmInsignia
         OnClick = btnSearchClick
       end
       object DtStart: TRzDateTimeEdit
-        Left = 214
-        Top = 63
+        Left = 215
+        Top = 62
         Width = 136
         Height = 24
         EditType = etDate
@@ -653,8 +655,8 @@ object frmInsignia: TfrmInsignia
         TabOrder = 3
       end
       object DtDen: TRzDateTimeEdit
-        Left = 351
-        Top = 63
+        Left = 353
+        Top = 62
         Width = 136
         Height = 24
         EditType = etDate
@@ -662,15 +664,16 @@ object frmInsignia: TfrmInsignia
         TabOrder = 4
       end
       object RzGroupBox1: TRzGroupBox
-        Left = 20
-        Top = 0
-        Width = 190
-        Height = 95
+        Left = 5
+        Top = 2
+        Width = 208
+        Height = 91
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'Tahoma'
         Font.Style = []
+        GroupStyle = gsStandard
         ParentFont = False
         TabOrder = 5
         object R1: TRzRadioButton
@@ -709,7 +712,7 @@ object frmInsignia: TfrmInsignia
   object rzTopPanel: TRzPanel
     Left = 0
     Top = 30
-    Width = 1142
+    Width = 1150
     Height = 4
     Align = alTop
     BorderOuter = fsNone
@@ -821,5 +824,12 @@ object frmInsignia: TfrmInsignia
     DataSet = CdsRyCode
     Left = 376
     Top = 494
+  end
+  object cdsTemp: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dsp'
+    Left = 360
+    Top = 302
   end
 end

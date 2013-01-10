@@ -77,6 +77,7 @@ type
       Shift: TShiftState);
     procedure FormKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     procedure loadKvp ;
@@ -212,6 +213,12 @@ procedure TFormKVP.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if key = VK_Escape then Self.Close;
+end;
+
+procedure TFormKVP.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if (FormStyle = fsMDIChild) then
+    Action := caFree;
 end;
 
 end.

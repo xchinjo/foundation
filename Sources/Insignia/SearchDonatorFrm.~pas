@@ -25,6 +25,10 @@ type
     procedure FormKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormShow(Sender: TObject);
+    procedure cxGrid1DBTableView1DblClick(Sender: TObject);
+    procedure cxGrid1DBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
   private
     FMainForm: TfrmInsignia;
     FRy_id: String;
@@ -41,6 +45,8 @@ var
   FrmSearchDonator: TFrmSearchDonator;
 
 implementation
+
+uses CommonLIB;
 
 {$R *.dfm}
 
@@ -90,6 +96,20 @@ end;
 procedure TFrmSearchDonator.SetRy_id(const Value: String);
 begin
   FRy_id := Value;
+end;
+
+procedure TFrmSearchDonator.cxGrid1DBTableView1DblClick(Sender: TObject);
+begin
+  Ry_id := FMainForm.CdsSearch.fieldByname('id').AsString ;
+  close;
+end;
+
+procedure TFrmSearchDonator.cxGrid1DBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor2;
+  ACanvas.Canvas.Font.Color:=0;
 end;
 
 end.
