@@ -52,7 +52,7 @@ type
     trnsDefault: TJvUIBTransaction;
     imgList1: TImageList;
     pnSignOnPanel: TPanel;
-    Label3: TLabel;
+    lbSignOn: TLabel;
     Image1: TImage;
     gbBox: TGroupBox;
     pnServerInfo: TPanel;
@@ -652,6 +652,7 @@ begin
 
               if (Assigned(FProgramsItemInfo[_Item].MainFormHandle))  then
               begin
+                FProgramsItemInfo[_Item].MainFormHandle.Caption:=FProgramsItemInfo[_Item].Description;
                 xTab.Tabs.AddObject(FProgramsItemInfo[_Item].Description, TObject(FProgramsItemInfo[_Item].MainFormHandle));
                 xTab.ActiveTab := -1 + xTab.Tabs.Count;
 
@@ -909,6 +910,9 @@ begin
   initSqlConnection(Conn);
   initDataset(self,Conn);
   _LoadLibraries();
+
+
+  lbSignOn.Caption:='          Sign On'+' ['+Conn.Params.Values['HostName']+']['+Conn.Params.Values['DataBase']+']';
 
 
   Left := 0; Top := 0;
@@ -1237,6 +1241,7 @@ begin
         //mmChangePassword.Enabled := True;
 
         Status.Panels[1].Text := ' SignedOn User: ' + FUserID;
+        Status.Panels[2].text := ' SignedOn Location : ('+ FBranch +') '+getDonationsPointName(cdsTemp,FBranch);
 
         HideSignOnPanel();
         HideServerInfoPanel();
@@ -1587,7 +1592,7 @@ end;
 //******************************* Timer Events *******************************//
 procedure TfrmMainMenu.tmTimerTimer(Sender: TObject);
 begin
-  Status.Panels[2].Text :=
+  Status.Panels[3].Text :=
     FormatDateTime(' dd mmmm eeee hh:mm:ss', Now());
 end;
 
@@ -1646,7 +1651,7 @@ end;
 
 procedure TfrmMainMenu.aEventsHint(Sender: TObject);
 begin
-  Status.Panels[3].Text := ' ' + GetLongHint(Application.Hint);
+  Status.Panels[4].Text := ' ' + GetLongHint(Application.Hint);
 end;
 
 //************************** End Application Events **************************//

@@ -178,10 +178,13 @@ object frmMainMenu: TfrmMainMenu
         Width = 180
       end
       item
-        Width = 150
+        Width = 250
       end
       item
-        Width = 120
+        Width = 250
+      end
+      item
+        Width = 50
       end>
   end
   object pnSignOnPanel: TPanel
@@ -194,7 +197,7 @@ object frmMainMenu: TfrmMainMenu
     Ctl3D = True
     ParentCtl3D = False
     TabOrder = 1
-    object Label3: TLabel
+    object lbSignOn: TLabel
       Left = 0
       Top = 0
       Width = 303

@@ -138,20 +138,16 @@ Comments=
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=3
-Item0=..\..\..\libraries
-Item1=..\..\libraries
-Item2=L:\
+Count=1
+Item0=L:\
 [HistoryLists\hlUnitOutputDirectory]
-Count=3
+Count=2
 Item0=..\..\Compiled Units
-Item1=..\..\..\Compiled Units
-Item2=S:\NFS\Compiled Units
+Item1=S:\NFS\Compiled Units
 [HistoryLists\hlOutputDirectorry]
-Count=6
+Count=5
 Item0=..\..\bin
-Item1=..\..\..\bin
-Item2=..\..\bin\ngf
-Item3=bin\
-Item4=P:\NFS\Insurance\Setup
-Item5=E:\Temp
+Item1=..\..\bin\ngf
+Item2=bin\
+Item3=P:\NFS\Insurance\Setup
+Item4=E:\Temp

@@ -22,8 +22,6 @@ type
     lbHeader: TRzLabel;
     PageControl1: TPageControl;
     TabSettingReceive: TTabSheet;
-    TabSheet2: TTabSheet;
-    TabSheet3: TTabSheet;
     PageControl2: TPageControl;
     TabSheet1: TTabSheet;
     TabSheet4: TTabSheet;
@@ -58,11 +56,11 @@ type
     grdPayType: TcxGrid;
     cxGridDBTableView2: TcxGridDBTableView;
     cxGridLevel2: TcxGridLevel;
-    RzBitBtn1: TRzBitBtn;
-    RzBitBtn2: TRzBitBtn;
+    btnAddNewPayType: TRzBitBtn;
+    btnEditPayType: TRzBitBtn;
     edTypCode: TRzEdit;
     edTypeName: TRzEdit;
-    RzBitBtn3: TRzBitBtn;
+    btnSavePayType: TRzBitBtn;
     cmbTypeStatus: TRzComboBox;
     cdsPayType: TClientDataSet;
     dsPayType: TDataSource;

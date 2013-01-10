@@ -13,7 +13,7 @@ PROJECTS = nsec.dll fshow.dll menu.exe Insignia.dll InsigniaReg.dll \
   donations.dll Favor.dll mttObjective.dll FavorReg.dll EndPeroid.dll \
   runmydll32.exe projects.dll backoffice.dll FndUtils.dll reports.dll \
   dnoinquiry.dll Endorsee.dll EndMonth.dll UserMan.dll fctrlversion.dll \
-  setting.dll
+  setting.dll RGLib.dll
 #------------------------------------------------------------------------------
 default: $(PROJECTS)
 #------------------------------------------------------------------------------
@@ -79,6 +79,9 @@ fctrlversion.dll: Utilities\fctrlversion\fctrlversion.dpr
   $(DCC)
 
 setting.dll: Setting\setting.dpr
+  $(DCC)
+
+RGLib.dll: ReportGeneratorLib\RGLib.dpr
   $(DCC)
 
 

@@ -43,6 +43,9 @@ begin
     end else
     begin
 
+      TfrmSetting(Result).Branch:=_Parameter.Branch;
+      TfrmSetting(Result).UserId:=_Parameter.UserID;
+
       Result.FormStyle := fsMDIChild;
       Result.WindowState:=wsMaximized;
       Result.Show();

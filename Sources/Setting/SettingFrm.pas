@@ -56,11 +56,11 @@ type
     grdPayType: TcxGrid;
     cxGridDBTableView2: TcxGridDBTableView;
     cxGridLevel2: TcxGridLevel;
-    RzBitBtn1: TRzBitBtn;
-    RzBitBtn2: TRzBitBtn;
+    btnAddNewPayType: TRzBitBtn;
+    btnEditPayType: TRzBitBtn;
     edTypCode: TRzEdit;
     edTypeName: TRzEdit;
-    RzBitBtn3: TRzBitBtn;
+    btnSavePayType: TRzBitBtn;
     cmbTypeStatus: TRzComboBox;
     cdsPayType: TClientDataSet;
     dsPayType: TDataSource;

@@ -52,7 +52,7 @@ type
     trnsDefault: TJvUIBTransaction;
     imgList1: TImageList;
     pnSignOnPanel: TPanel;
-    Label3: TLabel;
+    lbSignOn: TLabel;
     Image1: TImage;
     gbBox: TGroupBox;
     pnServerInfo: TPanel;
@@ -912,6 +912,9 @@ begin
   _LoadLibraries();
 
 
+  lbSignOn.Caption:='          Sign On'+' ['+Conn.Params.Values['HostName']+']['+Conn.Params.Values['DataBase']+']';
+
+
   Left := 0; Top := 0;
 
   Constraints.MaxHeight := Screen.Height;
@@ -1238,6 +1241,8 @@ begin
         //mmChangePassword.Enabled := True;
 
         Status.Panels[1].Text := ' SignedOn User: ' + FUserID;
+        Status.Panels[2].text := ' SignedOn Location : ('+ FBranch +') '+getDonationsPointName(cdsTemp,FBranch);
+        self.Caption:='Main Menus'+' ['+Conn.Params.Values['HostName']+']['+Conn.Params.Values['DataBase']+']';
 
         HideSignOnPanel();
         HideServerInfoPanel();
@@ -1588,7 +1593,7 @@ end;
 //******************************* Timer Events *******************************//
 procedure TfrmMainMenu.tmTimerTimer(Sender: TObject);
 begin
-  Status.Panels[2].Text :=
+  Status.Panels[3].Text :=
     FormatDateTime(' dd mmmm eeee hh:mm:ss', Now());
 end;
 
@@ -1647,7 +1652,7 @@ end;
 
 procedure TfrmMainMenu.aEventsHint(Sender: TObject);
 begin
-  Status.Panels[3].Text := ' ' + GetLongHint(Application.Hint);
+  Status.Panels[4].Text := ' ' + GetLongHint(Application.Hint);
 end;
 
 //************************** End Application Events **************************//

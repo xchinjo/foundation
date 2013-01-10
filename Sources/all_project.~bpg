@@ -13,7 +13,7 @@ PROJECTS = nsec.dll fshow.dll menu.exe Insignia.dll InsigniaReg.dll \
   donations.dll Favor.dll mttObjective.dll FavorReg.dll EndPeroid.dll \
   runmydll32.exe projects.dll backoffice.dll FndUtils.dll reports.dll \
   dnoinquiry.dll Endorsee.dll EndMonth.dll UserMan.dll fctrlversion.dll \
-  settting.dll
+  setting.dll
 #------------------------------------------------------------------------------
 default: $(PROJECTS)
 #------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ UserMan.dll: UserMan\UserMan.dpr
 fctrlversion.dll: Utilities\fctrlversion\fctrlversion.dpr
   $(DCC)
 
-settting.dll: Setting\settting.dpr
+setting.dll: Setting\setting.dpr
   $(DCC)
 
 

@@ -548,7 +548,7 @@ object frmSetting: TfrmSetting
                   GridView = cxGridDBTableView2
                 end
               end
-              object RzBitBtn1: TRzBitBtn
+              object btnAddNewPayType: TRzBitBtn
                 Left = 3
                 Top = 179
                 Width = 76
@@ -565,7 +565,7 @@ object frmSetting: TfrmSetting
                 TabOrder = 1
                 TabStop = False
               end
-              object RzBitBtn2: TRzBitBtn
+              object btnEditPayType: TRzBitBtn
                 Left = 79
                 Top = 179
                 Width = 82
@@ -621,7 +621,7 @@ object frmSetting: TfrmSetting
                 ParentFont = False
                 TabOrder = 4
               end
-              object RzBitBtn3: TRzBitBtn
+              object btnSavePayType: TRzBitBtn
                 Left = 167
                 Top = 179
                 Width = 114
@@ -737,7 +737,7 @@ object frmSetting: TfrmSetting
   end
   object cdsPayType: TClientDataSet
     Aggregates = <>
-    CommandText = 'select * from paytype'
+    CommandText = 'select * from paytype order by pt_code '
     Params = <>
     ProviderName = 'dsp'
     AfterScroll = cdsPayTypeAfterScroll
