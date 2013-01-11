@@ -1,6 +1,6 @@
 object FrmDnoinquiry: TFrmDnoinquiry
-  Left = 326
-  Top = 83
+  Left = 183
+  Top = 29
   Width = 988
   Height = 561
   Caption = 'FrmDnoinquiry'

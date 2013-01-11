@@ -55,7 +55,7 @@ object FrmDnoinquiry: TFrmDnoinquiry
       Top = 28
       Width = 980
       Height = 60
-      ActivePage = TB2
+      ActivePage = TB1
       Align = alTop
       Font.Charset = THAI_CHARSET
       Font.Color = clWindowText
@@ -64,7 +64,7 @@ object FrmDnoinquiry: TFrmDnoinquiry
       Font.Style = []
       ParentFont = False
       ShowShadow = False
-      TabIndex = 1
+      TabIndex = 0
       TabOrder = 1
       TabStyle = tsRoundCorners
       FixedDimension = 20
@@ -345,7 +345,7 @@ object FrmDnoinquiry: TFrmDnoinquiry
         Caption = '0'
         Color = 3815994
         Font.Charset = THAI_CHARSET
-        Font.Color = clRed
+        Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]

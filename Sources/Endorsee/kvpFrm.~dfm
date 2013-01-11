@@ -445,8 +445,9 @@ object FormKVP: TFormKVP
           DataController.Summary.FooterSummaryItems = <>
           DataController.Summary.SummaryGroups = <>
           NavigatorButtons.ConfirmDelete = False
+          OptionsView.GridLines = glNone
           OptionsView.GroupByBox = False
-          OptionsView.Indicator = True
+          OnCustomDrawColumnHeader = cxGrid1DBTableView1CustomDrawColumnHeader
           object cxGrid1DBTableView1DBColumn1: TcxGridDBColumn
             Caption = #3621#3635#3604#3633#3610
             MinWidth = 50
