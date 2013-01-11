@@ -55,7 +55,7 @@ object FrmDnoinquiry: TFrmDnoinquiry
       Top = 28
       Width = 980
       Height = 60
-      ActivePage = TB1
+      ActivePage = TB2
       Align = alTop
       Font.Charset = THAI_CHARSET
       Font.Color = clWindowText
@@ -64,7 +64,7 @@ object FrmDnoinquiry: TFrmDnoinquiry
       Font.Style = []
       ParentFont = False
       ShowShadow = False
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 1
       TabStyle = tsRoundCorners
       FixedDimension = 20
@@ -156,6 +156,24 @@ object FrmDnoinquiry: TFrmDnoinquiry
             TabStop = False
             OnClick = BtnSearch1Click
           end
+        end
+        object btnPrint: TRzBitBtn
+          Left = 604
+          Top = 4
+          Width = 96
+          Height = 27
+          Caption = #3614#3636#3617#3614#3660
+          Color = 16753994
+          Font.Charset = THAI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          HotTrack = True
+          ParentFont = False
+          TabOrder = 1
+          TabStop = False
+          OnClick = btnPrintClick
         end
       end
       object TB2: TRzTabSheet

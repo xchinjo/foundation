@@ -18,7 +18,8 @@ uses
   JvUIB,
   CommonLIB in '..\LIB\CommonLIB.pas',
   uCiaXml in '..\LIB\uCiaXml.pas',
-  DnoinquiryFrm in 'DnoinquiryFrm.pas' {FrmDnoinquiry};
+  DnoinquiryFrm in 'DnoinquiryFrm.pas' {FrmDnoinquiry},
+  CommonUtils in '..\LIB\CommonUtils.pas';
 
 type
   TShowWindowType = (swNone, swModal, swNormal);

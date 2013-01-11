@@ -442,28 +442,30 @@ procedure TFrmUserList.btnSavePermissionClick(Sender: TObject);
 var
     strSQL:string;
 begin
-
-    cdsRolePermission.First;
-    while not cdsRolePermission.Eof do
+    if lvRoles.Selected<> nil then
     begin
+      cdsRolePermission.First;
+      while not cdsRolePermission.Eof do
+      begin
 
-      strSQL:='if exists(select * from RolesPermission where RoleId='+TString(lvRoles.Selected.Data).Str+' and MenuId='+cdsRolePermission.fieldbyname('RECORD_ID').AsString+' ) begin '+
-      '  update RolesPermission set   '+
-      '  FAccess='''+cdsRolePermission.fieldbyname('FAccess').AsString+''',  '+
-      '  FInsert='''+cdsRolePermission.fieldbyname('FInsert').AsString+''',   '+
-      '  FModify='''+cdsRolePermission.fieldbyname('FModify').AsString+''',   '+
-      '  FDelete='''+cdsRolePermission.fieldbyname('FDelete').AsString+''',     '+
-      '  FInquiry='''+cdsRolePermission.fieldbyname('FInquiry').AsString+''',     '+
-      '  FReport='''+cdsRolePermission.fieldbyname('FReport').AsString+'''      '+
-      '  where RoleId='+TString(lvRoles.Selected.Data).Str+' and MenuId='+cdsRolePermission.fieldbyname('RECORD_ID').AsString+'   '+
-      ' end else begin ' +
-      '	insert into RolesPermission(MenuId,RoleId,RoleStatus,FAccess,FInsert,FModify,FDelete,FInquiry,FReport) '+
-      '	values('+cdsRolePermission.fieldbyname('RECORD_ID').AsString+','+TString(lvRoles.Selected.Data).Str+',''A'','''+cdsRolePermission.fieldbyname('FAccess').AsString+''','''+cdsRolePermission.fieldbyname('FInsert').AsString+''','''+cdsRolePermission.fieldbyname('FModify').AsString+''','''+cdsRolePermission.fieldbyname('FDelete').AsString+''','''+cdsRolePermission.fieldbyname('FInquiry').AsString+''','''+cdsRolePermission.fieldbyname('FReport').AsString+''')  '+
+        strSQL:='if exists(select * from RolesPermission where RoleId='+TString(lvRoles.Selected.Data).Str+' and MenuId='+cdsRolePermission.fieldbyname('RECORD_ID').AsString+' ) begin '+
+        '  update RolesPermission set   '+
+        '  FAccess='''+cdsRolePermission.fieldbyname('FAccess').AsString+''',  '+
+        '  FInsert='''+cdsRolePermission.fieldbyname('FInsert').AsString+''',   '+
+        '  FModify='''+cdsRolePermission.fieldbyname('FModify').AsString+''',   '+
+        '  FDelete='''+cdsRolePermission.fieldbyname('FDelete').AsString+''',     '+
+        '  FInquiry='''+cdsRolePermission.fieldbyname('FInquiry').AsString+''',     '+
+        '  FReport='''+cdsRolePermission.fieldbyname('FReport').AsString+'''      '+
+        '  where RoleId='+TString(lvRoles.Selected.Data).Str+' and MenuId='+cdsRolePermission.fieldbyname('RECORD_ID').AsString+'   '+
+        ' end else begin ' +
+        '	insert into RolesPermission(MenuId,RoleId,RoleStatus,FAccess,FInsert,FModify,FDelete,FInquiry,FReport) '+
+        '	values('+cdsRolePermission.fieldbyname('RECORD_ID').AsString+','+TString(lvRoles.Selected.Data).Str+',''A'','''+cdsRolePermission.fieldbyname('FAccess').AsString+''','''+cdsRolePermission.fieldbyname('FInsert').AsString+''','''+cdsRolePermission.fieldbyname('FModify').AsString+''','''+cdsRolePermission.fieldbyname('FDelete').AsString+''','''+cdsRolePermission.fieldbyname('FInquiry').AsString+''','''+cdsRolePermission.fieldbyname('FReport').AsString+''')  '+
 
-      ' end ';
-      ExecSQL(strSQL);
-      cdsRolePermission.Next;
-    end;
+        ' end ';
+        ExecSQL(strSQL);
+        cdsRolePermission.Next;
+      end;
+    end;      
 end;
 
 

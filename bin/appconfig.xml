@@ -1,3 +1,3 @@
 <Configuration>
-  <AppConfig ADDRESS="127.0.0.1" HOSTNAME="dev.siamdev.org" USER="sa" PASSWORD="123456" DATABASE="fddb"/>
+	<AppConfig ADDRESS="127.0.0.1" HOSTNAME="dev.siamdev.org" USER="sa" PASSWORD="123456" DATABASE="fddb"/>  <Application NAME="Rajavithi Foundation System" COMPANY=" (C) 2011, UIT Software"/>
 </Configuration>

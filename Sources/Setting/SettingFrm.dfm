@@ -692,7 +692,6 @@ object frmSetting: TfrmSetting
       'EnableBCD=True'
       'FetchAll=True')
     VendorLib = 'sqloledb.dll'
-    Connected = True
     Left = 42
     Top = 201
   end

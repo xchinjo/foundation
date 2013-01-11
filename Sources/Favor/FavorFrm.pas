@@ -40,6 +40,12 @@ type
     procedure BtnDelFavorClick(Sender: TObject);
     procedure RzBitBtn4Click(Sender: TObject);
     procedure cxGrid1DBTableView1DblClick(Sender: TObject);
+    procedure cxGrid1DBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+    procedure cxGrid2DBTableView1CustomDrawColumnHeader(
+      Sender: TcxGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
   private
     FEd_Fname: String;
     FEd_Lname: String;
@@ -525,6 +531,22 @@ begin
       Application.MessageBox('กรุณาเลือกรายการบัตรอุปการคุณ', 'ไม่มีรายการ', MB_OK + MB_ICONQUESTION);
       edSearchName.SetFocus ;
     end ;
+end;
+
+procedure TfrmFavor.cxGrid1DBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
+end;
+
+procedure TfrmFavor.cxGrid2DBTableView1CustomDrawColumnHeader(
+  Sender: TcxGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Brush.Color:=GridBgColor;
+  ACanvas.Canvas.Font.Color:=0;
 end;
 
 end.

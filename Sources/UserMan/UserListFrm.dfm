@@ -297,7 +297,7 @@ object FrmUserList: TFrmUserList
         Top = 0
         Width = 881
         Height = 416
-        ActivePage = TabUserList
+        ActivePage = tabPermission
         Align = alClient
         Style = tsFlatButtons
         TabOrder = 0

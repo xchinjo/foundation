@@ -9,11 +9,11 @@ MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
 DCC = $(ROOT)\bin\dcc32.exe $**
 BRCC = $(ROOT)\bin\brcc32.exe $**
 #------------------------------------------------------------------------------
-PROJECTS = nsec.dll fshow.dll menu.exe Insignia.dll InsigniaReg.dll \
+PROJECTS = nsec.dll fshow.dll Luancher.exe Insignia.dll InsigniaReg.dll \
   donations.dll Favor.dll mttObjective.dll FavorReg.dll EndPeroid.dll \
   runmydll32.exe projects.dll backoffice.dll FndUtils.dll reports.dll \
   dnoinquiry.dll Endorsee.dll EndMonth.dll UserMan.dll fctrlversion.dll \
-  setting.dll
+  setting.dll RGLib.dll
 #------------------------------------------------------------------------------
 default: $(PROJECTS)
 #------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ nsec.dll: Utilities\nsec\nsec.dpr
 fshow.dll: Utilities\fshow\fshow.dpr
   $(DCC)
 
-menu.exe: Menus\launcher\menu.dpr
+Luancher.exe: menus\launcher\Luancher.dpr
   $(DCC)
 
 Insignia.dll: Insignia\Insignia.dpr
@@ -79,6 +79,9 @@ fctrlversion.dll: Utilities\fctrlversion\fctrlversion.dpr
   $(DCC)
 
 setting.dll: Setting\setting.dpr
+  $(DCC)
+
+RGLib.dll: ReportGeneratorLib\RGLib.dpr
   $(DCC)
 
 

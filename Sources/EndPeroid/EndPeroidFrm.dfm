@@ -277,15 +277,15 @@ object frmEndPeroid: TfrmEndPeroid
                 Width = 80
                 DataBinding.FieldName = 'bno'
               end
-              object grdBillDBTableView1do_lname: TcxGridDBColumn
-                Caption = #3594#3639#3656#3629
-                Width = 82
-                DataBinding.FieldName = 'do_lname'
-              end
               object grdBillDBTableView1do_name: TcxGridDBColumn
-                Caption = #3626#3585#3640#3621
+                Caption = #3594#3639#3656#3629
                 Width = 106
                 DataBinding.FieldName = 'do_name'
+              end
+              object grdBillDBTableView1do_lname: TcxGridDBColumn
+                Caption = #3626#3585#3640#3621
+                Width = 82
+                DataBinding.FieldName = 'do_lname'
               end
               object grdBillDBTableView1bdate: TcxGridDBColumn
                 Caption = #3623#3633#3609#3607#3637#3656

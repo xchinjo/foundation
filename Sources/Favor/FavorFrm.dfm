@@ -276,6 +276,7 @@ object frmFavor: TfrmFavor
           NavigatorButtons.ConfirmDelete = False
           OptionsView.GroupByBox = False
           OptionsView.Indicator = True
+          OnCustomDrawColumnHeader = cxGrid2DBTableView1CustomDrawColumnHeader
           object cxGrid2DBTableView1DBColumn1: TcxGridDBColumn
             Caption = #3648#3621#3586#3607#3637#3656#3651#3610#3648#3626#3619#3655#3592
             MinWidth = 118
@@ -428,6 +429,7 @@ object frmFavor: TfrmFavor
             OnCustomDrawCell = cxGrid1DBTableView1CustomDrawCell
             OptionsView.GroupByBox = False
             OptionsView.Indicator = True
+            OnCustomDrawColumnHeader = cxGrid1DBTableView1CustomDrawColumnHeader
             object cxGrid1DBTableView1DBColumn1: TcxGridDBColumn
               Caption = #3648#3621#3586#3607#3637#3656
               MinWidth = 119
@@ -631,15 +633,16 @@ object frmFavor: TfrmFavor
         TabOrder = 4
       end
       object RzGroupBox1: TRzGroupBox
-        Left = 20
-        Top = -1
-        Width = 190
-        Height = 95
+        Left = 6
+        Top = 2
+        Width = 205
+        Height = 93
         Font.Charset = THAI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'Tahoma'
         Font.Style = []
+        GroupStyle = gsStandard
         ParentFont = False
         TabOrder = 5
         object R1: TRzRadioButton

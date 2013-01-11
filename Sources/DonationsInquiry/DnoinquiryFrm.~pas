@@ -69,6 +69,7 @@ type
     RzLabel4: TRzLabel;
     TxtJ: TRzLabel;
     RzLabel5: TRzLabel;
+    btnPrint: TRzBitBtn;
     procedure BtnSearch1Click(Sender: TObject);
     procedure CdsSearchAfterScroll(DataSet: TDataSet);
     procedure BtnSearch2Click(Sender: TObject);
@@ -87,13 +88,20 @@ type
     procedure cxGrid2DBTableView1CustomDrawColumnHeader(
       Sender: TcxGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
+    procedure btnPrintClick(Sender: TObject);
   private
+    FBranch: string;
+    FUserID: string;
     { Private declarations }
 
     procedure LoadSearchData(Str:String) ;
     procedure LoadBillDetail(STr:String) ;
+    procedure SetBranch(const Value: string);
+    procedure SetUserID(const Value: string);
   public
     { Public declarations }
+    property UserID : string read FUserID write SetUserID;
+    property Branch : string read FBranch write SetBranch;
   end;
 
 var
@@ -101,7 +109,7 @@ var
   x:String ;
 implementation
 
-uses CommonLIB, uCiaXml;
+uses CommonLIB, uCiaXml, CommonUtils;
 
 {$R *.dfm}
 
@@ -109,6 +117,7 @@ uses CommonLIB, uCiaXml;
 
 procedure TFrmDnoinquiry.LoadSearchData(Str:String) ;
 begin
+  // #1
   CdsSearch.Close ;
   CdsSearch.CommandText := 'select *,  (  select SUM(btotal) from bill ' +
          'where '+ Str +'  )as btotalx from bill B '  +
@@ -116,6 +125,8 @@ begin
          'left join user_account Ua on B.buserid = Ua.us_user ' +
          ' where ' + Str + ' ' +
          ' order by bno' ;
+
+  inputbox('','',CdsSearch.CommandText);
   CdsSearch.Open ;
   TFloatField(CdsSearch.FieldByName('btotalx')).DisplayFormat := '#,##0.00' ;
   TxtJ.Caption := IntToStr(CdsSearch.RecordCount) ; 
@@ -237,6 +248,33 @@ procedure TFrmDnoinquiry.cxGrid2DBTableView1CustomDrawColumnHeader(
 begin
   ACanvas.Canvas.Brush.Color:=GridBgColor;
   ACanvas.Canvas.Font.Color:=0;
+end;
+
+procedure TFrmDnoinquiry.btnPrintClick(Sender: TObject);
+var
+    Period:string;
+    dllParams : TDLLParameter;
+    DefaltValue:TList;
+begin
+
+  DefaltValue:=TList.Create;
+  DefaltValue.Add(TStringValue.Create('DATEF',FormatDateTime('yyyy/MM/dd',DtStart.Date)));
+  DefaltValue.Add(TStringValue.Create('DATET',FormatDateTime('yyyy/MM/dd',DtEnd.Date)));
+
+  dllParams.ReportCode:='RPT05009';
+  dllParams.UserID:=UserID;
+  dllParams.Branch:= Branch;
+  ShowReportGenerator(Application,nil,swModal,dllParams,DefaltValue);
+end;
+
+procedure TFrmDnoinquiry.SetBranch(const Value: string);
+begin
+  FBranch := Value;
+end;
+
+procedure TFrmDnoinquiry.SetUserID(const Value: string);
+begin
+  FUserID := Value;
 end;
 
 end.

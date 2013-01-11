@@ -600,7 +600,7 @@ begin
 
       currClosePeroid :=currPeriod;
       IsClosed:=true;
-      ShowMessage('Successfull.');
+      ShowMessage('บันทึกปิดเวรเรียบร้อย.');
 
     end;
     

@@ -320,7 +320,6 @@ object FrmUserList: TFrmUserList
               NavigatorButtons.ConfirmDelete = False
               OptionsView.GridLines = glNone
               OptionsView.GroupByBox = False
-              OptionsView.Indicator = True
               OnCustomDrawColumnHeader = grdUserListDBTableView1CustomDrawColumnHeader
               object grdUserListDBTableView1DBColumn1: TcxGridDBColumn
                 Caption = #3619#3627#3633#3626

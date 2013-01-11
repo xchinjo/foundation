@@ -506,7 +506,7 @@ begin
     edBankBranch.Enabled:=false;
 //    edRecDate.Enabled:=false;
     edRefCode.Enabled:=true;
-    edAccNo.Enabled:=true;
+    edAccNo.Enabled:=false;
     edRefDate.Enabled:=true;
     edRecDesc.Enabled:=true;
  end;

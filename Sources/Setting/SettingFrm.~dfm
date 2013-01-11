@@ -737,7 +737,7 @@ object frmSetting: TfrmSetting
   end
   object cdsPayType: TClientDataSet
     Aggregates = <>
-    CommandText = 'select * from paytype'
+    CommandText = 'select * from paytype order by pt_code '
     Params = <>
     ProviderName = 'dsp'
     AfterScroll = cdsPayTypeAfterScroll
